@@ -1,0 +1,205 @@
+﻿namespace Driving_License_Management_System
+{
+    partial class Form1
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.PanelProject = new Guna.UI2.WinForms.Guna2Panel();
+            this.btnAccountSettings = new Guna.UI2.WinForms.Guna2Button();
+            this.btnUsers = new Guna.UI2.WinForms.Guna2Button();
+            this.btnPeople = new Guna.UI2.WinForms.Guna2Button();
+            this.btnApplications = new Guna.UI2.WinForms.Guna2Button();
+            this.PanelProject.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // PanelProject
+            // 
+            this.PanelProject.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(42)))), ((int)(((byte)(57)))));
+            this.PanelProject.Controls.Add(this.btnAccountSettings);
+            this.PanelProject.Controls.Add(this.btnUsers);
+            this.PanelProject.Controls.Add(this.btnPeople);
+            this.PanelProject.Controls.Add(this.btnApplications);
+            this.PanelProject.Dock = System.Windows.Forms.DockStyle.Left;
+            this.PanelProject.Location = new System.Drawing.Point(0, 0);
+            this.PanelProject.Margin = new System.Windows.Forms.Padding(5);
+            this.PanelProject.Name = "PanelProject";
+            this.PanelProject.Size = new System.Drawing.Size(212, 677);
+            this.PanelProject.TabIndex = 0;
+            // 
+            // btnAccountSettings
+            // 
+            this.btnAccountSettings.Animated = true;
+            this.btnAccountSettings.AnimatedGIF = true;
+            this.btnAccountSettings.AutoRoundedCorners = true;
+            this.btnAccountSettings.BackColor = System.Drawing.Color.Transparent;
+            this.btnAccountSettings.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(50)))), ((int)(((byte)(65)))));
+            this.btnAccountSettings.BorderRadius = 26;
+            this.btnAccountSettings.BorderThickness = 1;
+            this.btnAccountSettings.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(215)))));
+            this.btnAccountSettings.CheckedState.ForeColor = System.Drawing.Color.White;
+            this.btnAccountSettings.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnAccountSettings.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnAccountSettings.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnAccountSettings.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnAccountSettings.FillColor = System.Drawing.Color.Transparent;
+            this.btnAccountSettings.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.btnAccountSettings.ForeColor = System.Drawing.Color.White;
+            this.btnAccountSettings.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(56)))), ((int)(((byte)(76)))));
+            this.btnAccountSettings.HoverState.ForeColor = System.Drawing.Color.White;
+            this.btnAccountSettings.Image = global::Driving_License_Management_System.Properties.Resources.account_settings_64;
+            this.btnAccountSettings.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnAccountSettings.ImageOffset = new System.Drawing.Point(1, 0);
+            this.btnAccountSettings.ImageSize = new System.Drawing.Size(64, 64);
+            this.btnAccountSettings.Location = new System.Drawing.Point(3, 273);
+            this.btnAccountSettings.Name = "btnAccountSettings";
+            this.btnAccountSettings.Size = new System.Drawing.Size(206, 55);
+            this.btnAccountSettings.TabIndex = 3;
+            this.btnAccountSettings.Text = "Account Settings";
+            this.btnAccountSettings.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.btnAccountSettings.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.btnAccountSettings.UseTransparentBackground = true;
+            // 
+            // btnUsers
+            // 
+            this.btnUsers.Animated = true;
+            this.btnUsers.AnimatedGIF = true;
+            this.btnUsers.AutoRoundedCorners = true;
+            this.btnUsers.BackColor = System.Drawing.Color.Transparent;
+            this.btnUsers.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(50)))), ((int)(((byte)(65)))));
+            this.btnUsers.BorderThickness = 1;
+            this.btnUsers.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(215)))));
+            this.btnUsers.CheckedState.ForeColor = System.Drawing.Color.White;
+            this.btnUsers.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnUsers.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnUsers.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnUsers.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnUsers.FillColor = System.Drawing.Color.Transparent;
+            this.btnUsers.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.btnUsers.ForeColor = System.Drawing.Color.White;
+            this.btnUsers.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(56)))), ((int)(((byte)(76)))));
+            this.btnUsers.HoverState.ForeColor = System.Drawing.Color.White;
+            this.btnUsers.Image = global::Driving_License_Management_System.Properties.Resources.Users_2_64;
+            this.btnUsers.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnUsers.ImageOffset = new System.Drawing.Point(1, 0);
+            this.btnUsers.ImageSize = new System.Drawing.Size(64, 64);
+            this.btnUsers.Location = new System.Drawing.Point(0, 186);
+            this.btnUsers.Name = "btnUsers";
+            this.btnUsers.Size = new System.Drawing.Size(209, 55);
+            this.btnUsers.TabIndex = 2;
+            this.btnUsers.Text = "Users";
+            this.btnUsers.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.btnUsers.UseTransparentBackground = true;
+            // 
+            // btnPeople
+            // 
+            this.btnPeople.Animated = true;
+            this.btnPeople.AnimatedGIF = true;
+            this.btnPeople.AutoRoundedCorners = true;
+            this.btnPeople.BackColor = System.Drawing.Color.Transparent;
+            this.btnPeople.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(50)))), ((int)(((byte)(65)))));
+            this.btnPeople.BorderThickness = 1;
+            this.btnPeople.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(215)))));
+            this.btnPeople.CheckedState.ForeColor = System.Drawing.Color.White;
+            this.btnPeople.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnPeople.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnPeople.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnPeople.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnPeople.FillColor = System.Drawing.Color.Transparent;
+            this.btnPeople.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.btnPeople.ForeColor = System.Drawing.Color.White;
+            this.btnPeople.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(56)))), ((int)(((byte)(76)))));
+            this.btnPeople.HoverState.ForeColor = System.Drawing.Color.White;
+            this.btnPeople.Image = global::Driving_License_Management_System.Properties.Resources.People_64;
+            this.btnPeople.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnPeople.ImageOffset = new System.Drawing.Point(1, 0);
+            this.btnPeople.ImageSize = new System.Drawing.Size(64, 64);
+            this.btnPeople.Location = new System.Drawing.Point(0, 99);
+            this.btnPeople.Name = "btnPeople";
+            this.btnPeople.Size = new System.Drawing.Size(209, 55);
+            this.btnPeople.TabIndex = 1;
+            this.btnPeople.Text = "People";
+            this.btnPeople.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.btnPeople.UseTransparentBackground = true;
+            this.btnPeople.Click += new System.EventHandler(this.btnPeople_Click);
+            // 
+            // btnApplications
+            // 
+            this.btnApplications.Animated = true;
+            this.btnApplications.AnimatedGIF = true;
+            this.btnApplications.AutoRoundedCorners = true;
+            this.btnApplications.BackColor = System.Drawing.Color.Transparent;
+            this.btnApplications.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(50)))), ((int)(((byte)(65)))));
+            this.btnApplications.BorderThickness = 1;
+            this.btnApplications.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(215)))));
+            this.btnApplications.CheckedState.ForeColor = System.Drawing.Color.White;
+            this.btnApplications.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnApplications.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnApplications.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnApplications.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnApplications.FillColor = System.Drawing.Color.Transparent;
+            this.btnApplications.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.btnApplications.ForeColor = System.Drawing.Color.White;
+            this.btnApplications.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(56)))), ((int)(((byte)(76)))));
+            this.btnApplications.HoverState.ForeColor = System.Drawing.Color.White;
+            this.btnApplications.Image = global::Driving_License_Management_System.Properties.Resources.Applications_64;
+            this.btnApplications.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnApplications.ImageOffset = new System.Drawing.Point(1, 0);
+            this.btnApplications.ImageSize = new System.Drawing.Size(64, 64);
+            this.btnApplications.Location = new System.Drawing.Point(0, 12);
+            this.btnApplications.Name = "btnApplications";
+            this.btnApplications.Size = new System.Drawing.Size(209, 55);
+            this.btnApplications.TabIndex = 0;
+            this.btnApplications.Text = "Applications";
+            this.btnApplications.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.btnApplications.UseTransparentBackground = true;
+            this.btnApplications.Click += new System.EventHandler(this.btnApplications_Click);
+            // 
+            // Form1
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(246)))), ((int)(((byte)(250)))));
+            this.ClientSize = new System.Drawing.Size(1042, 677);
+            this.Controls.Add(this.PanelProject);
+            this.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.Name = "Form1";
+            this.Text = "Form1";
+            this.PanelProject.ResumeLayout(false);
+            this.ResumeLayout(false);
+
+        }
+
+        #endregion
+
+        private Guna.UI2.WinForms.Guna2Panel PanelProject;
+        private Guna.UI2.WinForms.Guna2Button btnAccountSettings;
+        private Guna.UI2.WinForms.Guna2Button btnUsers;
+        private Guna.UI2.WinForms.Guna2Button btnPeople;
+        private Guna.UI2.WinForms.Guna2Button btnApplications;
+    }
+}
+
