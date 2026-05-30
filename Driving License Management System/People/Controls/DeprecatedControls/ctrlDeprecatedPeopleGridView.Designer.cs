@@ -1,6 +1,6 @@
 ﻿namespace Driving_License_Management_System
 {
-    partial class ctrlPeopleGridView
+    partial class ctrlDeprecatedPeopleGridView
     {
         /// <summary> 
         /// Required designer variable.

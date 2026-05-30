@@ -21,10 +21,10 @@ namespace BusinessLayer
             this.CountryName = "";
         }
 
-        private clsCountry(int ID, string CountryName)
+        private clsCountry(int id, string countryname)
         {
-            this.ID = ID;
-            this.CountryName = CountryName;
+            this.ID = id;
+            this.CountryName = countryname;
         }
 
     
@@ -34,12 +34,7 @@ namespace BusinessLayer
 
             string CountryName = "";
 
-
-
-            int CountryID = -1;
-
             if (clsCountryData.GetCountryInfoByID(ID, ref CountryName))
-
                 return new clsCountry(ID, CountryName);
             else
                 return null;

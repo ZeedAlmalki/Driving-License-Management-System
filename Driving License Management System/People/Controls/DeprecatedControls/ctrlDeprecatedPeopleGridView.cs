@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,18 +13,19 @@ using Guna.UI2.WinForms;
 
 namespace Driving_License_Management_System
 {
-    public partial class ctrlPeopleGridView : UserControl
+    public partial class ctrlDeprecatedPeopleGridView : UserControl
     {
-        public ctrlPeopleGridView()
+        public ctrlDeprecatedPeopleGridView()
         {
             InitializeComponent();
         }
         DataTable dtPersons;
 
 
-        private void _RefreshPersonList()
+
+        public void _RefreshPersonList()
         {
-            dtPersons = clsPerson.GetAllPersons();
+            dtPersons = clsPerson.GetAllPeople();
             PeopleDataGridView.DataSource = dtPersons;
             _UpdateTotalRecords();
         }
@@ -38,12 +40,17 @@ namespace Driving_License_Management_System
             PeopleDataGridView.Columns["LastName"].HeaderText = "Last Name";
             PeopleDataGridView.Columns["DateOfBirth"].HeaderText = "Date Of Birth";
         }
+        
+        public void OpenAddNewPersonInfo()
+        {
+            frmAddEditPersonInfo frm = new frmAddEditPersonInfo();
+            frm.ShowDialog();
+            _RefreshPersonList();
+        }
 
         private void addNewPersonToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmAddEditPersonInfo frm = new frmAddEditPersonInfo(-1);
-            frm.ShowDialog();
-            _RefreshPersonList();
+            OpenAddNewPersonInfo();
         }
 
         private void editToolStripMenuItem_Click(object sender, EventArgs e)
@@ -61,10 +68,13 @@ namespace Driving_License_Management_System
 
             {
                 //Perform Delele and refresh
+                string ImagePath = (clsPerson.Find((int)PeopleDataGridView.CurrentRow.Cells[0].Value).ImagePath);
                 if (clsPerson.DeletePerson((int)PeopleDataGridView.CurrentRow.Cells[0].Value))
                 {
                     MessageBox.Show("Person Deleted Successfully.");
                     _RefreshPersonList();
+                    if (!string.IsNullOrWhiteSpace(ImagePath))
+                        File.Delete(ImagePath);
                 }
                 else
                     MessageBox.Show("Person was not deleted because it has data linked to it.");
@@ -168,7 +178,7 @@ namespace Driving_License_Management_System
                     dt.RowFilter = "";
                     break;
             }
-            _UpdateTotalRecords();
+            _UpdateTotalRecords(dt);
             PeopleDataGridView.DataSource = dt;
         }
 
@@ -208,7 +218,7 @@ namespace Driving_License_Management_System
 
         private void _UpdateTotalRecords()
         {
-            lblTotalRecords.Text = clsPerson.GetTotalPersons().ToString();
+            lblTotalRecords.Text = clsPerson.GetTotalPeople().ToString();
         }
 
         private void cbGendor_SelectedIndexChanged(object sender, EventArgs e)
@@ -237,6 +247,8 @@ namespace Driving_License_Management_System
             frmPersonDetails frmDetails = new frmPersonDetails((int)PeopleDataGridView.CurrentRow.Cells[0].Value);
             frmDetails.ShowDialog();
         }
+
+
     }
 
     //public enum GenderDisplayMode

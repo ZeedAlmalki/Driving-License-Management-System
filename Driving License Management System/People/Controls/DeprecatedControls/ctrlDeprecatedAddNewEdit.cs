@@ -9,15 +9,14 @@ using Guna.UI2.WinForms;
 
 namespace Driving_License_Management_System
 {
-    public partial class ctrlAddNewEdit : UserControl
+    public partial class ctrlDeprecatedAddNewEdit : UserControl
     {
         public enum enMode { AddNew = 0, Update = 1 };
         private enMode _Mode;
 
         int _PersonID;
         clsPerson _Person;
-
-        public ctrlAddNewEdit()
+        public ctrlDeprecatedAddNewEdit()
         {
             InitializeComponent();
         }
@@ -89,7 +88,7 @@ namespace Driving_License_Management_System
             txtAddress.Text = _Person.Address;
             dtpDateOfBirth.Value = _Person.DateOfBirth;
             txtPhone.Text = _Person.Phone;
-            if (_Person.Gendor == true)
+            if (_Person.Gendor == 1)
             { 
                 rbFemale.Checked = true;
                 rbMale.Checked = false;
@@ -132,11 +131,11 @@ namespace Driving_License_Management_System
             if (rbFemale.Checked)
             {
 
-                _Person.Gendor = true;
+                _Person.Gendor = 1;
             }
             else 
             {
-                _Person.Gendor = false;
+                _Person.Gendor = 0;
             }
         }
         private void btnSave_Click(object sender, EventArgs e)
@@ -203,7 +202,6 @@ namespace Driving_License_Management_System
 
             if (_Person.Save())
             {
-
                 MessageBox.Show("Data Saved Successfully.");
             }
             else
@@ -211,8 +209,7 @@ namespace Driving_License_Management_System
 
             _Mode = enMode.Update;
             lblMode.Text = "Edit Person ID = " + _Person.PersonID;
-            lblPersonID.Text = _Person.PersonID.ToString();
-
+            lblPersonID.Text = _Person.PersonID.ToString();            
         }
 
         public void LoadPersonData(int PersonID)
@@ -342,6 +339,11 @@ namespace Driving_License_Management_System
                 e.Cancel = false;
                 errorProvider1.SetError(txtEmail, "");
             }
+        }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            this.FindForm()?.Close();
         }
     }
 }

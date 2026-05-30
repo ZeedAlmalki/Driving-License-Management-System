@@ -1,6 +1,6 @@
 ﻿namespace Driving_License_Management_System
 {
-    partial class ctrlAddNewEdit
+    partial class ctrlDeprecatedAddNewEdit
     {
         /// <summary> 
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ctrlAddNewEdit));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ctrlDeprecatedAddNewEdit));
             this.label3 = new System.Windows.Forms.Label();
             this.txtFirstName = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtLastName = new Guna.UI2.WinForms.Guna2TextBox();
@@ -49,16 +49,15 @@
             this.lblPersonID = new System.Windows.Forms.Label();
             this.lblMode = new System.Windows.Forms.Label();
             this.gbGender = new System.Windows.Forms.GroupBox();
+            this.rbFemale = new Guna.UI2.WinForms.Guna2ImageRadioButton();
+            this.rbMale = new Guna.UI2.WinForms.Guna2ImageRadioButton();
             this.ofdPicture = new System.Windows.Forms.OpenFileDialog();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.lblRemoveImage = new System.Windows.Forms.LinkLabel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.rbFemale = new Guna.UI2.WinForms.Guna2ImageRadioButton();
-            this.rbMale = new Guna.UI2.WinForms.Guna2ImageRadioButton();
             this.label14 = new System.Windows.Forms.Label();
             this.btnSave = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.pbPerson = new Guna.UI2.WinForms.Guna2PictureBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -67,6 +66,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.gbGender.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -100,7 +100,7 @@
             this.txtFirstName.PlaceholderText = "";
             this.txtFirstName.SelectedText = "";
             this.txtFirstName.Size = new System.Drawing.Size(182, 26);
-            this.txtFirstName.TabIndex = 6;
+            this.txtFirstName.TabIndex = 0;
             this.txtFirstName.Validating += new System.ComponentModel.CancelEventHandler(this.txtInfo_Validating);
             // 
             // txtLastName
@@ -119,7 +119,7 @@
             this.txtLastName.PlaceholderText = "";
             this.txtLastName.SelectedText = "";
             this.txtLastName.Size = new System.Drawing.Size(182, 26);
-            this.txtLastName.TabIndex = 7;
+            this.txtLastName.TabIndex = 3;
             this.txtLastName.Validating += new System.ComponentModel.CancelEventHandler(this.txtInfo_Validating);
             // 
             // txtSecondName
@@ -138,7 +138,7 @@
             this.txtSecondName.PlaceholderText = "";
             this.txtSecondName.SelectedText = "";
             this.txtSecondName.Size = new System.Drawing.Size(182, 26);
-            this.txtSecondName.TabIndex = 7;
+            this.txtSecondName.TabIndex = 1;
             this.txtSecondName.Validating += new System.ComponentModel.CancelEventHandler(this.txtInfo_Validating);
             // 
             // txtThirdName
@@ -157,7 +157,7 @@
             this.txtThirdName.PlaceholderText = "";
             this.txtThirdName.SelectedText = "";
             this.txtThirdName.Size = new System.Drawing.Size(182, 26);
-            this.txtThirdName.TabIndex = 8;
+            this.txtThirdName.TabIndex = 2;
             this.txtThirdName.Validating += new System.ComponentModel.CancelEventHandler(this.txtInfo_Validating);
             // 
             // txtNationalNumber
@@ -176,7 +176,7 @@
             this.txtNationalNumber.PlaceholderText = "";
             this.txtNationalNumber.SelectedText = "";
             this.txtNationalNumber.Size = new System.Drawing.Size(182, 24);
-            this.txtNationalNumber.TabIndex = 9;
+            this.txtNationalNumber.TabIndex = 4;
             this.txtNationalNumber.Validating += new System.ComponentModel.CancelEventHandler(this.NationalNo_Validating);
             // 
             // dtpDateOfBirth
@@ -189,7 +189,7 @@
             this.dtpDateOfBirth.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.dtpDateOfBirth.Name = "dtpDateOfBirth";
             this.dtpDateOfBirth.Size = new System.Drawing.Size(213, 26);
-            this.dtpDateOfBirth.TabIndex = 11;
+            this.dtpDateOfBirth.TabIndex = 5;
             this.dtpDateOfBirth.Value = new System.DateTime(2026, 4, 21, 22, 12, 58, 640);
             // 
             // txtPhone
@@ -208,7 +208,7 @@
             this.txtPhone.PlaceholderText = "";
             this.txtPhone.SelectedText = "";
             this.txtPhone.Size = new System.Drawing.Size(182, 24);
-            this.txtPhone.TabIndex = 12;
+            this.txtPhone.TabIndex = 8;
             this.txtPhone.Validating += new System.ComponentModel.CancelEventHandler(this.txtInfo_Validating);
             // 
             // cbCountry
@@ -224,7 +224,7 @@
             this.cbCountry.Location = new System.Drawing.Point(610, 281);
             this.cbCountry.Name = "cbCountry";
             this.cbCountry.Size = new System.Drawing.Size(180, 26);
-            this.cbCountry.TabIndex = 15;
+            this.cbCountry.TabIndex = 10;
             // 
             // txtEmail
             // 
@@ -242,7 +242,7 @@
             this.txtEmail.PlaceholderText = "";
             this.txtEmail.SelectedText = "";
             this.txtEmail.Size = new System.Drawing.Size(182, 24);
-            this.txtEmail.TabIndex = 18;
+            this.txtEmail.TabIndex = 9;
             this.txtEmail.Validating += new System.ComponentModel.CancelEventHandler(this.txtEmail_Validating);
             // 
             // txtAddress
@@ -261,7 +261,7 @@
             this.txtAddress.PlaceholderText = "";
             this.txtAddress.SelectedText = "";
             this.txtAddress.Size = new System.Drawing.Size(573, 84);
-            this.txtAddress.TabIndex = 19;
+            this.txtAddress.TabIndex = 11;
             this.txtAddress.Validating += new System.ComponentModel.CancelEventHandler(this.txtInfo_Validating);
             // 
             // lblSetImage
@@ -271,7 +271,7 @@
             this.lblSetImage.Location = new System.Drawing.Point(898, 342);
             this.lblSetImage.Name = "lblSetImage";
             this.lblSetImage.Size = new System.Drawing.Size(100, 23);
-            this.lblSetImage.TabIndex = 21;
+            this.lblSetImage.TabIndex = 12;
             this.lblSetImage.TabStop = true;
             this.lblSetImage.Text = "Set Image";
             this.lblSetImage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -350,6 +350,31 @@
             this.gbGender.TabStop = false;
             this.gbGender.Text = "Gender";
             // 
+            // rbFemale
+            // 
+            this.rbFemale.CheckedState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
+            this.rbFemale.Image = global::Driving_License_Management_System.Properties.Resources.Female_512;
+            this.rbFemale.ImageOffset = new System.Drawing.Point(0, 0);
+            this.rbFemale.ImageRotate = 0F;
+            this.rbFemale.Location = new System.Drawing.Point(81, 19);
+            this.rbFemale.Name = "rbFemale";
+            this.rbFemale.Size = new System.Drawing.Size(48, 24);
+            this.rbFemale.TabIndex = 7;
+            this.rbFemale.CheckedChanged += new System.EventHandler(this.Gender_CheckedChanged);
+            // 
+            // rbMale
+            // 
+            this.rbMale.Checked = true;
+            this.rbMale.CheckedState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image1")));
+            this.rbMale.Image = global::Driving_License_Management_System.Properties.Resources.Man_32;
+            this.rbMale.ImageOffset = new System.Drawing.Point(0, 0);
+            this.rbMale.ImageRotate = 0F;
+            this.rbMale.Location = new System.Drawing.Point(6, 19);
+            this.rbMale.Name = "rbMale";
+            this.rbMale.Size = new System.Drawing.Size(60, 24);
+            this.rbMale.TabIndex = 6;
+            this.rbMale.CheckedChanged += new System.EventHandler(this.Gender_CheckedChanged);
+            // 
             // ofdPicture
             // 
             this.ofdPicture.FileName = "openFileDialog1";
@@ -374,13 +399,13 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.guna2Button1);
             this.panel1.Controls.Add(this.lblRemoveImage);
             this.panel1.Controls.Add(this.gbGender);
             this.panel1.Controls.Add(this.lblPersonID);
             this.panel1.Controls.Add(this.label14);
             this.panel1.Controls.Add(this.lblMode);
             this.panel1.Controls.Add(this.btnSave);
-            this.panel1.Controls.Add(this.guna2Button1);
             this.panel1.Controls.Add(this.label12);
             this.panel1.Controls.Add(this.label11);
             this.panel1.Controls.Add(this.label10);
@@ -409,31 +434,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1095, 485);
             this.panel1.TabIndex = 33;
-            // 
-            // rbFemale
-            // 
-            this.rbFemale.CheckedState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
-            this.rbFemale.Image = global::Driving_License_Management_System.Properties.Resources.Female_512;
-            this.rbFemale.ImageOffset = new System.Drawing.Point(0, 0);
-            this.rbFemale.ImageRotate = 0F;
-            this.rbFemale.Location = new System.Drawing.Point(81, 19);
-            this.rbFemale.Name = "rbFemale";
-            this.rbFemale.Size = new System.Drawing.Size(48, 24);
-            this.rbFemale.TabIndex = 17;
-            this.rbFemale.CheckedChanged += new System.EventHandler(this.Gender_CheckedChanged);
-            // 
-            // rbMale
-            // 
-            this.rbMale.Checked = true;
-            this.rbMale.CheckedState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image1")));
-            this.rbMale.Image = global::Driving_License_Management_System.Properties.Resources.Man_32;
-            this.rbMale.ImageOffset = new System.Drawing.Point(0, 0);
-            this.rbMale.ImageRotate = 0F;
-            this.rbMale.Location = new System.Drawing.Point(6, 19);
-            this.rbMale.Name = "rbMale";
-            this.rbMale.Size = new System.Drawing.Size(60, 24);
-            this.rbMale.TabIndex = 16;
-            this.rbMale.CheckedChanged += new System.EventHandler(this.Gender_CheckedChanged);
             // 
             // label14
             // 
@@ -464,7 +464,7 @@
             this.btnSave.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnSave.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(42)))), ((int)(((byte)(57)))));
             this.btnSave.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.btnSave.ForeColor = System.Drawing.Color.Black;
+            this.btnSave.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(246)))), ((int)(((byte)(250)))));
             this.btnSave.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(56)))), ((int)(((byte)(76)))));
             this.btnSave.HoverState.ForeColor = System.Drawing.Color.White;
             this.btnSave.Image = global::Driving_License_Management_System.Properties.Resources.Save_32;
@@ -474,42 +474,11 @@
             this.btnSave.Location = new System.Drawing.Point(687, 416);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(105, 42);
-            this.btnSave.TabIndex = 27;
+            this.btnSave.TabIndex = 13;
             this.btnSave.Text = "Save";
             this.btnSave.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.btnSave.UseTransparentBackground = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
-            // guna2Button1
-            // 
-            this.guna2Button1.Animated = true;
-            this.guna2Button1.AnimatedGIF = true;
-            this.guna2Button1.AutoRoundedCorners = true;
-            this.guna2Button1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Button1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(50)))), ((int)(((byte)(65)))));
-            this.guna2Button1.BorderThickness = 1;
-            this.guna2Button1.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(215)))));
-            this.guna2Button1.CheckedState.ForeColor = System.Drawing.Color.White;
-            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(42)))), ((int)(((byte)(57)))));
-            this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.guna2Button1.ForeColor = System.Drawing.Color.Black;
-            this.guna2Button1.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(56)))), ((int)(((byte)(76)))));
-            this.guna2Button1.HoverState.ForeColor = System.Drawing.Color.White;
-            this.guna2Button1.Image = global::Driving_License_Management_System.Properties.Resources.Close_32;
-            this.guna2Button1.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.guna2Button1.ImageOffset = new System.Drawing.Point(1, 0);
-            this.guna2Button1.ImageSize = new System.Drawing.Size(32, 32);
-            this.guna2Button1.Location = new System.Drawing.Point(549, 416);
-            this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.Size = new System.Drawing.Size(105, 42);
-            this.guna2Button1.TabIndex = 26;
-            this.guna2Button1.Text = "Close";
-            this.guna2Button1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.guna2Button1.UseTransparentBackground = true;
             // 
             // pbPerson
             // 
@@ -608,6 +577,39 @@
             this.label1.Text = "Name:";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // guna2Button1
+            // 
+            this.guna2Button1.Animated = true;
+            this.guna2Button1.AnimatedGIF = true;
+            this.guna2Button1.AutoRoundedCorners = true;
+            this.guna2Button1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2Button1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(50)))), ((int)(((byte)(65)))));
+            this.guna2Button1.BorderStyle = System.Drawing.Drawing2D.DashStyle.Dash;
+            this.guna2Button1.BorderThickness = 1;
+            this.guna2Button1.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(215)))));
+            this.guna2Button1.CheckedState.ForeColor = System.Drawing.Color.White;
+            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(42)))), ((int)(((byte)(57)))));
+            this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.guna2Button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(246)))), ((int)(((byte)(250)))));
+            this.guna2Button1.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(56)))), ((int)(((byte)(76)))));
+            this.guna2Button1.HoverState.ForeColor = System.Drawing.Color.White;
+            this.guna2Button1.Image = global::Driving_License_Management_System.Properties.Resources.Close_32;
+            this.guna2Button1.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.guna2Button1.ImageOffset = new System.Drawing.Point(1, 0);
+            this.guna2Button1.ImageSize = new System.Drawing.Size(32, 32);
+            this.guna2Button1.Location = new System.Drawing.Point(535, 416);
+            this.guna2Button1.Name = "guna2Button1";
+            this.guna2Button1.Size = new System.Drawing.Size(105, 42);
+            this.guna2Button1.TabIndex = 33;
+            this.guna2Button1.Text = "Close";
+            this.guna2Button1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.guna2Button1.UseTransparentBackground = true;
+            this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
+            // 
             // ctrlAddNewEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -652,7 +654,6 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
-        private Guna.UI2.WinForms.Guna2Button guna2Button1;
         private Guna.UI2.WinForms.Guna2Button btnSave;
         private System.Windows.Forms.Label lblPersonID;
         private System.Windows.Forms.Label label14;
@@ -665,5 +666,6 @@
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.LinkLabel lblRemoveImage;
         private System.Windows.Forms.Panel panel1;
+        private Guna.UI2.WinForms.Guna2Button guna2Button1;
     }
 }

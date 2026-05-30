@@ -20,7 +20,7 @@ namespace Driving_License_Management_System
         }
         private DataTable LoadPersonData()
         {
-            return clsPerson.GetAllPersons();
+            return clsPerson.GetAllPeople();
         }
         private void btnApplications_Click(object sender, EventArgs e)
         {
