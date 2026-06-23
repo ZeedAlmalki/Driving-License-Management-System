@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BusinessLayer;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Driving_License_Management_System.People
 {
@@ -60,7 +61,7 @@ namespace Driving_License_Management_System.People
 
         private int _PersonID = -1;
 
-        public int PerosnID
+        public int PersonID
         {
             get { return ctrlPersonCard1.PersonID; }
         }
@@ -72,7 +73,7 @@ namespace Driving_License_Management_System.People
 
         public void LoadPersonInfo(int PersonID)
         {
-            cbFilterBy.SelectedIndex = 1;
+            cbFilterBy.SelectedIndex = 0;
             txtFilterValue.Text = PersonID.ToString();
             FindNow();
         }
@@ -95,6 +96,7 @@ namespace Driving_License_Management_System.People
             }
             if (OnPersonSelected != null && FilterEnabled)
                 OnPersonSelected(ctrlPersonCard1.PersonID);
+            // PersonSelected(ctrlPersonCard1.PersonID); it should be here.
         }
 
         private void cbFilterBy_SelectedIndexChanged(object sender, EventArgs e)
@@ -107,7 +109,7 @@ namespace Driving_License_Management_System.People
         {
             if (!this.ValidateChildren())
             {
-                MessageBox.Show("Some fileds are not valide!, put the mouse over the read icon");
+                MessageBox.Show("Some fileds are not valide!, put the mouse over the red icon");
                 return;
             }
             FindNow();
@@ -124,12 +126,20 @@ namespace Driving_License_Management_System.People
             if (string.IsNullOrEmpty(txtFilterValue.Text.Trim()))
             {
                 e.Cancel = true;
+                txtFilterValue.Focus();
                 errorProvider1.SetError(txtFilterValue, "This filed is required!");
             }
             else
             {
                 errorProvider1.SetError(txtFilterValue, null);
             }
+        }
+
+        private void DataBackEvent(object sender, int PersonID)
+        {
+            cbFilterBy.SelectedIndex = 1;
+            txtFilterValue.Text = PersonID.ToString();
+            ctrlPersonCard1.LoadPersonInfo(PersonID);
         }
 
         private void btnAddNewPerson_Click(object sender, EventArgs e)
@@ -139,12 +149,12 @@ namespace Driving_License_Management_System.People
             frm.ShowDialog();
         }
 
-        private void DataBackEvent(object sender, int PersonID)
+        public void ResetPersonInfo()
         {
-            cbFilterBy.SelectedIndex = 1;
-            txtFilterValue.Text = PersonID.ToString();
-            ctrlPersonCard1.LoadPersonInfo(PersonID);
+            ctrlPersonCard1.ResetPersonInfo();
         }
+
+
 
         public void FilterFocus()
         {

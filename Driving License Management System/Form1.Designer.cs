@@ -30,10 +30,16 @@
         {
             this.PanelProject = new Guna.UI2.WinForms.Guna2Panel();
             this.btnAccountSettings = new Guna.UI2.WinForms.Guna2Button();
+            this.cmsAccountSettings = new Guna.UI2.WinForms.Guna2ContextMenuStrip();
+            this.currentUserInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.changePasswordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
+            this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnUsers = new Guna.UI2.WinForms.Guna2Button();
             this.btnPeople = new Guna.UI2.WinForms.Guna2Button();
             this.btnApplications = new Guna.UI2.WinForms.Guna2Button();
             this.PanelProject.SuspendLayout();
+            this.cmsAccountSettings.SuspendLayout();
             this.SuspendLayout();
             // 
             // PanelProject
@@ -61,6 +67,7 @@
             this.btnAccountSettings.BorderThickness = 1;
             this.btnAccountSettings.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(215)))));
             this.btnAccountSettings.CheckedState.ForeColor = System.Drawing.Color.White;
+            this.btnAccountSettings.ContextMenuStrip = this.cmsAccountSettings;
             this.btnAccountSettings.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnAccountSettings.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnAccountSettings.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -82,6 +89,66 @@
             this.btnAccountSettings.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.btnAccountSettings.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
             this.btnAccountSettings.UseTransparentBackground = true;
+            // 
+            // cmsAccountSettings
+            // 
+            this.cmsAccountSettings.AutoSize = false;
+            this.cmsAccountSettings.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(246)))), ((int)(((byte)(250)))));
+            this.cmsAccountSettings.Font = new System.Drawing.Font("Segoe UI", 16F);
+            this.cmsAccountSettings.ImageScalingSize = new System.Drawing.Size(32, 32);
+            this.cmsAccountSettings.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.currentUserInfoToolStripMenuItem,
+            this.changePasswordToolStripMenuItem,
+            this.toolStripMenuItem1,
+            this.logoutToolStripMenuItem});
+            this.cmsAccountSettings.Name = "cmsAccountSettings";
+            this.cmsAccountSettings.RenderStyle.ArrowColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
+            this.cmsAccountSettings.RenderStyle.BorderColor = System.Drawing.Color.Gainsboro;
+            this.cmsAccountSettings.RenderStyle.ColorTable = null;
+            this.cmsAccountSettings.RenderStyle.RoundedEdges = true;
+            this.cmsAccountSettings.RenderStyle.SelectionArrowColor = System.Drawing.Color.White;
+            this.cmsAccountSettings.RenderStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.cmsAccountSettings.RenderStyle.SelectionForeColor = System.Drawing.Color.White;
+            this.cmsAccountSettings.RenderStyle.SeparatorColor = System.Drawing.Color.Gainsboro;
+            this.cmsAccountSettings.RenderStyle.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.cmsAccountSettings.Size = new System.Drawing.Size(218, 180);
+            // 
+            // currentUserInfoToolStripMenuItem
+            // 
+            this.currentUserInfoToolStripMenuItem.AutoSize = false;
+            this.currentUserInfoToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 16F);
+            this.currentUserInfoToolStripMenuItem.Image = global::Driving_License_Management_System.Properties.Resources.PersonDetails_32;
+            this.currentUserInfoToolStripMenuItem.Margin = new System.Windows.Forms.Padding(1);
+            this.currentUserInfoToolStripMenuItem.Name = "currentUserInfoToolStripMenuItem";
+            this.currentUserInfoToolStripMenuItem.Padding = new System.Windows.Forms.Padding(4);
+            this.currentUserInfoToolStripMenuItem.Size = new System.Drawing.Size(476, 44);
+            this.currentUserInfoToolStripMenuItem.Text = "   Current User Info";
+            this.currentUserInfoToolStripMenuItem.Click += new System.EventHandler(this.currentUserInfoToolStripMenuItem_Click);
+            // 
+            // changePasswordToolStripMenuItem
+            // 
+            this.changePasswordToolStripMenuItem.Image = global::Driving_License_Management_System.Properties.Resources.Password_32;
+            this.changePasswordToolStripMenuItem.Margin = new System.Windows.Forms.Padding(1);
+            this.changePasswordToolStripMenuItem.Name = "changePasswordToolStripMenuItem";
+            this.changePasswordToolStripMenuItem.Padding = new System.Windows.Forms.Padding(4);
+            this.changePasswordToolStripMenuItem.Size = new System.Drawing.Size(298, 44);
+            this.changePasswordToolStripMenuItem.Text = "   Change Password";
+            this.changePasswordToolStripMenuItem.Click += new System.EventHandler(this.changePasswordToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(214, 6);
+            // 
+            // logoutToolStripMenuItem
+            // 
+            this.logoutToolStripMenuItem.Image = global::Driving_License_Management_System.Properties.Resources.sign_out_32__2;
+            this.logoutToolStripMenuItem.Margin = new System.Windows.Forms.Padding(1);
+            this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
+            this.logoutToolStripMenuItem.Padding = new System.Windows.Forms.Padding(4);
+            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(298, 44);
+            this.logoutToolStripMenuItem.Text = "    Sign out";
+            this.logoutToolStripMenuItem.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
             // 
             // btnUsers
             // 
@@ -113,6 +180,7 @@
             this.btnUsers.Text = "Users";
             this.btnUsers.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.btnUsers.UseTransparentBackground = true;
+            this.btnUsers.Click += new System.EventHandler(this.btnUsers_Click);
             // 
             // btnPeople
             // 
@@ -176,7 +244,6 @@
             this.btnApplications.Text = "Applications";
             this.btnApplications.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.btnApplications.UseTransparentBackground = true;
-            this.btnApplications.Click += new System.EventHandler(this.btnApplications_Click);
             // 
             // Form1
             // 
@@ -189,6 +256,7 @@
             this.Name = "Form1";
             this.Text = "Form1";
             this.PanelProject.ResumeLayout(false);
+            this.cmsAccountSettings.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -200,6 +268,11 @@
         private Guna.UI2.WinForms.Guna2Button btnUsers;
         private Guna.UI2.WinForms.Guna2Button btnPeople;
         private Guna.UI2.WinForms.Guna2Button btnApplications;
+        private Guna.UI2.WinForms.Guna2ContextMenuStrip cmsAccountSettings;
+        private System.Windows.Forms.ToolStripMenuItem currentUserInfoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem changePasswordToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem logoutToolStripMenuItem;
     }
 }
 

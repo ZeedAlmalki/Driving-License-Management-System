@@ -55,6 +55,7 @@
             // 
             // cbFilterBy
             // 
+            this.cbFilterBy.CausesValidation = false;
             this.cbFilterBy.FormattingEnabled = true;
             this.cbFilterBy.Items.AddRange(new object[] {
             "Person ID",
@@ -70,7 +71,7 @@
             this.txtFilterValue.Location = new System.Drawing.Point(327, 21);
             this.txtFilterValue.Name = "txtFilterValue";
             this.txtFilterValue.Size = new System.Drawing.Size(183, 20);
-            this.txtFilterValue.TabIndex = 3;
+            this.txtFilterValue.TabIndex = 0;
             this.txtFilterValue.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFilterValue_KeyPress);
             this.txtFilterValue.Validating += new System.ComponentModel.CancelEventHandler(this.txtFilterValue_Validating);
             // 
@@ -81,7 +82,7 @@
             this.btnFindPerson.Location = new System.Drawing.Point(540, 12);
             this.btnFindPerson.Name = "btnFindPerson";
             this.btnFindPerson.Size = new System.Drawing.Size(38, 38);
-            this.btnFindPerson.TabIndex = 4;
+            this.btnFindPerson.TabIndex = 1;
             this.btnFindPerson.UseVisualStyleBackColor = true;
             this.btnFindPerson.Click += new System.EventHandler(this.btnSearchPerson_Click);
             // 
@@ -92,7 +93,7 @@
             this.btnAddNewPerson.Location = new System.Drawing.Point(613, 13);
             this.btnAddNewPerson.Name = "btnAddNewPerson";
             this.btnAddNewPerson.Size = new System.Drawing.Size(38, 38);
-            this.btnAddNewPerson.TabIndex = 5;
+            this.btnAddNewPerson.TabIndex = 2;
             this.btnAddNewPerson.UseVisualStyleBackColor = true;
             this.btnAddNewPerson.Click += new System.EventHandler(this.btnAddNewPerson_Click);
             // 
@@ -124,12 +125,13 @@
             this.ctrlPersonCard1.Location = new System.Drawing.Point(4, 100);
             this.ctrlPersonCard1.Name = "ctrlPersonCard1";
             this.ctrlPersonCard1.Size = new System.Drawing.Size(1053, 306);
-            this.ctrlPersonCard1.TabIndex = 0;
+            this.ctrlPersonCard1.TabIndex = 3;
             // 
             // ctrlPersonCardWithFilter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(246)))), ((int)(((byte)(250)))));
             this.Controls.Add(this.gbFilters);
             this.Controls.Add(this.ctrlPersonCard1);

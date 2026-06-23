@@ -24,7 +24,7 @@ namespace Driving_License_Management_System.People.Controls
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            DataBack?.Invoke(this, ctrlPersonCardWithFilter1.PerosnID);
+            DataBack?.Invoke(this, ctrlPersonCardWithFilter1.PersonID);
         }
     }
 }

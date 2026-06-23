@@ -130,6 +130,8 @@ namespace Driving_License_Management_System
                 rbMale.Checked = true;
                 //rbFemale.Checked = false;
             }
+            _ResetDefaultImage();
+
 
             //if (!string.IsNullOrWhiteSpace(_Person.ImagePath))
             //{
@@ -138,6 +140,7 @@ namespace Driving_License_Management_System
 
             if (_Person.ImagePath != "")
                 pbPerson.ImageLocation = _Person.ImagePath;
+            
 
             lblRemoveImage.Visible = (!string.IsNullOrWhiteSpace(_Person.ImagePath));
             //cbCountry.SelectedIndex = cbCountry.FindString(clsCountry.Find(_Person.NationalityCountryID).CountryName);
@@ -151,7 +154,6 @@ namespace Driving_License_Management_System
         {
             if (rbFemale.Checked)
             {
-
                 _Person.Gendor = (short)enGendor.Female;
             }
             else
@@ -217,6 +219,7 @@ namespace Driving_License_Management_System
             if (!this.ValidateChildren())
             {
                 MessageBox.Show("Please fill in the requirements as required");
+                return;
             }
 
             if (!_HandlePersonImage())
@@ -340,32 +343,13 @@ namespace Driving_License_Management_System
 
 
 
-        void txtValidating(Guna2TextBox txt, CancelEventArgs e/*, int maxLength , you can use it with tags*/)
-        {
-            if (string.IsNullOrWhiteSpace(txt.Text))
-            {
-                e.Cancel = true;
-                txt.Focus();
-                errorProvider1.SetError(txt, $"{txt.Name} Field Should have a value");
-            }
-            //else if (txt.Text.Length > maxLength)
-            //{
-            //    e.Cancel = true;
-            //    txt.Focus();
-            //    errorProvider1.SetError(txt, $"{txt.Name} Field Should Be Less Than {maxLength} Letters");
-            //}
-            else
-            {
-                errorProvider1.SetError(txt, "");
-                e.Cancel = false;
-            }
-        }
+      
 
 
 
         private void txtInfo_Validating(object sender, CancelEventArgs e)
         {
-            txtValidating((Guna2TextBox)sender, e);
+            clsValidation.txtIsNotNullOrWhiteSpaceValdiateHandling((Guna2TextBox)sender, e, errorProvider1);
         }
 
         private void NationalNo_Validating(object sender, CancelEventArgs e)
@@ -404,13 +388,12 @@ namespace Driving_License_Management_System
                 if (rbMale.Checked)
                     pbPerson.Image = Properties.Resources.Male_512;
                 else
-
                     pbPerson.Image = Properties.Resources.Female_512;
             }
         }
 
-        private string _NewImagePath = "";
-        private bool _RemoveImage = false;
+        //private string _NewImagePath = "";
+        //private bool _RemoveImage = false;
 
         private void lblSetImage_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
@@ -475,8 +458,6 @@ namespace Driving_License_Management_System
         {
             this.Close();
         }
-
-
 
       
     }

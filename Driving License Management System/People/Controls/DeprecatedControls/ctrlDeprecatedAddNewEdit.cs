@@ -89,12 +89,12 @@ namespace Driving_License_Management_System
             dtpDateOfBirth.Value = _Person.DateOfBirth;
             txtPhone.Text = _Person.Phone;
             if (_Person.Gendor == 1)
-            { 
+            {
                 rbFemale.Checked = true;
                 rbMale.Checked = false;
             }
             else
-            { 
+            {
                 rbMale.Checked = true;
                 rbFemale.Checked = false;
             }

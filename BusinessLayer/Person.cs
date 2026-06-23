@@ -100,7 +100,6 @@ namespace BusinessLayer
         public static DataTable GetAllPeople()
         {
             return clsPersonData.GetAllPeople();
-
         }
 
         public static bool DeletePerson(int PersonID)
@@ -116,6 +115,11 @@ namespace BusinessLayer
         public static bool IsPersonExist(int PersonID)
         {
             return clsPersonData.IsPersonExist(PersonID);
+        }
+
+        public static bool IsPersonHasUser(int PersonID)
+        {
+            return clsPersonData.IsPersonHasUser(PersonID);
         }
 
         public static int GetTotalPeople()

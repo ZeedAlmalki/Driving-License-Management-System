@@ -36,7 +36,7 @@
             // label6
             // 
             this.label6.Font = new System.Drawing.Font("Tahoma", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.label6.ForeColor = System.Drawing.Color.Black;
             this.label6.Location = new System.Drawing.Point(458, 43);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(254, 59);
@@ -59,7 +59,7 @@
             this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.guna2Button1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(42)))), ((int)(((byte)(57)))));
             this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.guna2Button1.ForeColor = System.Drawing.Color.Black;
+            this.guna2Button1.ForeColor = System.Drawing.Color.White;
             this.guna2Button1.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(56)))), ((int)(((byte)(76)))));
             this.guna2Button1.HoverState.ForeColor = System.Drawing.Color.White;
             this.guna2Button1.Image = global::Driving_License_Management_System.Properties.Resources.Close_32;
@@ -80,7 +80,7 @@
             this.ctrlPeopleDetails1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(246)))), ((int)(((byte)(250)))));
             this.ctrlPeopleDetails1.Location = new System.Drawing.Point(64, 124);
             this.ctrlPeopleDetails1.Name = "ctrlPeopleDetails1";
-            this.ctrlPeopleDetails1.Size = new System.Drawing.Size(1008, 320);
+            this.ctrlPeopleDetails1.Size = new System.Drawing.Size(1021, 308);
             this.ctrlPeopleDetails1.TabIndex = 0;
             // 
             // frmPersonDetails

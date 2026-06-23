@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Guna.UI2.WinForms;
 using BusinessLayer;
+using Driving_License_Management_System.Users;
 
 namespace Driving_License_Management_System
 {
@@ -18,22 +19,35 @@ namespace Driving_License_Management_System
         {
             InitializeComponent();
         }
-        private DataTable LoadPersonData()
-        {
-            return clsPerson.GetAllPeople();
-        }
-        private void btnApplications_Click(object sender, EventArgs e)
-        {
-
-           
-
-
-        }
 
         private void btnPeople_Click(object sender, EventArgs e)
         {
-            frmManagePeople frmManagePeople = new frmManagePeople(LoadPersonData());
+            frmManagePeople frmManagePeople = new frmManagePeople();
             frmManagePeople.ShowDialog();
         }
+
+        private void btnUsers_Click(object sender, EventArgs e)
+        {
+            frmManageUsers frmManageUsers = new frmManageUsers();
+            frmManageUsers.ShowDialog();
+        }
+
+        private void currentUserInfoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmShowUserInfo frmShowUserInfo = new frmShowUserInfo(GlobalSettings.User.UserID);
+            frmShowUserInfo.ShowDialog();
+        }
+
+        private void changePasswordToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmChangeUserPassword frmChangeUserPassword = new frmChangeUserPassword(GlobalSettings.User.UserID);
+            frmChangeUserPassword.ShowDialog();
+        }
+
+        private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
     }
 }

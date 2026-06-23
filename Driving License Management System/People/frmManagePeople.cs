@@ -22,7 +22,8 @@ namespace Driving_License_Management_System
         private DataTable _dtPeople = _dtAllPeople.DefaultView.ToTable(false, "PersonID", "NationalNo", "FirstName", "SecondName", "ThirdName", "LastName",
             "Gendor", "DateOfBirth", "Nationality", "Phone", "Email");
 
-        public frmManagePeople(DataTable dt)
+
+        public frmManagePeople()
         {
             InitializeComponent();
             //ctrlPeopleGridView1.LoadDataToGrid(dt);
@@ -41,6 +42,7 @@ namespace Driving_License_Management_System
         private void frmManagePeople_Load(object sender, EventArgs e)
         {
             PeopleDataGridView.DataSource = _dtPeople;
+            lblTotalRecords.Text = _dtPeople.Rows.Count.ToString();
             cbFilterBy.SelectedIndex = 0;
 
             if (PeopleDataGridView.Rows.Count > 0)
@@ -78,7 +80,6 @@ namespace Driving_License_Management_System
                 PeopleDataGridView.Columns[10].HeaderText = "Email";
                 PeopleDataGridView.Columns[10].Width = 170;
 
-
             }
         }
 
@@ -88,9 +89,12 @@ namespace Driving_License_Management_System
         }
         public void _RefreshPeopleList()
         {
-            _dtPeople = clsPerson.GetAllPeople();
+            _dtAllPeople = clsPerson.GetAllPeople();
+            _dtPeople = _dtPeople = _dtAllPeople.DefaultView.ToTable(false, "PersonID", "NationalNo", "FirstName", "SecondName", "ThirdName", "LastName",
+            "Gendor", "DateOfBirth", "Nationality", "Phone", "Email");
             PeopleDataGridView.DataSource = _dtPeople;
             _UpdateTotalRecords();
+            // lblTotalRecords.Text = _dtPeople.Rows.Count.ToString();
         }
         private void showDetailsToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -110,21 +114,24 @@ namespace Driving_License_Management_System
             if (MessageBox.Show("Are you sure you want to delete Person [" + PeopleDataGridView.CurrentRow.Cells[0].Value + "]", "Confirm Delete", MessageBoxButtons.OKCancel) == DialogResult.OK)
 
             {
-                //Perform Delele and refresh
                 string ImagePath = (clsPerson.Find((int)PeopleDataGridView.CurrentRow.Cells[0].Value).ImagePath);
+
+                //Perform Delele and refresh
                 if (clsPerson.DeletePerson((int)PeopleDataGridView.CurrentRow.Cells[0].Value))
                 {
-                    MessageBox.Show("Person Deleted Successfully.");
-                    _RefreshPeopleList();
                     if (!string.IsNullOrWhiteSpace(ImagePath))
                         File.Delete(ImagePath);
+
+                    MessageBox.Show("Person Deleted Successfully.");
+                    _RefreshPeopleList();
                 }
                 else
                     MessageBox.Show("Person was not deleted because it has data linked to it.");
             }
         }
 
-        private void txtSearch_TextChanged(object sender, EventArgs e)
+
+        private void txtFilterValue_TextChanged(object sender, EventArgs e)
         {
             string FilterColumn = "";
             switch (cbFilterBy.Text)
@@ -194,30 +201,43 @@ namespace Driving_License_Management_System
             lblTotalRecords.Text = PeopleDataGridView.Rows.Count.ToString();
         }
 
+        private void txtFilterValue_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            string selectedFilter = cbFilterBy.Text;
+
+            if (selectedFilter == "Person ID" || selectedFilter == "Phone")
+            {
+                e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+            }
+            else if (selectedFilter == "None")
+            {
+                e.Handled = true;
+                // layer of saftey
+            }
+        }
+
         private void cbFilterBy_SelectedIndexChanged(object sender, EventArgs e)
         {
             bool isNone = cbFilterBy.Text == "None";
             if (isNone)
             {
                 txtFilterValue.Visible = false;
+                cbGendor.SelectedIndex = -1;
+                cbGendor.Visible = false;
+                _dtPeople.DefaultView.RowFilter = null;
+                _UpdateTotalRecords();
                 return;
             }
             else
             {
                 txtFilterValue.Visible = true;
             }
-
-            if (txtFilterValue.Visible)
-            {
-                txtFilterValue.Text = "";
-                txtFilterValue.Focus();
-            }
-
-
             if (cbFilterBy.Text == "Gendor")
             {
                 txtFilterValue.Visible = false;
                 cbGendor.Visible = true;
+                _dtPeople.DefaultView.RowFilter = null;
+                _UpdateTotalRecords();
             }
             else
             {
@@ -225,10 +245,9 @@ namespace Driving_License_Management_System
                 _dtPeople.DefaultView.RowFilter = null;
                 _UpdateTotalRecords();
                 txtFilterValue.Visible = true;
+                txtFilterValue.Text = string.Empty;
                 cbGendor.Visible = false;
             }
-
-          
         }
 
         private void addNewPersonToolStripMenuItem_Click(object sender, EventArgs e)
@@ -258,19 +277,6 @@ namespace Driving_License_Management_System
             lblTotalRecords.Text = dt.Count.ToString();
         }
 
-        private void txtFilterValue_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            string selectedFilter = cbFilterBy.Text;
 
-            if (selectedFilter == "Person ID" || selectedFilter == "Phone")
-            {
-                e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
-            }
-
-            else if (selectedFilter == "None")
-            {
-                e.Handled = true;
-            }
-        }
     }
 }

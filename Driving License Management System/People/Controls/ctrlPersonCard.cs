@@ -89,7 +89,7 @@ namespace Driving_License_Management_System
             if (_Person == null)
             {
                 ResetPersonInfo();
-                MessageBox.Show("No Person With PersonID = " + PerosnID.ToString(), "ERROR", MessageBoxButtons.OK);
+                //MessageBox.Show("No Person With PersonID = " + PerosnID.ToString(), "ERROR", MessageBoxButtons.OK);
                 return;
             }
 
@@ -103,7 +103,7 @@ namespace Driving_License_Management_System
             if (_Person == null)
             {
                 ResetPersonInfo();
-                MessageBox.Show("No Person With PersonID = " + PersonID.ToString(), "ERROR", MessageBoxButtons.OK);
+                MessageBox.Show("No Person With National Number = " + NatinoalNo, "ERROR", MessageBoxButtons.OK);
                 return;
             }
 
@@ -151,7 +151,7 @@ namespace Driving_License_Management_System
             LoadPersonInfo(_PersonID);
         }
 
-        private void ResetPersonInfo()
+        public void ResetPersonInfo()
         {
             _PersonID = -1;
             lblPersonID.Text = "";
@@ -163,12 +163,9 @@ namespace Driving_License_Management_System
             lblDateOfBirth.Text = "";
             lblCountry.Text = "";
             lblAddress.Text = "";
+
+            if (pbPerson.ImageLocation != null)
             pbPerson.ImageLocation = null;
-        }
-
-        private void plPersonInformation_Paint(object sender, PaintEventArgs e)
-        {
-
         }
     }
 }

@@ -376,6 +376,39 @@ namespace DataAccessLayer
             return IsFound;
         }
 
+        public static bool IsPersonHasUser(int PersonID)
+        {
+            bool IsHasUser = false;
+
+            SqlConnection Connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string query = @"Select IsFound = 1 
+                        FROM People
+            INNER JOIN Users ON Users.PersonID = People.PersonID
+            WHERE People.PersonID = @PersonID";
+
+            SqlCommand Command = new SqlCommand(query, Connection);
+
+            Command.Parameters.AddWithValue("@PersonID", PersonID);
+            try
+            {
+                Connection.Open();
+                object result = Command.ExecuteScalar();
+
+                if (result != null)
+                    IsHasUser = true;
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                Connection.Close();
+            }
+            return IsHasUser;
+        }
+
 
         public static DataTable GetAllPeople()
         {

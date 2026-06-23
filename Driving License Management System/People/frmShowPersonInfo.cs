@@ -15,7 +15,6 @@ namespace Driving_License_Management_System
         public frmPersonDetails(int PersonID)
         {
             InitializeComponent();
-
             ctrlPeopleDetails1.LoadPersonInfo(PersonID);
         }
 
@@ -23,7 +22,6 @@ namespace Driving_License_Management_System
         public frmPersonDetails(string NationalNo)
         {
             InitializeComponent();
-
             ctrlPeopleDetails1.LoadPersonInfo(NationalNo);
         }
 
