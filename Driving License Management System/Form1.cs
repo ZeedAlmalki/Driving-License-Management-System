@@ -15,9 +15,11 @@ namespace Driving_License_Management_System
 {
     public partial class Form1 : Form
     {
-        public Form1()
+        frmLoginScreen _frmLogin;
+        public Form1(frmLoginScreen frm)
         {
             InitializeComponent();
+            _frmLogin = frm;
         }
 
         private void btnPeople_Click(object sender, EventArgs e)
@@ -46,6 +48,8 @@ namespace Driving_License_Management_System
 
         private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            GlobalSettings.User = null;
+            _frmLogin.Show();
             this.Close();
         }
 

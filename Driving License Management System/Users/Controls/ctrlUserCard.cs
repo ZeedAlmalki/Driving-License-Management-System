@@ -22,11 +22,6 @@ namespace Driving_License_Management_System.Users.Controls
             get { return _UserID; }
         }
 
-        public clsUser SelectedUserInfo
-        {
-            get { return _User; }
-        }
-
         public ctrlUserCard()
         {
             InitializeComponent();
@@ -42,38 +37,43 @@ namespace Driving_License_Management_System.Users.Controls
 
         private void _FillUserInfo()
         {
-            _UserID = _User.UserID;
             lblUserID.Text = _User.UserID.ToString();
             lblUserName.Text = _User.UserName.ToString();
-            lblIsActive.Text = _User.IsActive.ToString();
+            ctrlPersonCard1.LoadPersonInfo(_User.PersonID);
+
+            if (_User.IsActive)
+            {
+                lblIsActive.Text = "Yes";
+            }
+            else
+            {
+                lblIsActive.Text = "No";
+            }
         }
 
-        public void LoadUserInfo(int UserID, int PersonID)
+        public void LoadUserInfo(int UserID)
         {
             _User = clsUser.Find(UserID);
-            
+            _UserID = UserID;
             if (_User == null)
             {
                 ResetUserInfo();
+                MessageBox.Show("No User with UserID = " + UserID.ToString());
                 return;
             }
-            ctrlPersonCard1.LoadPersonInfo(PersonID);
             _FillUserInfo();
         }
 
-        public void LoadUserInfo(string UserName, int PersonID)
+        public void LoadUserInfo(string UserName)
         {
             _User = clsUser.Find(UserName);
-
+            _UserID = UserID;
             if (_User == null)
             {
                 ResetUserInfo();
                 return;
             }
-            ctrlPersonCard1.LoadPersonInfo(PersonID);
             _FillUserInfo();
         }
-
-
     }
 }

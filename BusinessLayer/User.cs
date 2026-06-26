@@ -23,13 +23,13 @@ namespace BusinessLayer
 
         public clsUser()
         {
-            this.UserID = 0;
+            this.UserID = -1;
             this.UserName = "";
             this.Password = "";
             this.IsActive = false;
         }
 
-        public clsUser(int UserID, int PersonID, string UserName, string Password, bool IsActive)
+        private clsUser(int UserID, int PersonID, string UserName, string Password, bool IsActive)
         {
             this.UserID = UserID;
             this.UserName = UserName;
@@ -80,10 +80,26 @@ namespace BusinessLayer
         public static clsUser Find(int UserID)
         {
             string UserName = "", Password = "";
-            int PersonID = 0;
+            int PersonID = -1;
             bool IsActive = false;
 
-            if (clsUserData.GetUserByID(UserID, ref PersonID, ref UserName, ref Password, ref IsActive))
+            if (clsUserData.GetUserInfoByUserID(UserID, ref PersonID, ref UserName, ref Password, ref IsActive))
+            {
+                return new clsUser(UserID, PersonID, UserName, Password, IsActive);
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        public static clsUser FindByPersonID(int PersonID)
+        {
+            string UserName = "", Password = "";
+            int UserID = -1;
+            bool IsActive = false;
+
+            if (clsUserData.GetUserInfoByPersonID(PersonID, ref UserID, ref UserName, ref Password, ref IsActive))
             {
                 return new clsUser(UserID, PersonID, UserName, Password, IsActive);
             }
@@ -99,7 +115,7 @@ namespace BusinessLayer
             int PersonID = 0, UserID = 0;
             bool IsActive = false;
 
-            if (clsUserData.GetUserByUserName(UserName, ref PersonID, ref UserID, ref Password, ref IsActive))
+            if (clsUserData.GetUserInfoByUserName(UserName, ref PersonID, ref UserID, ref Password, ref IsActive))
             {
                 return new clsUser(UserID, PersonID, UserName, Password, IsActive);
             }
@@ -107,6 +123,21 @@ namespace BusinessLayer
             {
                 return null;
             }
+        }
+
+        public static bool IsUserExistForPersonID(int PersonID)
+        {
+            return clsUserData.IsUserExistForPersonID(PersonID);
+        }
+
+        public static bool GetUserByUserNameAndPassword(string UserName, string Password, ref int PersonID, ref int UserID, ref bool IsActive)
+        {
+            return clsUserData.GetUserByUserNameAndPassword(UserName, Password, ref PersonID, ref UserID, ref IsActive);
+        }
+
+        public static bool ChangePassword(int UserID, string NewPassword)
+        {
+            return clsUserData.ChangePassword(UserID, NewPassword);
         }
 
         public bool Save()

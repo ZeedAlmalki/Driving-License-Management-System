@@ -253,7 +253,9 @@
             this.ClientSize = new System.Drawing.Size(1042, 677);
             this.Controls.Add(this.PanelProject);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.PanelProject.ResumeLayout(false);
             this.cmsAccountSettings.ResumeLayout(false);

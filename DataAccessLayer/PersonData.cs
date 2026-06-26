@@ -376,7 +376,7 @@ namespace DataAccessLayer
             return IsFound;
         }
 
-        public static bool IsPersonHasUser(int PersonID)
+     /*   public static bool IsPersonHasUser(int PersonID)
         {
             bool IsHasUser = false;
 
@@ -407,7 +407,7 @@ namespace DataAccessLayer
                 Connection.Close();
             }
             return IsHasUser;
-        }
+        }*/
 
 
         public static DataTable GetAllPeople()

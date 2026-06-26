@@ -17,9 +17,9 @@ namespace Driving_License_Management_System
     public partial class frmManageUsers : Form
     {
 
-        private static DataTable _dtAllUsers = clsUser.GetAllUsers();
+        private static DataTable _dtAllUsers;
 
-        private DataTable _dtUsers = _dtAllUsers.DefaultView.ToTable(false, "UserID", "PersonID", "UserName", "FullName", "IsActive");
+        //private DataTable _dtAllUsers = _dtAllUsers.DefaultView.ToTable(false, "UserID", "PersonID", "UserName", "FullName", "IsActive");
 
         public frmManageUsers()
         {
@@ -28,8 +28,9 @@ namespace Driving_License_Management_System
 
         private void frmManageUsers_Load(object sender, EventArgs e)
         {
-            UsersDataGridView.DataSource = _dtUsers;
-            lblTotalRecords.Text = _dtUsers.Rows.Count.ToString();
+            _dtAllUsers = clsUser.GetAllUsers();
+            UsersDataGridView.DataSource = _dtAllUsers;
+            lblTotalRecords.Text = _dtAllUsers.Rows.Count.ToString();
             cbFilterBy.SelectedIndex = 0;
 
             if (UsersDataGridView.Rows.Count > 0)
@@ -57,14 +58,14 @@ namespace Driving_License_Management_System
             lblTotalRecords.Text = clsUser.GetTotalUsers().ToString();
         }
 
-        public void _RefreshUsersList()
-        {
-            _dtAllUsers = clsUser.GetAllUsers();
-            _dtUsers = _dtAllUsers.DefaultView.ToTable(false, "UserID", "PersonID", "UserName", "FullName", "IsActive");
-            UsersDataGridView.DataSource = _dtUsers;
-            _UpdateTotalRecords();
-            // lblTotalRecords.Text = _dtUsers.Rows.Count.ToString();
-        }
+        //public void _RefreshUsersLi.st()
+        //{
+        //    _dtAllUsers = clsUser.GetAllUsers();
+        //    _dtAllUsers = _dtAllUsers.DefaultView.ToTable(false, "UserID", "PersonID", "UserName", "FullName", "IsActive");
+        //    UsersDataGridView.DataSource = _dtAllUsers;
+        //    _UpdateTotalRecords();
+        //    // lblTotalRecords.Text = _dtAllUsers.Rows.Count.ToString();
+        //}
 
         private void showDetailsToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -76,14 +77,15 @@ namespace Driving_License_Management_System
         {
             frmAddNewUser frmAddNewUser = new frmAddNewUser();
             frmAddNewUser.ShowDialog();
-            _RefreshUsersList();
+            frmManageUsers_Load(null, null);
+
         }
 
         private void editToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmAddNewUser frmAddNewUser = new frmAddNewUser((int)UsersDataGridView.CurrentRow.Cells[0].Value);
             frmAddNewUser.ShowDialog();
-            _RefreshUsersList();
+            frmManageUsers_Load(null, null);
         }
 
         private void ChangePasswordStripMenuItem3_Click(object sender, EventArgs e)
@@ -96,7 +98,7 @@ namespace Driving_License_Management_System
         {
             if (MessageBox.Show("Are you sure you want to delete User [" + UsersDataGridView.CurrentRow.Cells[0].Value + "]", "Confirm Delete", MessageBoxButtons.OKCancel) == DialogResult.OK)
             {
-                
+
                 //Perform Delele and refresh
 
                 if (GlobalSettings.User.UserID == (int)UsersDataGridView.CurrentRow.Cells[0].Value)
@@ -108,7 +110,7 @@ namespace Driving_License_Management_System
                 if (clsUser.DeleteUser((int)UsersDataGridView.CurrentRow.Cells[0].Value))
                 {
                     MessageBox.Show("User Deleted Successfully.");
-                    _RefreshUsersList();
+                    frmManageUsers_Load(null, null);
                 }
                 else
                     MessageBox.Show("User was not deleted because it has data linked to it.");
@@ -143,7 +145,7 @@ namespace Driving_License_Management_System
             }
             if (txtFilterValue.Text.Trim() == "" || FilterColumn == "None")
             {
-                _dtUsers.DefaultView.RowFilter = "";
+                _dtAllUsers.DefaultView.RowFilter = "";
                 lblTotalRecords.Text = UsersDataGridView.Rows.Count.ToString();
                 return;
             }
@@ -151,9 +153,9 @@ namespace Driving_License_Management_System
 
 
             if (FilterColumn == "PersonID" || FilterColumn == "UserID")
-                _dtUsers.DefaultView.RowFilter = string.Format("[{0}] = {1}", FilterColumn, txtFilterValue.Text);
+                _dtAllUsers.DefaultView.RowFilter = string.Format("[{0}] = {1}", FilterColumn, txtFilterValue.Text);
             else
-                _dtUsers.DefaultView.RowFilter = string.Format("[{0}] LIKE '{1}%'", FilterColumn, txtFilterValue.Text);
+                _dtAllUsers.DefaultView.RowFilter = string.Format("[{0}] LIKE '{1}%'", FilterColumn, txtFilterValue.Text);
 
             lblTotalRecords.Text = UsersDataGridView.Rows.Count.ToString();
         }
@@ -175,56 +177,86 @@ namespace Driving_License_Management_System
 
         private void cbFilterBy_SelectedIndexChanged(object sender, EventArgs e)
         {
-            bool isNone = cbFilterBy.Text == "None";
-            if (isNone)
-            {
-                txtFilterValue.Visible = false;
-                cbIsActive.SelectedIndex = -1;
-                cbIsActive.Visible = false;
-                _dtUsers.DefaultView.RowFilter = null;
-                _UpdateTotalRecords();
-                return;
-            }
-            else
-            {
-                txtFilterValue.Visible = true;
-            }
+
+
             if (cbFilterBy.Text == "Is Active")
             {
                 txtFilterValue.Visible = false;
                 cbIsActive.Visible = true;
-                _dtUsers.DefaultView.RowFilter = null;
+                //_dtAllUsers.DefaultView.RowFilter = null;
+                cbIsActive.Focus();
+                cbIsActive.SelectedIndex = -1;
                 _UpdateTotalRecords();
             }
             else
             {
-                cbIsActive.SelectedIndex = -1;
-                _dtUsers.DefaultView.RowFilter = null;
-                _UpdateTotalRecords();
-                txtFilterValue.Visible = true;
-                txtFilterValue.Text = string.Empty;
+                txtFilterValue.Visible = (cbFilterBy.Text != "None");
                 cbIsActive.Visible = false;
+                txtFilterValue.Text = "";
+                txtFilterValue.Focus();
+                //cbIsActive.SelectedIndex = -1;
+                //_dtAllUsers.DefaultView.RowFilter = null;
+                //_UpdateTotalRecords();
+                //txtFilterValue.Visible = true;
+                //txtFilterValue.Text = string.Empty;
+                //cbIsActive.Visible = false;
             }
+
+            //bool isNone = cbFilterBy.Text == "None";
+            //if (isNone)
+            //{
+            //    txtFilterValue.Visible = false;
+            //    cbIsActive.SelectedIndex = -1;
+            //    cbIsActive.Visible = false;
+            //    _dtAllUsers.DefaultView.RowFilter = null;
+            //    _UpdateTotalRecords();
+            //    return;
+            //}
+            //else
+            //{
+            //    txtFilterValue.Visible = true;
+            //}
+
         }
 
         private void cbIsActive_SelectedIndexChanged(object sender, EventArgs e)
         {
-            DataView dt = _dtUsers.DefaultView;
+            //DataView dt = _dtAllUsers.DefaultView;
 
-            if (cbIsActive.SelectedItem == "All")
-            {
-                dt.RowFilter = ("IsActive = true OR IsActive = false");
-            }
-            else if (cbIsActive.SelectedItem == "Yes")
-            {
-                dt.RowFilter = ("IsActive = true");
-            }
-            else if (cbIsActive.SelectedItem == "No")
-            {
-                dt.RowFilter = ("IsActive = false");
-            }
+            //if (cbIsActive.SelectedItem == "All")
+            //{
+            //    dt.RowFilter = ("IsActive = true OR IsActive = false");
+            //}
+            //else if (cbIsActive.SelectedItem == "Yes")
+            //{
+            //    dt.RowFilter = ("IsActive = true");
+            //}
+            //else if (cbIsActive.SelectedItem == "No")
+            //{
+            //    dt.RowFilter = ("IsActive = false");
+            //}
 
-            lblTotalRecords.Text = dt.Count.ToString();
+            //lblTotalRecords.Text = dt.Count.ToString();
+
+            string FilterColumn = "IsActive";
+            string FilterValue = cbIsActive.Text;
+            switch (FilterValue)
+            {
+                case "All":
+                    break;
+                case "Yes":
+                    FilterValue = "1";
+                    break;
+                case "No":
+                    FilterValue = "0";
+                    break;
+            }
+            if (FilterValue == "All")
+                _dtAllUsers.DefaultView.RowFilter = "";
+            else
+                _dtAllUsers.DefaultView.RowFilter = string.Format("{[0]} = {1}", FilterColumn, FilterValue);
+            lblTotalRecords.Text = _dtAllUsers.Rows.Count.ToString();
+
         }
 
         private void btnClose_Click(object sender, EventArgs e)

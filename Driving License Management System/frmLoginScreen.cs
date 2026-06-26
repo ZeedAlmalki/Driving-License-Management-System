@@ -64,7 +64,8 @@ namespace Driving_License_Management_System
                     clsUtil.RemoveUserLoginInformation();
                 }
                 GlobalSettings.User = user;
-                Form1 frm = new Form1();
+                this.Hide();
+                Form1 frm = new Form1(this);
                 frm.ShowDialog();
                 RefreshSavedUserLoginInformation();
             }

@@ -11,6 +11,7 @@ namespace Driving_License_Management_System
     public class clsUtil
     {
         public static string FilePath = @"C:\Course 19 DVLD\SavedUserInformationByRememberMe.txt";
+
         public static bool IsRememberMe = false;
         public static string GenerateGUID()
         {

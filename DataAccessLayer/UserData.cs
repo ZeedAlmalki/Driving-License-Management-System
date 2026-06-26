@@ -51,8 +51,6 @@ namespace DataAccessLayer
             return UserID;
         }
 
-
-
         public static bool UpdateUser(int UserID, int PersonID, string UserName, string Password, bool IsActive)
         {
             int RowAffected = 0;
@@ -122,7 +120,7 @@ namespace DataAccessLayer
             return (RowAffected > 0);
         }
 
-        public static bool GetUserByID(int UserID, ref int PersonID, ref string UserName, ref string Password, ref bool IsActive)
+        public static bool GetUserInfoByUserID(int UserID, ref int PersonID, ref string UserName, ref string Password, ref bool IsActive)
         {
             bool IsFound = false;
 
@@ -166,7 +164,7 @@ namespace DataAccessLayer
             return IsFound;
         }
 
-        public static bool GetUserByUserName(string UserName, ref int PersonID, ref int UserID, ref string Password, ref bool IsActive)
+        public static bool GetUserInfoByUserName(string UserName, ref int PersonID, ref int UserID, ref string Password, ref bool IsActive)
         {
             bool IsFound = false;
 
@@ -208,6 +206,127 @@ namespace DataAccessLayer
                 Connection.Close();
             }
             return IsFound;
+        }
+
+        public static bool GetUserInfoByPersonID(int PersonID, ref int UserID, ref string UserName, ref string Password, ref bool IsActive)
+        {
+            bool IsFound = false;
+
+            SqlConnection Connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string query = @"SELECT * FROM Users 
+                            WHERE PersonID = @PersonID";
+
+            SqlCommand Command = new SqlCommand(query, Connection);
+
+            Command.Parameters.AddWithValue("@PersonID", PersonID);
+
+            try
+            {
+                Connection.Open();
+
+                SqlDataReader reader = Command.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    UserID = (int)reader["UserID"];
+                    UserName = (string)reader["UserName"];
+                    Password = (string)reader["Password"];
+                    IsActive = (bool)reader["IsActive"];
+
+                    IsFound = true;
+                }
+                else
+                {
+                    IsFound = false;
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                Connection.Close();
+            }
+            return IsFound;
+        }
+
+        public static bool GetUserByUserNameAndPassword(string UserName, string Password, ref int PersonID, ref int UserID, ref bool IsActive)
+        {
+            bool IsFound = false;
+
+            SqlConnection Connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string query = @"SELECT * FROM Users 
+                            WHERE UserName = @UserName AND Password = @Password";
+
+            SqlCommand Command = new SqlCommand(query, Connection);
+
+            Command.Parameters.AddWithValue("@UserName", UserName);
+            Command.Parameters.AddWithValue("@Password", Password);
+
+            try
+            {
+                Connection.Open();
+
+                SqlDataReader reader = Command.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    PersonID = (int)reader["PersonID"];
+                    UserID = (int)reader["UserID"];
+                    IsActive = (bool)reader["IsActive"];
+
+                    IsFound = true;
+                }
+                else
+                {
+                    IsFound = false;
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                Connection.Close();
+            }
+            return IsFound;
+        } 
+
+        public static bool IsUserExistForPersonID(int PersonID)
+        {
+            bool IsHasUser = false;
+
+            SqlConnection Connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string query = @"Select IsFound = 1 
+                        FROM Users
+            INNER JOIN People ON People.PersonID = Users.PersonID
+            WHERE People.PersonID = @PersonID";
+
+            SqlCommand Command = new SqlCommand(query, Connection);
+
+            Command.Parameters.AddWithValue("@PersonID", PersonID);
+            try
+            {
+                Connection.Open();
+                object result = Command.ExecuteScalar();
+
+                if (result != null)
+                    IsHasUser = true;
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                Connection.Close();
+            }
+            return IsHasUser;
         }
 
         public static bool IsUserExist(string UserName)
@@ -274,6 +393,34 @@ namespace DataAccessLayer
             return IsFound;
         }
 
+        public static bool ChangePassword(int UserID, string NewPassword)
+        {
+            int rowsAffected = 0;
+            SqlConnection Connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string query = @"Update Users
+                             SET Password = @Password
+                             WHERE UserID = @UserID";
+
+            SqlCommand Command = new SqlCommand(query, Connection);
+
+            Command.Parameters.AddWithValue(@"UserID", UserID);
+
+            try
+            {
+                Connection.Open();
+                rowsAffected = Command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                Connection.Close();
+            }
+            return rowsAffected > 0;
+        } 
 
         public static DataTable GetAllUsers()
         {

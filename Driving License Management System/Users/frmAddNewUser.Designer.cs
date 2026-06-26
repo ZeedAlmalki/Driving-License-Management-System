@@ -32,6 +32,7 @@
             this.tcUser = new System.Windows.Forms.TabControl();
             this.tpPersonInfo = new System.Windows.Forms.TabPage();
             this.btnNext = new Guna.UI2.WinForms.Guna2Button();
+            this.ctrlPersonCardWithFilter1 = new Driving_License_Management_System.People.ctrlPersonCardWithFilter();
             this.tpUserInfo = new System.Windows.Forms.TabPage();
             this.cbIsActive = new System.Windows.Forms.CheckBox();
             this.txtConfirmPassword = new Guna.UI2.WinForms.Guna2TextBox();
@@ -46,7 +47,6 @@
             this.btnClose = new Guna.UI2.WinForms.Guna2Button();
             this.lblMode = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.ctrlPersonCardWithFilter1 = new Driving_License_Management_System.People.ctrlPersonCardWithFilter();
             this.tcUser.SuspendLayout();
             this.tpPersonInfo.SuspendLayout();
             this.tpUserInfo.SuspendLayout();
@@ -107,6 +107,17 @@
             this.btnNext.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.btnNext.UseTransparentBackground = true;
             this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
+            // 
+            // ctrlPersonCardWithFilter1
+            // 
+            this.ctrlPersonCardWithFilter1.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
+            this.ctrlPersonCardWithFilter1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(246)))), ((int)(((byte)(250)))));
+            this.ctrlPersonCardWithFilter1.FilterEnabled = true;
+            this.ctrlPersonCardWithFilter1.Location = new System.Drawing.Point(-3, -3);
+            this.ctrlPersonCardWithFilter1.Name = "ctrlPersonCardWithFilter1";
+            this.ctrlPersonCardWithFilter1.ShowAddPerson = true;
+            this.ctrlPersonCardWithFilter1.Size = new System.Drawing.Size(1021, 406);
+            this.ctrlPersonCardWithFilter1.TabIndex = 0;
             // 
             // tpUserInfo
             // 
@@ -334,17 +345,6 @@
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
-            // 
-            // ctrlPersonCardWithFilter1
-            // 
-            this.ctrlPersonCardWithFilter1.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
-            this.ctrlPersonCardWithFilter1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(246)))), ((int)(((byte)(250)))));
-            this.ctrlPersonCardWithFilter1.FilterEnabled = true;
-            this.ctrlPersonCardWithFilter1.Location = new System.Drawing.Point(-3, -3);
-            this.ctrlPersonCardWithFilter1.Name = "ctrlPersonCardWithFilter1";
-            this.ctrlPersonCardWithFilter1.ShowAddPerson = true;
-            this.ctrlPersonCardWithFilter1.Size = new System.Drawing.Size(1021, 406);
-            this.ctrlPersonCardWithFilter1.TabIndex = 0;
             // 
             // frmAddNewUser
             // 

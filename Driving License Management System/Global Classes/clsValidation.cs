@@ -58,7 +58,7 @@ namespace Driving_License_Management_System
         }
         public static bool IsPasswordMatch(string Password, string ConfirmPassword)
         {
-            return (Password == ConfirmPassword);
+            return (Password.Trim() == ConfirmPassword.Trim());
         }
 
     }

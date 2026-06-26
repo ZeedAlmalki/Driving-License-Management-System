@@ -117,10 +117,10 @@ namespace BusinessLayer
             return clsPersonData.IsPersonExist(PersonID);
         }
 
-        public static bool IsPersonHasUser(int PersonID)
+       /* public static bool IsPersonHasUser(int PersonID)
         {
             return clsPersonData.IsPersonHasUser(PersonID);
-        }
+        } */
 
         public static int GetTotalPeople()
         {

@@ -15,14 +15,13 @@ namespace Driving_License_Management_System.Users
     {
 
         private int _UserID = 0;
-        private clsUser _User;
 
         public frmShowUserInfo(int UserID)
         {
 
             InitializeComponent();
 
-            this._UserID = UserID;
+            _UserID = UserID;
         }
 
         private void frmShowUserInfo_Load(object sender, EventArgs e)
@@ -31,7 +30,7 @@ namespace Driving_License_Management_System.Users
 
             if (User != null)
             {
-                ctrlUserCard1.LoadUserInfo(User.UserID, User.PersonID);
+                ctrlUserCard1.LoadUserInfo(User.UserID);
                 lblCurrentUser.Visible = (GlobalSettings.User.UserID == User.UserID);
             }
             else
@@ -43,7 +42,6 @@ namespace Driving_License_Management_System.Users
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-
             this.Close();
         }
     }
