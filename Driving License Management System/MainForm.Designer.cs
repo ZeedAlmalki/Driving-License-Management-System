@@ -1,6 +1,6 @@
 ﻿namespace Driving_License_Management_System
 {
-    partial class Form1
+    partial class MainForm
     {
         /// <summary>
         /// Required designer variable.
@@ -38,8 +38,11 @@
             this.btnUsers = new Guna.UI2.WinForms.Guna2Button();
             this.btnPeople = new Guna.UI2.WinForms.Guna2Button();
             this.btnApplications = new Guna.UI2.WinForms.Guna2Button();
+            this.cmsApplications = new Guna.UI2.WinForms.Guna2ContextMenuStrip();
+            this.ManageApplicationstoolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.PanelProject.SuspendLayout();
             this.cmsAccountSettings.SuspendLayout();
+            this.cmsApplications.SuspendLayout();
             this.SuspendLayout();
             // 
             // PanelProject
@@ -224,6 +227,7 @@
             this.btnApplications.BorderThickness = 1;
             this.btnApplications.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(215)))));
             this.btnApplications.CheckedState.ForeColor = System.Drawing.Color.White;
+            this.btnApplications.ContextMenuStrip = this.cmsApplications;
             this.btnApplications.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnApplications.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnApplications.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -245,6 +249,38 @@
             this.btnApplications.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.btnApplications.UseTransparentBackground = true;
             // 
+            // cmsApplications
+            // 
+            this.cmsApplications.AutoSize = false;
+            this.cmsApplications.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(246)))), ((int)(((byte)(250)))));
+            this.cmsApplications.Font = new System.Drawing.Font("Segoe UI", 16F);
+            this.cmsApplications.ImageScalingSize = new System.Drawing.Size(32, 32);
+            this.cmsApplications.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ManageApplicationstoolStripMenuItem2});
+            this.cmsApplications.Name = "cmsAccountSettings";
+            this.cmsApplications.RenderStyle.ArrowColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
+            this.cmsApplications.RenderStyle.BorderColor = System.Drawing.Color.Gainsboro;
+            this.cmsApplications.RenderStyle.ColorTable = null;
+            this.cmsApplications.RenderStyle.RoundedEdges = true;
+            this.cmsApplications.RenderStyle.SelectionArrowColor = System.Drawing.Color.White;
+            this.cmsApplications.RenderStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.cmsApplications.RenderStyle.SelectionForeColor = System.Drawing.Color.White;
+            this.cmsApplications.RenderStyle.SeparatorColor = System.Drawing.Color.Gainsboro;
+            this.cmsApplications.RenderStyle.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.cmsApplications.Size = new System.Drawing.Size(320, 210);
+            // 
+            // ManageApplicationstoolStripMenuItem2
+            // 
+            this.ManageApplicationstoolStripMenuItem2.AutoSize = false;
+            this.ManageApplicationstoolStripMenuItem2.Font = new System.Drawing.Font("Segoe UI", 16F);
+            this.ManageApplicationstoolStripMenuItem2.Image = global::Driving_License_Management_System.Properties.Resources.Application_Types_64;
+            this.ManageApplicationstoolStripMenuItem2.Margin = new System.Windows.Forms.Padding(1);
+            this.ManageApplicationstoolStripMenuItem2.Name = "ManageApplicationstoolStripMenuItem2";
+            this.ManageApplicationstoolStripMenuItem2.Padding = new System.Windows.Forms.Padding(4);
+            this.ManageApplicationstoolStripMenuItem2.Size = new System.Drawing.Size(476, 44);
+            this.ManageApplicationstoolStripMenuItem2.Text = "   Manage Applications Types";
+            this.ManageApplicationstoolStripMenuItem2.Click += new System.EventHandler(this.ManageApplicationstoolStripMenuItem2_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -259,6 +295,7 @@
             this.Text = "Form1";
             this.PanelProject.ResumeLayout(false);
             this.cmsAccountSettings.ResumeLayout(false);
+            this.cmsApplications.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -275,6 +312,8 @@
         private System.Windows.Forms.ToolStripMenuItem changePasswordToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem logoutToolStripMenuItem;
+        private Guna.UI2.WinForms.Guna2ContextMenuStrip cmsApplications;
+        private System.Windows.Forms.ToolStripMenuItem ManageApplicationstoolStripMenuItem2;
     }
 }
 

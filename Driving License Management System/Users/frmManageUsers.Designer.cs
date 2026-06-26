@@ -223,26 +223,26 @@
             this.cmsUser.RenderStyle.SelectionForeColor = System.Drawing.Color.White;
             this.cmsUser.RenderStyle.SeparatorColor = System.Drawing.Color.Gainsboro;
             this.cmsUser.RenderStyle.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            this.cmsUser.Size = new System.Drawing.Size(181, 192);
+            this.cmsUser.Size = new System.Drawing.Size(169, 170);
             // 
             // showDetailsToolStripMenuItem
             // 
             this.showDetailsToolStripMenuItem.Image = global::Driving_License_Management_System.Properties.Resources.PersonDetails_32;
             this.showDetailsToolStripMenuItem.Name = "showDetailsToolStripMenuItem";
-            this.showDetailsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.showDetailsToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.showDetailsToolStripMenuItem.Text = "Show Details";
             this.showDetailsToolStripMenuItem.Click += new System.EventHandler(this.showDetailsToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(177, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(165, 6);
             // 
             // addNewUserToolStripMenuItem
             // 
             this.addNewUserToolStripMenuItem.Image = global::Driving_License_Management_System.Properties.Resources.Add_Person_40;
             this.addNewUserToolStripMenuItem.Name = "addNewUserToolStripMenuItem";
-            this.addNewUserToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.addNewUserToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.addNewUserToolStripMenuItem.Text = "Add New User";
             this.addNewUserToolStripMenuItem.Click += new System.EventHandler(this.btnAdd_Click);
             // 
@@ -250,7 +250,7 @@
             // 
             this.editToolStripMenuItem.Image = global::Driving_License_Management_System.Properties.Resources.edit_32;
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.editToolStripMenuItem.Text = "Edit";
             this.editToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
             // 
@@ -258,7 +258,7 @@
             // 
             this.deleteToolStripMenuItem.Image = global::Driving_License_Management_System.Properties.Resources.Delete_32;
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.deleteToolStripMenuItem.Text = "Delete";
             this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
@@ -266,27 +266,27 @@
             // 
             this.ChangePasswordStripMenuItem3.Image = global::Driving_License_Management_System.Properties.Resources.Password_32;
             this.ChangePasswordStripMenuItem3.Name = "ChangePasswordStripMenuItem3";
-            this.ChangePasswordStripMenuItem3.Size = new System.Drawing.Size(180, 22);
+            this.ChangePasswordStripMenuItem3.Size = new System.Drawing.Size(168, 22);
             this.ChangePasswordStripMenuItem3.Text = "Change Password";
             this.ChangePasswordStripMenuItem3.Click += new System.EventHandler(this.ChangePasswordStripMenuItem3_Click);
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(177, 6);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(165, 6);
             // 
             // sendEmailToolStripMenuItem
             // 
             this.sendEmailToolStripMenuItem.Image = global::Driving_License_Management_System.Properties.Resources.send_email_32;
             this.sendEmailToolStripMenuItem.Name = "sendEmailToolStripMenuItem";
-            this.sendEmailToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sendEmailToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.sendEmailToolStripMenuItem.Text = "Send Email";
             // 
             // phoneCallToolStripMenuItem
             // 
             this.phoneCallToolStripMenuItem.Image = global::Driving_License_Management_System.Properties.Resources.call_32;
             this.phoneCallToolStripMenuItem.Name = "phoneCallToolStripMenuItem";
-            this.phoneCallToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.phoneCallToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.phoneCallToolStripMenuItem.Text = "Phone Call";
             // 
             // guna2HtmlLabel1

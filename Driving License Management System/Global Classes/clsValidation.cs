@@ -23,6 +23,13 @@ namespace Driving_License_Management_System
             return regex.IsMatch(Email);
         }
 
+        public static bool IsNumberValid(string Number)
+        {
+            string pattern = @"^\d+(\.\d+)?$";
+
+            return Regex.IsMatch(Number, pattern);
+        }
+
 
         public static void txtIsNotNullOrWhiteSpaceValdiateHandling(Guna2TextBox txt, CancelEventArgs e, ErrorProvider er/*, int maxLength , you can use it with tags*/)
         {
@@ -36,7 +43,7 @@ namespace Driving_License_Management_System
             else
             {
                 e.Cancel = false;
-                er.SetError(txt, "");
+                er.SetError(txt, null);
             }
             //if (string.IsNullOrWhiteSpace(txt.Text))
             //{

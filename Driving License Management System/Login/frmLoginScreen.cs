@@ -65,7 +65,7 @@ namespace Driving_License_Management_System
                 }
                 GlobalSettings.User = user;
                 this.Hide();
-                Form1 frm = new Form1(this);
+                MainForm frm = new MainForm(this);
                 frm.ShowDialog();
                 RefreshSavedUserLoginInformation();
             }

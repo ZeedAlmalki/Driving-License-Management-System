@@ -13,10 +13,10 @@ using Driving_License_Management_System.Users;
 
 namespace Driving_License_Management_System
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
         frmLoginScreen _frmLogin;
-        public Form1(frmLoginScreen frm)
+        public MainForm(frmLoginScreen frm)
         {
             InitializeComponent();
             _frmLogin = frm;
@@ -53,5 +53,10 @@ namespace Driving_License_Management_System
             this.Close();
         }
 
+        private void ManageApplicationstoolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            frmManageApplicationsTypes frm = new frmManageApplicationsTypes();
+            frm.ShowDialog();
+        }
     }
 }
