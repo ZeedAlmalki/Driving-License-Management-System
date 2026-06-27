@@ -1,21 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Data.SqlClient;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace DataAccessLayer
 {
-    public class clsManageApplicationTypesData
+    public class clsManageTestTypeData
     {
-        public static DataTable GetAllApplicationTypes()
+        public static DataTable GetAllTestTypes()
         {
             DataTable dt = new DataTable();
             SqlConnection Connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
-            string query = @"SELECT * FROM ApplicationTypes order by ApplicationTypeTitle";
+            string query = @"SELECT * FROM TestTypes order by TestTypeID";
 
             SqlCommand Command = new SqlCommand(query, Connection);
 
@@ -32,7 +32,7 @@ namespace DataAccessLayer
             }
             catch (Exception ex)
             {
-                
+
             }
             finally
             {
@@ -41,18 +41,18 @@ namespace DataAccessLayer
             return dt;
         }
 
-        public static bool FindApplicationTypeByID(int ApplicationTypeID, ref string ApplicationTypeTitle, ref decimal ApplicationFees)
+        public static bool FindTestTypeByID(int TestTypeID, ref string TestTypeTitle, ref string TestTypeDescription, ref decimal TestTypeFees)
         {
             bool IsFound = false;
 
             SqlConnection Connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
-            string query = @"SELECT ApplicationTypeTitle, ApplicationFees
-                                    FROM ApplicationTypes 
-                                    WHERE ApplicationTypeID = @ApplicationTypeID";
+            string query = @"SELECT TestTypeTitle, TestTypeDescription, TestTypeFees
+                                    FROM TestTypes 
+                                    WHERE TestTypeID = @TestTypeID";
             SqlCommand Command = new SqlCommand(query, Connection);
 
-            Command.Parameters.AddWithValue("@ApplicationTypeID", ApplicationTypeID);
+            Command.Parameters.AddWithValue("@TestTypeID", TestTypeID);
 
             try
             {
@@ -62,8 +62,9 @@ namespace DataAccessLayer
 
                 if (reader.Read())
                 {
-                    ApplicationTypeTitle = (string)reader["ApplicationTypeTitle"];
-                    ApplicationFees = (decimal)reader["ApplicationFees"];
+                    TestTypeTitle = (string)reader["TestTypeTitle"];
+                    TestTypeDescription = (string)reader["TestTypeDescription"];
+                    TestTypeFees = (decimal)reader["TestTypeFees"];
                     IsFound = true;
                 }
                 else
@@ -83,27 +84,30 @@ namespace DataAccessLayer
             return IsFound;
         }
 
-        public static int AddNewApplicationType(string ApplicationTypeTitle, decimal ApplicationFees)
+        public static int AddNewTestType(string TestTypeTitle, string TestTypeDescription, decimal TestTypeFees)
         {
-            int ApplicationTypeID = -1;
+            int TestTypeID = -1;
 
             SqlConnection Connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
-            string query = @"INSERT INTO ApplicationTypes (ApplicationTypeTitle, ApplicationFees)
-                             VALUES (@ApplicationTypeTitle, @ApplicationFees)";
+            string query = @"INSERT INTO TestTypes (TestTypeTitle, TestTypeDescription, TestTypeFees)
+                             VALUES (@TestTypeTitle, @TestTypeDescription, @TestTypeFees)
+                             SELECT SCOPE_IDENTITY();";
 
             SqlCommand Command = new SqlCommand(query, Connection);
 
-            Command.Parameters.AddWithValue("@ApplicationTypeTitle", ApplicationTypeTitle);
-            Command.Parameters.AddWithValue("@ApplicationFees", ApplicationFees);
-            
+            Command.Parameters.AddWithValue("@TestTypeTitle", TestTypeTitle);
+            Command.Parameters.AddWithValue("@TestTypeDescription", TestTypeDescription);
+            Command.Parameters.AddWithValue("@TestTypeFees", TestTypeFees);
+
+
             try
             {
                 Connection.Open();
                 object result = Command.ExecuteScalar();
                 if (result != null && int.TryParse(result.ToString(), out int ID))
                 {
-                    ApplicationTypeID = ID;
+                    TestTypeID = ID;
                 }
             }
             catch (Exception ex)
@@ -115,25 +119,27 @@ namespace DataAccessLayer
                 Connection.Close();
             }
 
-            return ApplicationTypeID;
+            return TestTypeID;
 
         }
 
-        public static bool UpdateApplicationType(int ApplicationTypeID, string ApplicationTypeTitle, decimal ApplicationFees)
+        public static bool UpdateTestType(int TestTypeID, string TestTypeTitle, string TestTypeDescription, decimal TestTypeFees)
         {
             int RowsAffected = 0;
 
             SqlConnection Connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
-            string query = @"Update ApplicationTypes 
-                             SET ApplicationTypeTitle = @ApplicationTypeTitle,
-                                 ApplicationFees = @ApplicationFees
-                                 WHERE ApplicationTypeID = @ApplicationTypeID";
+            string query = @"Update TestTypes 
+                             SET TestTypeTitle = @TestTypeTitle,
+                                 TestTypeDescription = @TestTypeDescription,
+                                 TestTypeFees = @TestTypeFees
+                                 WHERE TestTypeID = @TestTypeID";
             SqlCommand Command = new SqlCommand(query, Connection);
 
-            Command.Parameters.AddWithValue("@ApplicationTypeID", ApplicationTypeID);
-            Command.Parameters.AddWithValue("@ApplicationTypeTitle", ApplicationTypeTitle);
-            Command.Parameters.AddWithValue("@ApplicationFees", ApplicationFees);
+            Command.Parameters.AddWithValue("@TestTypeID", TestTypeID);
+            Command.Parameters.AddWithValue("@TestTypeTitle", TestTypeTitle);
+            Command.Parameters.AddWithValue("@TestTypeDescription", TestTypeDescription);
+            Command.Parameters.AddWithValue("@TestTypeFees", TestTypeFees);
 
             try
             {

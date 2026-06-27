@@ -30,16 +30,18 @@
         {
             this.components = new System.ComponentModel.Container();
             this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.txtApplicationTitle = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtApplicationFees = new Guna.UI2.WinForms.Guna2TextBox();
             this.lblApplicationID = new System.Windows.Forms.Label();
-            this.btnClose = new Guna.UI2.WinForms.Guna2Button();
-            this.btnSave = new Guna.UI2.WinForms.Guna2Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.btnSave = new Guna.UI2.WinForms.Guna2Button();
+            this.btnClose = new Guna.UI2.WinForms.Guna2Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.errorProvider2 = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2HtmlLabel1
@@ -51,45 +53,6 @@
             this.guna2HtmlLabel1.Size = new System.Drawing.Size(349, 41);
             this.guna2HtmlLabel1.TabIndex = 54;
             this.guna2HtmlLabel1.Text = "Update Application Type";
-            // 
-            // label14
-            // 
-            this.label14.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.label14.ForeColor = System.Drawing.Color.Black;
-            this.label14.Image = global::Driving_License_Management_System.Properties.Resources.Number_32;
-            this.label14.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label14.Location = new System.Drawing.Point(46, 154);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(123, 42);
-            this.label14.TabIndex = 61;
-            this.label14.Text = "ID: ";
-            this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label1
-            // 
-            this.label1.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Image = global::Driving_License_Management_System.Properties.Resources.ApplicationTitle;
-            this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label1.Location = new System.Drawing.Point(46, 209);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(123, 42);
-            this.label1.TabIndex = 62;
-            this.label1.Text = "Title:";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label2
-            // 
-            this.label2.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Image = global::Driving_License_Management_System.Properties.Resources.money_32;
-            this.label2.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label2.Location = new System.Drawing.Point(46, 264);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(123, 42);
-            this.label2.TabIndex = 63;
-            this.label2.Text = "Fees:";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // txtApplicationTitle
             // 
@@ -140,38 +103,9 @@
             this.lblApplicationID.TabIndex = 67;
             this.lblApplicationID.Text = "???";
             // 
-            // btnClose
+            // errorProvider1
             // 
-            this.btnClose.Animated = true;
-            this.btnClose.AnimatedGIF = true;
-            this.btnClose.AutoRoundedCorners = true;
-            this.btnClose.BackColor = System.Drawing.Color.Transparent;
-            this.btnClose.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(50)))), ((int)(((byte)(65)))));
-            this.btnClose.BorderStyle = System.Drawing.Drawing2D.DashStyle.Dash;
-            this.btnClose.BorderThickness = 1;
-            this.btnClose.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(215)))));
-            this.btnClose.CheckedState.ForeColor = System.Drawing.Color.White;
-            this.btnClose.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnClose.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnClose.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnClose.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnClose.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(42)))), ((int)(((byte)(57)))));
-            this.btnClose.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.btnClose.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(246)))), ((int)(((byte)(250)))));
-            this.btnClose.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(56)))), ((int)(((byte)(76)))));
-            this.btnClose.HoverState.ForeColor = System.Drawing.Color.White;
-            this.btnClose.Image = global::Driving_License_Management_System.Properties.Resources.Close_32;
-            this.btnClose.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnClose.ImageOffset = new System.Drawing.Point(1, 0);
-            this.btnClose.ImageSize = new System.Drawing.Size(32, 32);
-            this.btnClose.Location = new System.Drawing.Point(220, 323);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(151, 42);
-            this.btnClose.TabIndex = 66;
-            this.btnClose.Text = "Close";
-            this.btnClose.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.btnClose.UseTransparentBackground = true;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            this.errorProvider1.ContainerControl = this;
             // 
             // btnSave
             // 
@@ -205,9 +139,81 @@
             this.btnSave.UseTransparentBackground = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // errorProvider1
+            // btnClose
             // 
-            this.errorProvider1.ContainerControl = this;
+            this.btnClose.Animated = true;
+            this.btnClose.AnimatedGIF = true;
+            this.btnClose.AutoRoundedCorners = true;
+            this.btnClose.BackColor = System.Drawing.Color.Transparent;
+            this.btnClose.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(50)))), ((int)(((byte)(65)))));
+            this.btnClose.BorderStyle = System.Drawing.Drawing2D.DashStyle.Dash;
+            this.btnClose.BorderThickness = 1;
+            this.btnClose.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(215)))));
+            this.btnClose.CheckedState.ForeColor = System.Drawing.Color.White;
+            this.btnClose.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnClose.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnClose.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnClose.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnClose.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(42)))), ((int)(((byte)(57)))));
+            this.btnClose.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.btnClose.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(246)))), ((int)(((byte)(250)))));
+            this.btnClose.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(56)))), ((int)(((byte)(76)))));
+            this.btnClose.HoverState.ForeColor = System.Drawing.Color.White;
+            this.btnClose.Image = global::Driving_License_Management_System.Properties.Resources.Close_32;
+            this.btnClose.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnClose.ImageOffset = new System.Drawing.Point(1, 0);
+            this.btnClose.ImageSize = new System.Drawing.Size(32, 32);
+            this.btnClose.Location = new System.Drawing.Point(220, 323);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(151, 42);
+            this.btnClose.TabIndex = 66;
+            this.btnClose.Text = "Close";
+            this.btnClose.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.btnClose.UseTransparentBackground = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // label2
+            // 
+            this.label2.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Image = global::Driving_License_Management_System.Properties.Resources.money_32;
+            this.label2.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label2.Location = new System.Drawing.Point(46, 264);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(123, 42);
+            this.label2.TabIndex = 63;
+            this.label2.Text = "Fees:";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label1
+            // 
+            this.label1.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Image = global::Driving_License_Management_System.Properties.Resources.ApplicationTitle;
+            this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label1.Location = new System.Drawing.Point(46, 209);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(123, 42);
+            this.label1.TabIndex = 62;
+            this.label1.Text = "Title:";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label14
+            // 
+            this.label14.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.label14.ForeColor = System.Drawing.Color.Black;
+            this.label14.Image = global::Driving_License_Management_System.Properties.Resources.Number_32;
+            this.label14.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label14.Location = new System.Drawing.Point(46, 154);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(123, 42);
+            this.label14.TabIndex = 61;
+            this.label14.Text = "ID: ";
+            this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // errorProvider2
+            // 
+            this.errorProvider2.ContainerControl = this;
             // 
             // frmUpdateApplicationType
             // 
@@ -231,6 +237,7 @@
             this.Shown += new System.EventHandler(this.frmUpdateApplicationType_Shown);
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.frmUpdateApplicationType_KeyPress);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -248,5 +255,6 @@
         private Guna.UI2.WinForms.Guna2Button btnClose;
         private Guna.UI2.WinForms.Guna2Button btnSave;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.ErrorProvider errorProvider2;
     }
 }

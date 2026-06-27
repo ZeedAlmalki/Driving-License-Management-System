@@ -40,6 +40,7 @@
             this.btnApplications = new Guna.UI2.WinForms.Guna2Button();
             this.cmsApplications = new Guna.UI2.WinForms.Guna2ContextMenuStrip();
             this.ManageApplicationstoolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.manageTestTypesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.PanelProject.SuspendLayout();
             this.cmsAccountSettings.SuspendLayout();
             this.cmsApplications.SuspendLayout();
@@ -256,7 +257,8 @@
             this.cmsApplications.Font = new System.Drawing.Font("Segoe UI", 16F);
             this.cmsApplications.ImageScalingSize = new System.Drawing.Size(32, 32);
             this.cmsApplications.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ManageApplicationstoolStripMenuItem2});
+            this.ManageApplicationstoolStripMenuItem2,
+            this.manageTestTypesToolStripMenuItem});
             this.cmsApplications.Name = "cmsAccountSettings";
             this.cmsApplications.RenderStyle.ArrowColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
             this.cmsApplications.RenderStyle.BorderColor = System.Drawing.Color.Gainsboro;
@@ -279,9 +281,17 @@
             this.ManageApplicationstoolStripMenuItem2.Padding = new System.Windows.Forms.Padding(4);
             this.ManageApplicationstoolStripMenuItem2.Size = new System.Drawing.Size(476, 44);
             this.ManageApplicationstoolStripMenuItem2.Text = "   Manage Applications Types";
-            this.ManageApplicationstoolStripMenuItem2.Click += new System.EventHandler(this.ManageApplicationstoolStripMenuItem2_Click);
+            this.ManageApplicationstoolStripMenuItem2.Click += new System.EventHandler(this.ManageApplicationstoolStripMenuItem_Click);
             // 
-            // Form1
+            // manageTestTypesToolStripMenuItem
+            // 
+            this.manageTestTypesToolStripMenuItem.Image = global::Driving_License_Management_System.Properties.Resources.Test_Type_64;
+            this.manageTestTypesToolStripMenuItem.Name = "manageTestTypesToolStripMenuItem";
+            this.manageTestTypesToolStripMenuItem.Size = new System.Drawing.Size(384, 38);
+            this.manageTestTypesToolStripMenuItem.Text = "   Manage Test Types";
+            this.manageTestTypesToolStripMenuItem.Click += new System.EventHandler(this.ManageTestTypesToolStripMenuItem_Click);
+            // 
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -290,7 +300,7 @@
             this.Controls.Add(this.PanelProject);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Form1";
+            this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.PanelProject.ResumeLayout(false);
@@ -314,6 +324,7 @@
         private System.Windows.Forms.ToolStripMenuItem logoutToolStripMenuItem;
         private Guna.UI2.WinForms.Guna2ContextMenuStrip cmsApplications;
         private System.Windows.Forms.ToolStripMenuItem ManageApplicationstoolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem manageTestTypesToolStripMenuItem;
     }
 }
 

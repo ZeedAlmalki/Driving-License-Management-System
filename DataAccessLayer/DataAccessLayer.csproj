@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="DataAccessSettings.cs" />
     <Compile Include="ManageApplicationTypesData.cs" />
+    <Compile Include="ManageTestTypeData.cs" />
     <Compile Include="PersonData.cs" />
     <Compile Include="CountryData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

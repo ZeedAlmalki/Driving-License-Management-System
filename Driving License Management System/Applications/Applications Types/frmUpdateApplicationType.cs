@@ -103,7 +103,7 @@ namespace Driving_License_Management_System
                 e.Cancel = true;
                 errorProvider1.SetError(txtApplicationFees, "Must Be Numeric");
             }
-           else
+            else
             {
                 errorProvider1.SetError(txtApplicationFees, null);
             }

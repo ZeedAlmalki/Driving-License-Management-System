@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Guna.UI2.WinForms;
 using BusinessLayer;
 using Driving_License_Management_System.Users;
+using Driving_License_Management_System.TestTypes;
 
 namespace Driving_License_Management_System
 {
@@ -52,10 +53,15 @@ namespace Driving_License_Management_System
             _frmLogin.Show();
             this.Close();
         }
-
-        private void ManageApplicationstoolStripMenuItem2_Click(object sender, EventArgs e)
+        private void ManageApplicationstoolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmManageApplicationsTypes frm = new frmManageApplicationsTypes();
+            frm.ShowDialog();
+        }
+
+        private void ManageTestTypesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmManageTestTypes frm = new frmManageTestTypes();
             frm.ShowDialog();
         }
     }

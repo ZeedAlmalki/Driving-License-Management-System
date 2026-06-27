@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.ApplicationTypesDataGridView = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.cmsUser = new Guna.UI2.WinForms.Guna2ContextMenuStrip();
+            this.cmsManageApplicationTypes = new Guna.UI2.WinForms.Guna2ContextMenuStrip();
             this.EditApplicationTypeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lblTotalRecords = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
@@ -40,34 +40,35 @@
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.btnClose = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.ApplicationTypesDataGridView)).BeginInit();
-            this.cmsUser.SuspendLayout();
+            this.cmsManageApplicationTypes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // ApplicationTypesDataGridView
             // 
             this.ApplicationTypesDataGridView.AllowUserToAddRows = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(58)))), ((int)(((byte)(82)))));
-            this.ApplicationTypesDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(42)))), ((int)(((byte)(57)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.ApplicationTypesDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(58)))), ((int)(((byte)(82)))));
+            this.ApplicationTypesDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.ApplicationTypesDataGridView.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(42)))), ((int)(((byte)(57)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.ApplicationTypesDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.ApplicationTypesDataGridView.ColumnHeadersHeight = 40;
             this.ApplicationTypesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            this.ApplicationTypesDataGridView.ContextMenuStrip = this.cmsUser;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(54)))), ((int)(((byte)(75)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Tahoma", 8F);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(215)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.ApplicationTypesDataGridView.DefaultCellStyle = dataGridViewCellStyle6;
+            this.ApplicationTypesDataGridView.ContextMenuStrip = this.cmsManageApplicationTypes;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(54)))), ((int)(((byte)(75)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Tahoma", 8F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(215)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.ApplicationTypesDataGridView.DefaultCellStyle = dataGridViewCellStyle3;
             this.ApplicationTypesDataGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(60)))), ((int)(((byte)(80)))));
             this.ApplicationTypesDataGridView.Location = new System.Drawing.Point(35, 249);
             this.ApplicationTypesDataGridView.Margin = new System.Windows.Forms.Padding(10);
@@ -81,7 +82,7 @@
             this.ApplicationTypesDataGridView.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
             this.ApplicationTypesDataGridView.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
             this.ApplicationTypesDataGridView.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
-            this.ApplicationTypesDataGridView.ThemeStyle.BackColor = System.Drawing.Color.White;
+            this.ApplicationTypesDataGridView.ThemeStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
             this.ApplicationTypesDataGridView.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(60)))), ((int)(((byte)(80)))));
             this.ApplicationTypesDataGridView.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             this.ApplicationTypesDataGridView.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -98,21 +99,21 @@
             this.ApplicationTypesDataGridView.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(215)))));
             this.ApplicationTypesDataGridView.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.White;
             // 
-            // cmsUser
+            // cmsManageApplicationTypes
             // 
-            this.cmsUser.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cmsManageApplicationTypes.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.EditApplicationTypeToolStripMenuItem});
-            this.cmsUser.Name = "cmsPerson";
-            this.cmsUser.RenderStyle.ArrowColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
-            this.cmsUser.RenderStyle.BorderColor = System.Drawing.Color.Gainsboro;
-            this.cmsUser.RenderStyle.ColorTable = null;
-            this.cmsUser.RenderStyle.RoundedEdges = true;
-            this.cmsUser.RenderStyle.SelectionArrowColor = System.Drawing.Color.White;
-            this.cmsUser.RenderStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.cmsUser.RenderStyle.SelectionForeColor = System.Drawing.Color.White;
-            this.cmsUser.RenderStyle.SeparatorColor = System.Drawing.Color.Gainsboro;
-            this.cmsUser.RenderStyle.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            this.cmsUser.Size = new System.Drawing.Size(187, 26);
+            this.cmsManageApplicationTypes.Name = "cmsPerson";
+            this.cmsManageApplicationTypes.RenderStyle.ArrowColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
+            this.cmsManageApplicationTypes.RenderStyle.BorderColor = System.Drawing.Color.Gainsboro;
+            this.cmsManageApplicationTypes.RenderStyle.ColorTable = null;
+            this.cmsManageApplicationTypes.RenderStyle.RoundedEdges = true;
+            this.cmsManageApplicationTypes.RenderStyle.SelectionArrowColor = System.Drawing.Color.White;
+            this.cmsManageApplicationTypes.RenderStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.cmsManageApplicationTypes.RenderStyle.SelectionForeColor = System.Drawing.Color.White;
+            this.cmsManageApplicationTypes.RenderStyle.SeparatorColor = System.Drawing.Color.Gainsboro;
+            this.cmsManageApplicationTypes.RenderStyle.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.cmsManageApplicationTypes.Size = new System.Drawing.Size(187, 26);
             // 
             // EditApplicationTypeToolStripMenuItem
             // 
@@ -212,7 +213,7 @@
             this.Text = "frmManageApplicationsTypes";
             this.Load += new System.EventHandler(this.frmManageApplicationsTypes_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ApplicationTypesDataGridView)).EndInit();
-            this.cmsUser.ResumeLayout(false);
+            this.cmsManageApplicationTypes.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -227,7 +228,7 @@
         private Guna.UI2.WinForms.Guna2Button btnClose;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
-        private Guna.UI2.WinForms.Guna2ContextMenuStrip cmsUser;
+        private Guna.UI2.WinForms.Guna2ContextMenuStrip cmsManageApplicationTypes;
         private System.Windows.Forms.ToolStripMenuItem EditApplicationTypeToolStripMenuItem;
     }
 }
