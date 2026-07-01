@@ -41,6 +41,12 @@ namespace Driving_License_Management_System
         {
             ctrlPersonCardWithFilter1.FilterEnabled = false;
             LocalDrivingLicenseApplication = clsLocalDrivingLicenseApplication.FindLocalDrivingLicenseApplicationByID(_LocalDrivingLicenseApplicationID);
+            if (_Mode == enMode.Update && (LocalDrivingLicenseApplication.ApplicationStatus == clsApplication.enApplicationSatus.Completed || LocalDrivingLicenseApplication.ApplicationStatus == clsApplication.enApplicationSatus.Cancelled))
+            {
+                MessageBox.Show("You cannot update a canceled or completed license.", "Update Not Allowed", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
+                return;
+            }
 
             if (LocalDrivingLicenseApplication == null)
             {
@@ -54,8 +60,7 @@ namespace Driving_License_Management_System
             lblApplicatoinDate.Text = LocalDrivingLicenseApplication.ApplicationDate.ToString();
             lblApplicationFees.Text = LocalDrivingLicenseApplication.PaidFees.ToString();
             lblCreatedBy.Text = GlobalSettings.User.UserName;
-            if (_Mode == enMode.Update && (LocalDrivingLicenseApplication.ApplicationStatus == clsApplication.enApplicationSatus.Completed || LocalDrivingLicenseApplication.ApplicationStatus == clsApplication.enApplicationSatus.Cancelled))
-                tpApplicationInfo.Enabled = false;
+
 
             // the code before i explore to use find with the base class.
             //ctrlPersonCardWithFilter1.LoadPersonInfo(clsApplication.FindApplicationByID(LocalDrivingLicenseApplication.ApplicationID).ApplicantPersonID);
@@ -115,6 +120,8 @@ namespace Driving_License_Management_System
 
         private void btnNext_Click(object sender, EventArgs e)
         {
+
+
             if (ctrlPersonCardWithFilter1.PersonID != -1)
             {
                 btnSave.Enabled = true;
