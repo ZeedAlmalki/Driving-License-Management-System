@@ -254,8 +254,8 @@ namespace Driving_License_Management_System
             if (FilterValue == "All")
                 _dtAllUsers.DefaultView.RowFilter = "";
             else
-                _dtAllUsers.DefaultView.RowFilter = string.Format("{[0]} = {1}", FilterColumn, FilterValue);
-            lblTotalRecords.Text = _dtAllUsers.Rows.Count.ToString();
+                _dtAllUsers.DefaultView.RowFilter = string.Format("[{0}] = {1}", FilterColumn, FilterValue);
+            lblTotalRecords.Text = _dtAllUsers.DefaultView.Count.ToString();
 
         }
 

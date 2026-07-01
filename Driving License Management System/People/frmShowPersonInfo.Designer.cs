@@ -93,7 +93,7 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this.ctrlPeopleDetails1);
             this.Name = "frmPersonDetails";
-            this.Text = "frmPersonDetails";
+            this.Text = "Person Details";
             this.ResumeLayout(false);
 
         }

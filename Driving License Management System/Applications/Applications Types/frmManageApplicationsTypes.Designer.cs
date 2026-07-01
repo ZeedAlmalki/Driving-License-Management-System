@@ -117,6 +117,7 @@
             // 
             // EditApplicationTypeToolStripMenuItem
             // 
+            this.EditApplicationTypeToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(246)))), ((int)(((byte)(250)))));
             this.EditApplicationTypeToolStripMenuItem.Image = global::Driving_License_Management_System.Properties.Resources.PersonDetails_32;
             this.EditApplicationTypeToolStripMenuItem.Name = "EditApplicationTypeToolStripMenuItem";
             this.EditApplicationTypeToolStripMenuItem.Size = new System.Drawing.Size(186, 22);

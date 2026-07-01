@@ -602,6 +602,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "frmAddEditPersonInfo";
+            this.Text = "Add New Person";
             this.Load += new System.EventHandler(this.frmAddEditPersonInfo_Load);
             this.gbGender.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbPerson)).EndInit();

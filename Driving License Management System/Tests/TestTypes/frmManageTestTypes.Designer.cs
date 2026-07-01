@@ -35,13 +35,13 @@
             this.lblTotalRecords = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.ManageTestTypessDataGridView = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.btnClose = new Guna.UI2.WinForms.Guna2Button();
             this.cmsManageTestTypes = new Guna.UI2.WinForms.Guna2ContextMenuStrip();
             this.EditTestTypeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.btnClose = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.ManageTestTypessDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.cmsManageTestTypes.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2HtmlLabel1
@@ -129,6 +129,31 @@
             this.ManageTestTypessDataGridView.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(215)))));
             this.ManageTestTypessDataGridView.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.White;
             // 
+            // cmsManageTestTypes
+            // 
+            this.cmsManageTestTypes.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.EditTestTypeToolStripMenuItem});
+            this.cmsManageTestTypes.Name = "cmsPerson";
+            this.cmsManageTestTypes.RenderStyle.ArrowColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
+            this.cmsManageTestTypes.RenderStyle.BorderColor = System.Drawing.Color.Gainsboro;
+            this.cmsManageTestTypes.RenderStyle.ColorTable = null;
+            this.cmsManageTestTypes.RenderStyle.RoundedEdges = true;
+            this.cmsManageTestTypes.RenderStyle.SelectionArrowColor = System.Drawing.Color.White;
+            this.cmsManageTestTypes.RenderStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.cmsManageTestTypes.RenderStyle.SelectionForeColor = System.Drawing.Color.White;
+            this.cmsManageTestTypes.RenderStyle.SeparatorColor = System.Drawing.Color.Gainsboro;
+            this.cmsManageTestTypes.RenderStyle.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.cmsManageTestTypes.Size = new System.Drawing.Size(147, 26);
+            // 
+            // EditTestTypeToolStripMenuItem
+            // 
+            this.EditTestTypeToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(246)))), ((int)(((byte)(250)))));
+            this.EditTestTypeToolStripMenuItem.Image = global::Driving_License_Management_System.Properties.Resources.PersonDetails_32;
+            this.EditTestTypeToolStripMenuItem.Name = "EditTestTypeToolStripMenuItem";
+            this.EditTestTypeToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.EditTestTypeToolStripMenuItem.Text = "Edit Test Type";
+            this.EditTestTypeToolStripMenuItem.Click += new System.EventHandler(this.EditTestTypeToolStripMenuItem_Click);
+            // 
             // guna2PictureBox1
             // 
             this.guna2PictureBox1.BorderRadius = 2;
@@ -173,30 +198,6 @@
             this.btnClose.UseTransparentBackground = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // cmsManageTestTypes
-            // 
-            this.cmsManageTestTypes.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.EditTestTypeToolStripMenuItem});
-            this.cmsManageTestTypes.Name = "cmsPerson";
-            this.cmsManageTestTypes.RenderStyle.ArrowColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
-            this.cmsManageTestTypes.RenderStyle.BorderColor = System.Drawing.Color.Gainsboro;
-            this.cmsManageTestTypes.RenderStyle.ColorTable = null;
-            this.cmsManageTestTypes.RenderStyle.RoundedEdges = true;
-            this.cmsManageTestTypes.RenderStyle.SelectionArrowColor = System.Drawing.Color.White;
-            this.cmsManageTestTypes.RenderStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.cmsManageTestTypes.RenderStyle.SelectionForeColor = System.Drawing.Color.White;
-            this.cmsManageTestTypes.RenderStyle.SeparatorColor = System.Drawing.Color.Gainsboro;
-            this.cmsManageTestTypes.RenderStyle.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            this.cmsManageTestTypes.Size = new System.Drawing.Size(147, 26);
-            // 
-            // EditTestTypeToolStripMenuItem
-            // 
-            this.EditTestTypeToolStripMenuItem.Image = global::Driving_License_Management_System.Properties.Resources.PersonDetails_32;
-            this.EditTestTypeToolStripMenuItem.Name = "EditTestTypeToolStripMenuItem";
-            this.EditTestTypeToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
-            this.EditTestTypeToolStripMenuItem.Text = "Edit Test Type";
-            this.EditTestTypeToolStripMenuItem.Click += new System.EventHandler(this.EditTestTypeToolStripMenuItem_Click);
-            // 
             // frmManageTestTypes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -211,11 +212,11 @@
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.ManageTestTypessDataGridView);
             this.Name = "frmManageTestTypes";
-            this.Text = "frmManageTestTypes";
+            this.Text = "Manage Test Types";
             this.Load += new System.EventHandler(this.frmManageTestTypes_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ManageTestTypessDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.cmsManageTestTypes.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

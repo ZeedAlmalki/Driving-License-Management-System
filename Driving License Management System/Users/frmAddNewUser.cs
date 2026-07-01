@@ -95,17 +95,6 @@ namespace Driving_License_Management_System.People
                     ctrlPersonCardWithFilter1.FilterFocus();
                     return;
                 }
-
-                //if (!clsPerson.IsPersonExist(PersonID))
-                //{
-                //    tcUser.SelectedTab = tpPersonInfo;
-                //    MessageBox.Show("No Person Exists, You must create one.", "Create a Perosn", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                //    return;
-                //}
-
-                //_PersonID = PersonID;
-                //tcUser.SelectedTab = tpUserInfo;
-                //txtUserName.Focus();
                 else
                 {
                     btnSave.Enabled = true;

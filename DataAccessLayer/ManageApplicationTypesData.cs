@@ -90,7 +90,8 @@ namespace DataAccessLayer
             SqlConnection Connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
             string query = @"INSERT INTO ApplicationTypes (ApplicationTypeTitle, ApplicationFees)
-                             VALUES (@ApplicationTypeTitle, @ApplicationFees)";
+                             VALUES (@ApplicationTypeTitle, @ApplicationFees)
+                             SELECT SCOPE_IDENTITY();";
 
             SqlCommand Command = new SqlCommand(query, Connection);
 

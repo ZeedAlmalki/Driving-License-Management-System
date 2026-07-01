@@ -35,6 +35,7 @@
             // 
             // ctrlPersonCardWithFilter1
             // 
+            this.ctrlPersonCardWithFilter1.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.ctrlPersonCardWithFilter1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(246)))), ((int)(((byte)(250)))));
             this.ctrlPersonCardWithFilter1.FilterEnabled = true;
             this.ctrlPersonCardWithFilter1.Location = new System.Drawing.Point(12, 79);
@@ -47,7 +48,7 @@
             // 
             this.lblMode.AutoSize = true;
             this.lblMode.Font = new System.Drawing.Font("Tahoma", 28F);
-            this.lblMode.ForeColor = System.Drawing.Color.Red;
+            this.lblMode.ForeColor = System.Drawing.Color.Black;
             this.lblMode.Location = new System.Drawing.Point(401, 30);
             this.lblMode.Name = "lblMode";
             this.lblMode.Size = new System.Drawing.Size(217, 46);
@@ -97,7 +98,7 @@
             this.Controls.Add(this.lblMode);
             this.Controls.Add(this.ctrlPersonCardWithFilter1);
             this.Name = "frmFindPerson";
-            this.Text = "frmFindPerson";
+            this.Text = "Find Person";
             this.ResumeLayout(false);
             this.PerformLayout();
 

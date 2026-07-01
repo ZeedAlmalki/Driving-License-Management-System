@@ -95,7 +95,7 @@
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.ctrlUserCard1);
             this.Name = "frmShowUserInfo";
-            this.Text = "frmShowUserInfo";
+            this.Text = "Show User Info";
             this.Load += new System.EventHandler(this.frmShowUserInfo_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -243,7 +243,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.ctrlUserCard1);
             this.Name = "frmChangeUserPassword";
-            this.Text = "frmChangeUserPassword";
+            this.Text = "Change User Password";
             this.Load += new System.EventHandler(this.frmChangeUserPassword_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);

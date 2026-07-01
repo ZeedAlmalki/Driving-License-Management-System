@@ -64,5 +64,11 @@ namespace Driving_License_Management_System
             frmManageTestTypes frm = new frmManageTestTypes();
             frm.ShowDialog();
         }
+
+        private void localDrivingLicenseApplicationsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmManageLocalDrivingLicenseApplications frmManageLocalDrivingLicenseApplications = new frmManageLocalDrivingLicenseApplications();
+            frmManageLocalDrivingLicenseApplications.ShowDialog();
+        }
     }
 }

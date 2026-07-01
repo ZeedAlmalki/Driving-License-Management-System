@@ -264,7 +264,7 @@
             this.Controls.Add(this.label14);
             this.Controls.Add(this.guna2HtmlLabel1);
             this.Name = "frmUpdateTestType";
-            this.Text = "frmUpdateTestType";
+            this.Text = "Update Test Type";
             this.Load += new System.EventHandler(this.frmUpdateTestType_Load);
             this.Shown += new System.EventHandler(this.frmUpdateTestType_Shown);
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.frmUpdateTestType_KeyPress);
