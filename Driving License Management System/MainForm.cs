@@ -11,6 +11,7 @@ using Guna.UI2.WinForms;
 using BusinessLayer;
 using Driving_License_Management_System.Users;
 using Driving_License_Management_System.TestTypes;
+using Driving_License_Management_System.Drivers;
 
 namespace Driving_License_Management_System
 {
@@ -69,6 +70,12 @@ namespace Driving_License_Management_System
         {
             frmManageLocalDrivingLicenseApplications frmManageLocalDrivingLicenseApplications = new frmManageLocalDrivingLicenseApplications();
             frmManageLocalDrivingLicenseApplications.ShowDialog();
+        }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            frmListDrivers listDrivers = new frmListDrivers();
+            listDrivers.ShowDialog();
         }
     }
 }

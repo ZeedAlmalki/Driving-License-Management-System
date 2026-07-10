@@ -460,6 +460,7 @@
             this.txtSecondName.SelectedText = "";
             this.txtSecondName.Size = new System.Drawing.Size(182, 26);
             this.txtSecondName.TabIndex = 36;
+            this.txtSecondName.Validating += new System.ComponentModel.CancelEventHandler(this.txtInfo_Validating);
             // 
             // txtLastName
             // 

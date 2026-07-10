@@ -12,6 +12,9 @@ namespace BusinessLayer
         public enum enMode { AddNew = 0, Update = 1 };
         public enMode Mode = enMode.AddNew;
         public int ApplicationTypeID { get; set; }
+
+        public enum enManageApplicationTypes {NewLocalDrivingLicenseService = 1, RenewDrivingLicenseService = 2, ReplacementForaLostdDrivingLicense = 3, ReplacementForaDamageddDrivingLicense = 4, RelaseDetainedDrivingLicense = 5, NewInternationalLicense = 6, RetakeTest = 7};
+        public  clsManageApplicationTypes.enManageApplicationTypes enApplicationTypeID { get; set; }
         public string ApplicationTypeTitle { get; set; }
         public decimal ApplicationFees { get; set; }
 

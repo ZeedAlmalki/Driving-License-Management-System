@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BusinessLayer;
+using Driving_License_Management_System.Applications.LocalDrivingLicenseApplication;
+using Driving_License_Management_System.License;
 using static System.Net.Mime.MediaTypeNames;
 
 namespace Driving_License_Management_System
@@ -152,7 +154,7 @@ namespace Driving_License_Management_System
         private void canceloolStripMenuItem_Click(object sender, EventArgs e)
         {
             clsApplication application = clsApplication.FindApplicationByID(clsLocalDrivingLicenseApplication.FindLocalDrivingLicenseApplicationByID((int)LocalDrivingLicenseApplicationsGridView.CurrentRow.Cells[0].Value).ApplicationID);
-            if (application.ApplicationStatus == clsApplication.enApplicationSatus.Cancelled)
+            if (application != null && application.ApplicationStatus == clsApplication.enApplicationSatus.Cancelled)
             {
                 MessageBox.Show("Application Is Already Cancelled, you can not Cancel a Cancalled Application");
                 return;
@@ -195,6 +197,161 @@ namespace Driving_License_Management_System
             {
                 MessageBox.Show("Something Went Error");
             }
+        }
+
+        private void showDetailsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmShowLocalDrivingLicenseApplicationInfo frmShowLocalDriving = new frmShowLocalDrivingLicenseApplicationInfo((int)LocalDrivingLicenseApplicationsGridView.CurrentRow.Cells[0].Value);
+            frmShowLocalDriving.ShowDialog();
+        }
+
+        private void cmsLocalDrivingLicenseApplications_Opening(object sender, CancelEventArgs e)
+        {
+            //clsLocalDrivingLicenseApplication drv = clsLocalDrivingLicenseApplication.FindLocalDrivingLicenseApplicationByID((int)LocalDrivingLicenseApplicationsGridView.CurrentRow.Cells[0].Value);
+            //issueDrivingLicenseFirstTimeToolStripMenuItem.Enabled = false;
+            //showLicenseToolStripMenuItem.Enabled = false;
+
+
+            //if (drv.GetPassedTestCount() == 1)
+            //{
+            //    scheduleVisionTestToolStripMenuItem.Enabled = false;
+            //    scheduleWrittenTestToolStripMenuItem.Enabled = true;
+            //}
+            //else if (drv.GetPassedTestCount() == 2)
+            //{
+            //    scheduleWrittenTestToolStripMenuItem.Enabled= false;
+            //    scheduleStreetTestToolStripMenuItem.Enabled = true;
+            //}
+            //// you have to write something here to see if license has been issued to turn it off and turn on the 'show license'
+            //else if (drv.GetPassedTestCount() == 3)
+            //{
+            //    scheduleTestsToolStripMenuItem.Enabled = false;
+            //    editToolStripMenuItem.Enabled = false;
+            //    deleteApplicationToolStripMenuItem.Enabled = false;
+            //    canceloolStripMenuItem.Enabled = false;
+            //    scheduleStreetTestToolStripMenuItem.Enabled = false;
+            //    issueDrivingLicenseFirstTimeToolStripMenuItem.Enabled = true;
+
+            //    if (!(drv.ApplicationStatus == clsApplication.enApplicationSatus.Cancelled))
+            //        showLicenseToolStripMenuItem.Enabled = true;
+            //}
+
+        }
+
+        private void ApplyColorsToAllItems(ToolStripItemCollection items)
+        {
+            foreach (ToolStripItem item in items)
+            {
+                if (item is ToolStripMenuItem menuItem)
+                {
+                    if (!menuItem.Enabled)
+                    {
+                        menuItem.BackColor = Color.FromArgb(160, 160, 160);
+                    }
+                    else
+                    {
+                        menuItem.BackColor = Color.FromArgb(244, 246, 250);
+                    }
+                    if (menuItem.HasDropDownItems)
+                    {
+                        ApplyColorsToAllItems(menuItem.DropDownItems);
+                    }
+                }
+
+            }
+        }
+
+
+        private void cmsManageLocalDrivingLicenseDefaultValue()
+        {
+            scheduleTestsToolStripMenuItem.Enabled = true;
+            editToolStripMenuItem.Enabled = true;
+            deleteApplicationToolStripMenuItem.Enabled = true;
+            canceloolStripMenuItem.Enabled = true;
+            scheduleStreetTestToolStripMenuItem.Enabled = false;
+            scheduleVisionTestToolStripMenuItem.Enabled = false;
+            scheduleWrittenTestToolStripMenuItem.Enabled = false;
+            issueDrivingLicenseFirstTimeToolStripMenuItem.Enabled = false;
+            showLicenseToolStripMenuItem.Enabled = false;
+            scheduleWrittenTestToolStripMenuItem.Enabled = false;
+        }
+        private void LocalDrivingLicenseApplicationsGridView_CellContextMenuStripNeeded(object sender, DataGridViewCellContextMenuStripNeededEventArgs e)
+        {
+            if (e.RowIndex < 0)
+            {
+                return;
+            }
+
+            int localDrivingLicenseApplicationID = (int)LocalDrivingLicenseApplicationsGridView.Rows[e.RowIndex].Cells[0].Value;
+
+            clsLocalDrivingLicenseApplication drv = clsLocalDrivingLicenseApplication.FindLocalDrivingLicenseApplicationByID(localDrivingLicenseApplicationID);
+
+            if (drv == null)
+            {
+                return;
+            }
+
+            cmsManageLocalDrivingLicenseDefaultValue();
+
+            int PassedTestCount = drv.GetPassedTestCount();
+
+            if (PassedTestCount == 0)
+            {
+                scheduleVisionTestToolStripMenuItem.Enabled = true;
+            }
+
+            if (PassedTestCount == 1)
+            {
+
+                scheduleWrittenTestToolStripMenuItem.Enabled = true;
+            }
+
+            if (PassedTestCount == 2)
+            {
+                scheduleStreetTestToolStripMenuItem.Enabled = true;
+            }
+
+            if (PassedTestCount == 3 || (drv.ApplicationStatus == clsApplication.enApplicationSatus.Cancelled))
+            {
+                if (drv.ApplicationStatus != clsApplication.enApplicationSatus.Cancelled)
+                    issueDrivingLicenseFirstTimeToolStripMenuItem.Enabled = true;
+
+
+                scheduleTestsToolStripMenuItem.Enabled = false;
+                editToolStripMenuItem.Enabled = false;
+                deleteApplicationToolStripMenuItem.Enabled = false;
+                canceloolStripMenuItem.Enabled = false;
+                scheduleStreetTestToolStripMenuItem.Enabled = false;
+                showLicenseToolStripMenuItem.Enabled = !(drv.ApplicationStatus == clsApplication.enApplicationSatus.Cancelled);
+            }
+
+            ApplyColorsToAllItems(cmsLocalDrivingLicenseApplications.Items);
+        }
+
+        private void scheduleVisionTestToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmTestAppointments frmTestAppointments = new frmTestAppointments((int)LocalDrivingLicenseApplicationsGridView.CurrentRow.Cells[0].Value);
+            frmTestAppointments.ShowDialog();
+            frmManageLocalDrivingLicenseApplications_Load(null, null);
+        }
+
+        private void issueDrivingLicenseFirstTimeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmIssueDriverLicenseForTheFirstTime IssueDrivingLicenseFirstTime = new frmIssueDriverLicenseForTheFirstTime((int)LocalDrivingLicenseApplicationsGridView.CurrentRow.Cells[0].Value);
+            IssueDrivingLicenseFirstTime.ShowDialog();
+            frmManageLocalDrivingLicenseApplications_Load(null, null);
+        }
+
+        private void showLicenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmLicenseInfo LicenseInfo = new frmLicenseInfo((int)LocalDrivingLicenseApplicationsGridView.CurrentRow.Cells[0].Value);
+            LicenseInfo.ShowDialog();
+        }
+
+        private void showPersonLicenseHistoryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmShowLicensesHistory licensesHistory = new frmShowLicensesHistory((string)LocalDrivingLicenseApplicationsGridView.CurrentRow.Cells[2].Value);
+            licensesHistory.ShowDialog();
         }
     }
 }

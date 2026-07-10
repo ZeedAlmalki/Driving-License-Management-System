@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using DataAccessLayer;
@@ -12,6 +13,22 @@ namespace BusinessLayer
     {
 
         public enum enMode { AddNew = 0, Update = 1 };
+        
+        public clsManageTestType.enTestType PassedTestLevel
+        {
+            get
+            {
+                if (!this.IsPassedAppointmentTestBefore((int)clsManageTestType.enTestType.VisionTest))
+                    return clsManageTestType.enTestType.VisionTest;
+
+                if (!this.IsPassedAppointmentTestBefore((int)clsManageTestType.enTestType.WrittenTest))
+                    return clsManageTestType.enTestType.WrittenTest;
+
+
+                return clsManageTestType.enTestType.StreetTest;
+            }
+        }
+
         public enMode Mode = enMode.AddNew;
         public int LocalDrivingLicenseApplicationsID { get; set; }
         public int LicenseClassID { get; set; }
@@ -31,6 +48,7 @@ namespace BusinessLayer
             clsApplication BaseApplication = clsApplication.FindApplicationByID(ApplicationID);
             this.ApplicationStatus = BaseApplication.ApplicationStatus;
             this.ApplicationDate = BaseApplication.ApplicationDate;
+            this.ApplicationType = BaseApplication.ApplicationType;
             this.LastStatusDate = BaseApplication.LastStatusDate;
             this.ApplicantPersonID = BaseApplication.ApplicantPersonID;
             this.ApplicationTypeID = BaseApplication.ApplicationTypeID;
@@ -47,6 +65,11 @@ namespace BusinessLayer
         public static DataTable GetLocalDrivingLicenseApplicationsView()
         {
             return clsLocalDrivingLicenseApplicationData.GetLocalDrivingLicenseApplicationsView();
+        }
+        
+        public int GetPassedTestCount()
+        {
+            return clsLocalDrivingLicenseApplicationData.GetPassedTestCount(this.LocalDrivingLicenseApplicationsID);
         }
 
         public static bool IsPersonHasActiveLicenseClass(int PersonID, int LicenseClassID, ref int ApplicationID)
@@ -104,6 +127,33 @@ namespace BusinessLayer
                 return null;
             }
 
+        }
+
+        public bool IsAnActiveAppointmentExist(int TestTypeID)
+        {
+            return clsLocalDrivingLicenseApplicationData.IsAnActiveAppointmentExist(this.LocalDrivingLicenseApplicationsID, TestTypeID);
+        }
+
+        public int GetTotalSameExamTrialsForLicense(int TestTypeID)
+        {
+            int Trials = clsLocalDrivingLicenseApplicationData.GetTotalSameExamTrialsForLicense(this.LocalDrivingLicenseApplicationsID, TestTypeID);
+
+            return Trials;
+        }
+
+        public bool ItHasAppointmentTestBefore( int TestTypeID)
+        {
+            return clsLocalDrivingLicenseApplicationData.ItHasAppointmentTestBefore(this.LocalDrivingLicenseApplicationsID, TestTypeID);
+        }
+
+        public bool IsPassedAppointmentTestBefore(int TestTypeID)
+        {
+            return clsLocalDrivingLicenseApplicationData.IsPassedAppointmentTestBefore(this.LocalDrivingLicenseApplicationsID, TestTypeID);
+        }
+
+        public bool ItHasLocalDrivingLicenseClassBefore()
+        {
+            return clsLocalDrivingLicenseApplicationData.ItHasLocalDrivingLicenseClassBefore(this.LicenseClassID, this.ApplicantPersonID);
         }
 
         public bool Save()

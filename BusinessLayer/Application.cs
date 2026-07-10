@@ -26,6 +26,7 @@ namespace BusinessLayer
         public decimal PaidFees { get; set; }
         public int CreatedByUserID { get; set; }
 
+
         public clsApplication()
         {
             ApplicationID = -1; 

@@ -28,11 +28,20 @@ namespace DataAccessLayer
 
             Command.Parameters.AddWithValue("@NationalNo", NationalNo);
             Command.Parameters.AddWithValue("@FirstName", FirstName);
-            Command.Parameters.AddWithValue("@SecondName", SecondName);
+
+            if (SecondName != "" && SecondName != null)
+                Command.Parameters.AddWithValue("@SecondName", SecondName);
+            else
+                Command.Parameters.AddWithValue("@SecondName", System.DBNull.Value);
+
+
+
             if (ThirdName != "" && ThirdName != null)
                 Command.Parameters.AddWithValue("@ThirdName", ThirdName);
             else
                 Command.Parameters.AddWithValue("@ThirdName", System.DBNull.Value);
+
+
             Command.Parameters.AddWithValue("@LastName", LastName);
             Command.Parameters.AddWithValue("@DateOfBirth", DateOfBirth);
             Command.Parameters.AddWithValue("@Gendor", Gendor);
@@ -96,11 +105,20 @@ namespace DataAccessLayer
             Command.Parameters.AddWithValue("@PersonID", PersonID);
             Command.Parameters.AddWithValue("@NationalNo", NationalNo);
             Command.Parameters.AddWithValue("@FirstName", FirstName);
-            Command.Parameters.AddWithValue("@SecondName", SecondName);
+
+
+            if (SecondName != "" && SecondName != null)
+                Command.Parameters.AddWithValue("@SecondName", SecondName);
+            else
+                Command.Parameters.AddWithValue("@SecondName", System.DBNull.Value);
+
+
             if (ThirdName != "" && ThirdName != null)
                 Command.Parameters.AddWithValue("@ThirdName", ThirdName);
             else
                 Command.Parameters.AddWithValue("@ThirdName", System.DBNull.Value);
+
+
             Command.Parameters.AddWithValue("@LastName", LastName);
             Command.Parameters.AddWithValue("@DateOfBirth", DateOfBirth);
             Command.Parameters.AddWithValue("@Gendor", Gendor);
@@ -191,15 +209,27 @@ namespace DataAccessLayer
 
                     NationalNo = (string)reader["NationalNo"];
                     FirstName = (string)reader["FirstName"];
-                    SecondName = (string)reader["SecondName"];
+
+
+
+                    if (reader["SecondName"] != DBNull.Value)
+                    {
+                        SecondName = (string)reader["SecondName"];
+                    }
+                    else
+                    {
+                        SecondName = string.Empty;
+                    }
+
                     if (reader["ThirdName"] != DBNull.Value)
                     {
                         ThirdName = (string)reader["ThirdName"];
                     }
                     else
                     {
-                        ThirdName = "";
+                        ThirdName = string.Empty;
                     }
+
                     LastName = (string)reader["LastName"];
                     DateOfBirth = (DateTime)reader["DateOfBirth"];
                     Gendor = Convert.ToInt16(reader["Gendor"]);
@@ -262,7 +292,17 @@ namespace DataAccessLayer
 
                     PersonID = (int)reader["PersonID"];
                     FirstName = (string)reader["FirstName"];
-                    SecondName = (string)reader["SecondName"];
+
+                    if (reader["SecondName"] != DBNull.Value)
+                    {
+                        SecondName = (string)reader["SecondName"];
+                    }
+                    else
+                    {
+                        SecondName = "";
+                    }
+
+
                     if (reader["ThirdName"] != DBNull.Value)
                     {
                         ThirdName = (string)reader["ThirdName"];

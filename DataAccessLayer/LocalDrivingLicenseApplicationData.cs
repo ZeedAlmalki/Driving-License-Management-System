@@ -43,6 +43,7 @@ namespace DataAccessLayer
             return dt;
         }
 
+
         public static DataTable GetLocalDrivingLicenseApplicationsView()
         {
             DataTable dt = new DataTable();
@@ -73,6 +74,40 @@ namespace DataAccessLayer
             }
             return dt;
         }
+
+        public static int GetPassedTestCount(int LocalDrivingLicenseApplicationID)
+        {
+            int PassedTestCount = 0;
+            SqlConnection Connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string query = @"SELECT COUNT(TestAppointments.TestTypeID) AS PassedTestCount
+                             FROM Tests
+                             INNER JOIN TestAppointments ON Tests.TestAppointmentID = TestAppointments.TestAppointmentID
+                             WHERE Tests.TestResult = 1 AND TestAppointments.LocalDrivingLicenseApplicationID = @LocalDrivingLicenseApplicationID";
+
+            SqlCommand Command = new SqlCommand(query, Connection);
+            Command.Parameters.AddWithValue("@LocalDrivingLicenseApplicationID", LocalDrivingLicenseApplicationID);
+            try
+            {
+                Connection.Open();
+                object result = Command.ExecuteScalar();
+                if (result != null && int.TryParse(result.ToString(), out int _PassedTestCount))
+                {
+                    PassedTestCount = _PassedTestCount;
+                }
+            }
+            catch (Exception e)
+            {
+
+            }
+            finally
+            {
+                Connection.Close();
+            }
+
+            return PassedTestCount;
+        }
+
 
         public static bool IsPersonHasActiveLicenseClass(int PersonID, int LicenseClassID, ref int ApplicationID)
         {
@@ -304,5 +339,177 @@ namespace DataAccessLayer
             return (RowsAffected > 0);
         }
 
+        public static bool IsAnActiveAppointmentExist(int LocalDrivingLicenseApplicationID, int TestTypeID)
+        {
+            bool IsFound = false;
+
+            SqlConnection Connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string query = @"SELECT TOP 1 IsLocked FROM TestAppointments WHERE LocalDrivingLicenseApplicationID = @LocalDrivingLicenseApplicationID  AND TestTypeID = @TestTypeID AND IsLocked = 0
+            ORDER BY TestAppointmentID DESC";
+
+            SqlCommand Command = new SqlCommand(query, Connection);
+            Command.Parameters.AddWithValue("@LocalDrivingLicenseApplicationID", LocalDrivingLicenseApplicationID);
+            Command.Parameters.AddWithValue("@TestTypeID", TestTypeID);
+
+            try
+            {
+                Connection.Open();
+                object result = Command.ExecuteScalar();
+
+                if (result != null)
+                    IsFound = true;
+            }
+
+
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                Connection.Close();
+            }
+            return IsFound;
+        }
+
+        public static bool ItHasAppointmentTestBefore(int LocalDrivingLicenseApplicationID, int TestTypeID)
+        {
+            bool IsFound = false;
+
+            SqlConnection Connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string query = @"SELECT TOP 1 1 FROM TestAppointments WHERE LocalDrivingLicenseApplicationID = @LocalDrivingLicenseApplicationID  AND TestTypeID = @TestTypeID 
+            ORDER BY TestAppointmentID DESC";
+
+            SqlCommand Command = new SqlCommand(query, Connection);
+            Command.Parameters.AddWithValue("@LocalDrivingLicenseApplicationID", LocalDrivingLicenseApplicationID);
+            Command.Parameters.AddWithValue("@TestTypeID", TestTypeID);
+
+            try
+            {
+                Connection.Open();
+                object result = Command.ExecuteScalar();
+
+                if (result != null)
+                    IsFound = true;
+            }
+
+
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                Connection.Close();
+            }
+            return IsFound;
+        }
+
+        public static bool IsPassedAppointmentTestBefore(int LocalDrivingLicenseApplicationID, int TestTypeID)
+        {
+            int IsFound = 0;
+
+            SqlConnection Connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string query = @"SELECT COUNT(*) FROM TestAppointments
+                            INNER JOIN Tests ON Tests.TestAppointmentID = TestAppointments.TestAppointmentID
+                            WHERE LocalDrivingLicenseApplicationID = @LocalDrivingLicenseApplicationID AND TestTypeID = @TestTypeID AND TestResult = 1";
+
+            SqlCommand Command = new SqlCommand(query, Connection);
+            Command.Parameters.AddWithValue("@LocalDrivingLicenseApplicationID", LocalDrivingLicenseApplicationID);
+            Command.Parameters.AddWithValue("@TestTypeID", TestTypeID);
+
+            try
+            {
+                Connection.Open();
+                object result = Command.ExecuteScalar();
+
+                if (result != null && int.TryParse(result.ToString(), out int _IsFound))
+                {
+                    IsFound = _IsFound;
+                }
+            }
+
+
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                Connection.Close();
+            }
+            return IsFound > 0;
+        }
+
+        public static int GetTotalSameExamTrialsForLicense(int LocalDrivingLicenseApplicationID, int TestTypeID)
+        {
+            SqlConnection Connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+            int TotalTrials = 0;
+            string query = @"SELECT COUNT(*) FROM TestAppointments 
+                            INNER JOIN TESTS ON TestAppointments.TestAppointmentID = Tests.TestAppointmentID
+                            WHERE LocalDrivingLicenseApplicationID = @LocalDrivingLicenseApplicationID AND TestTypeID = @TestTypeID AND IsLocked = 1";
+
+            SqlCommand Command = new SqlCommand(query, Connection);
+
+            Command.Parameters.AddWithValue("@LocalDrivingLicenseApplicationID", LocalDrivingLicenseApplicationID);
+            Command.Parameters.AddWithValue("@TestTypeID", TestTypeID);
+
+            try
+            {
+                Connection.Open();
+                object result = Command.ExecuteScalar();
+                if (result != null && int.TryParse(result.ToString(), out int _TotalTrails))
+                {
+                    TotalTrials = _TotalTrails;
+                }
+            }
+            catch (SqlException ex)
+            {
+
+            }
+            finally
+            {
+                Connection.Close();
+            }
+            return TotalTrials;
+        }
+
+        public static bool ItHasLocalDrivingLicenseClassBefore(int LicenseClassID, int PersonID)
+        {
+            SqlConnection Connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+            bool ItHas = false;
+
+            string query = @"SELECT COUNT(*) FROM Licenses
+                            INNER JOIN Drivers ON Drivers.DriverID = Licenses.DriverID
+                            WHERE LicenseClass = @LicenseClassID AND Drivers.PersonID = @PersonID AND IsActive = 1";
+
+            SqlCommand Command = new SqlCommand(query, Connection);
+
+            Command.Parameters.AddWithValue("@LicenseClassID", LicenseClassID);
+            Command.Parameters.AddWithValue("@PersonID", PersonID);
+
+            try
+            {
+                Connection.Open();
+                object result = Command.ExecuteScalar();
+                if (result != null && int.TryParse(result.ToString(), out int LicenseID))
+                {
+                    if (LicenseID == 1)
+                        ItHas = true;
+                }
+            }
+            catch (SqlException ex)
+            {
+
+            }
+            finally
+            {
+                Connection.Close();
+            }
+            return ItHas;
+        }
     }
 }

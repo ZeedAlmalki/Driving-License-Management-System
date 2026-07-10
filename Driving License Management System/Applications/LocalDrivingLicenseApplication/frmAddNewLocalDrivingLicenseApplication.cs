@@ -147,6 +147,8 @@ namespace Driving_License_Management_System
                 return;
             }
 
+           
+
             clsLicenseClass LicenseClass = clsLicenseClass.FindLicenseClassByClassName(cbLicenseClass.Text);
             int LicenseClassID = 0;
             if (LicenseClass != null)
@@ -167,10 +169,19 @@ namespace Driving_License_Management_System
             }
             LocalDrivingLicenseApplication.LicenseClassID = LicenseClassID;
             LocalDrivingLicenseApplication.ApplicantPersonID = ctrlPersonCardWithFilter1.PersonID;
+
+            if (LocalDrivingLicenseApplication.ItHasLocalDrivingLicenseClassBefore())
+            {
+                MessageBox.Show("The Person Already Has This Driving License ", "Already Taken it", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             LocalDrivingLicenseApplication.LastStatusDate = DateTime.Now;
             LocalDrivingLicenseApplication.ApplicationTypeID = ApplicationTypeID;
             LocalDrivingLicenseApplication.PaidFees = ApplicationFees;
             LocalDrivingLicenseApplication.CreatedByUserID = GlobalSettings.User.UserID;
+
+
 
             if (LocalDrivingLicenseApplication.Save())
             {

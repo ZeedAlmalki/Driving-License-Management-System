@@ -427,7 +427,8 @@ namespace DataAccessLayer
             DataTable dt = new DataTable();
             SqlConnection Connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
-            string query = @"SELECT Users.UserID, Users.PersonID, CONCAT_WS(' ', People.FirstName, People.SecondName, People.ThirdName, People.LastName) AS FullName,
+            string query = @"SELECT Users.UserID, Users.PersonID, 
+                            CONCAT_WS(' ', NULLIF(People.FirstName, ''), NULLIF(People.SecondName, ''), NULLIF(People.ThirdName, ''), NULLIF(People.LastName, '')) AS FullName,
                            Users.UserName, Users.IsActive FROM Users
                            INNER JOIN People ON People.PersonID = Users.PersonID";
 

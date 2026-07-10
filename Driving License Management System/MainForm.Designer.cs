@@ -58,6 +58,7 @@
             this.manageTestTypesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.detianLicenseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnClose = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.PanelProject.SuspendLayout();
             this.cmsAccountSettings.SuspendLayout();
             this.cmsApplications.SuspendLayout();
@@ -66,6 +67,7 @@
             // PanelProject
             // 
             this.PanelProject.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(42)))), ((int)(((byte)(57)))));
+            this.PanelProject.Controls.Add(this.guna2Button1);
             this.PanelProject.Controls.Add(this.btnAccountSettings);
             this.PanelProject.Controls.Add(this.btnUsers);
             this.PanelProject.Controls.Add(this.btnPeople);
@@ -102,7 +104,7 @@
             this.btnAccountSettings.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnAccountSettings.ImageOffset = new System.Drawing.Point(1, 0);
             this.btnAccountSettings.ImageSize = new System.Drawing.Size(64, 64);
-            this.btnAccountSettings.Location = new System.Drawing.Point(3, 273);
+            this.btnAccountSettings.Location = new System.Drawing.Point(6, 336);
             this.btnAccountSettings.Name = "btnAccountSettings";
             this.btnAccountSettings.Size = new System.Drawing.Size(206, 55);
             this.btnAccountSettings.TabIndex = 3;
@@ -194,7 +196,7 @@
             this.btnUsers.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnUsers.ImageOffset = new System.Drawing.Point(1, 0);
             this.btnUsers.ImageSize = new System.Drawing.Size(64, 64);
-            this.btnUsers.Location = new System.Drawing.Point(0, 186);
+            this.btnUsers.Location = new System.Drawing.Point(0, 255);
             this.btnUsers.Name = "btnUsers";
             this.btnUsers.Size = new System.Drawing.Size(209, 55);
             this.btnUsers.TabIndex = 2;
@@ -226,7 +228,7 @@
             this.btnPeople.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnPeople.ImageOffset = new System.Drawing.Point(1, 0);
             this.btnPeople.ImageSize = new System.Drawing.Size(64, 64);
-            this.btnPeople.Location = new System.Drawing.Point(0, 99);
+            this.btnPeople.Location = new System.Drawing.Point(6, 93);
             this.btnPeople.Name = "btnPeople";
             this.btnPeople.Size = new System.Drawing.Size(209, 55);
             this.btnPeople.TabIndex = 1;
@@ -290,7 +292,7 @@
             this.cmsApplications.RenderStyle.SelectionForeColor = System.Drawing.Color.White;
             this.cmsApplications.RenderStyle.SeparatorColor = System.Drawing.Color.Gainsboro;
             this.cmsApplications.RenderStyle.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            this.cmsApplications.Size = new System.Drawing.Size(385, 236);
+            this.cmsApplications.Size = new System.Drawing.Size(385, 214);
             // 
             // drToolStripMenuItem
             // 
@@ -484,6 +486,38 @@
             this.btnClose.UseTransparentBackground = true;
             this.btnClose.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
             // 
+            // guna2Button1
+            // 
+            this.guna2Button1.Animated = true;
+            this.guna2Button1.AnimatedGIF = true;
+            this.guna2Button1.AutoRoundedCorners = true;
+            this.guna2Button1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2Button1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(50)))), ((int)(((byte)(65)))));
+            this.guna2Button1.BorderThickness = 1;
+            this.guna2Button1.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(215)))));
+            this.guna2Button1.CheckedState.ForeColor = System.Drawing.Color.White;
+            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button1.FillColor = System.Drawing.Color.Transparent;
+            this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.guna2Button1.ForeColor = System.Drawing.Color.White;
+            this.guna2Button1.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(56)))), ((int)(((byte)(76)))));
+            this.guna2Button1.HoverState.ForeColor = System.Drawing.Color.White;
+            this.guna2Button1.Image = global::Driving_License_Management_System.Properties.Resources.Drivers_64;
+            this.guna2Button1.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.guna2Button1.ImageOffset = new System.Drawing.Point(1, 0);
+            this.guna2Button1.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2Button1.Location = new System.Drawing.Point(6, 174);
+            this.guna2Button1.Name = "guna2Button1";
+            this.guna2Button1.Size = new System.Drawing.Size(209, 55);
+            this.guna2Button1.TabIndex = 4;
+            this.guna2Button1.Text = "Drivers";
+            this.guna2Button1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.guna2Button1.UseTransparentBackground = true;
+            this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -536,6 +570,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private Guna.UI2.WinForms.Guna2Button btnClose;
+        private Guna.UI2.WinForms.Guna2Button guna2Button1;
     }
 }
 

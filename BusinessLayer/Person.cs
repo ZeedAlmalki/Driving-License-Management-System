@@ -41,7 +41,12 @@ namespace BusinessLayer
 
         public string FullName()
         {
-            return FirstName + " " + SecondName + " " + ThirdName + " " + LastName;
+            if (string.IsNullOrWhiteSpace(ThirdName))
+            {
+                return $"{FirstName} {SecondName} {LastName}";
+            }
+
+            return $"{FirstName} {SecondName} {ThirdName} {LastName}";
         }
 
         public clsPerson()
