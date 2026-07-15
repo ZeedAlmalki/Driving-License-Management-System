@@ -126,6 +126,87 @@ namespace DataAccessLayer
                 return IsFound;
             }
 
+            public static bool ItHasInternationalDrivingLicense(int IssuedUsingLocalDrivingLicenseID)
+            {
+                SqlConnection Connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+                bool ItHas = false;
+
+                string query = @"
+							SELECT COUNT(*) FROM InternationalLicenses
+                            WHERE IssuedUsingLocalLicenseID = @IssuedUsingLocalDrivingLicenseID AND IsActive = 1";
+
+                SqlCommand Command = new SqlCommand(query, Connection);
+
+                Command.Parameters.AddWithValue("@IssuedUsingLocalDrivingLicenseID", IssuedUsingLocalDrivingLicenseID);
+
+                try
+                {
+                    Connection.Open();
+                    object result = Command.ExecuteScalar();
+                    if (result != null && int.TryParse(result.ToString(), out int LicenseID))
+                    {
+                        if (LicenseID == 1)
+                            ItHas = true;
+                    }
+                }
+                catch (SqlException ex)
+                {
+
+                }
+                finally
+                {
+                    Connection.Close();
+                }
+                return ItHas;
+            }
+
+            public static bool FindInternationalLicenseByLocalLicenseID(int IssuedUsingLocalLicenseID, ref int InternationalLicenseID, ref int ApplicationID,
+                 ref int DriverID, ref DateTime IssueDate,
+                 ref DateTime ExpirationDate, ref bool IsActive, ref int CreatedByUserID)
+            {
+                bool IsFound = false;
+
+                SqlConnection Connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+                string query = @"SELECT * FROM InternationalLicenses 
+                             WHERE IssuedUsingLocalLicenseID = @IssuedUsingLocalLicenseID AND IsAcitve = 1";
+
+                SqlCommand Command = new SqlCommand(query, Connection);
+                Command.Parameters.AddWithValue("@IssuedUsingLocalLicenseID", IssuedUsingLocalLicenseID);
+
+                try
+                {
+                    Connection.Open();
+                    SqlDataReader reader = Command.ExecuteReader();
+
+                    if (reader.Read())
+                    {
+                        ApplicationID = (int)reader["ApplicationID"];
+                        DriverID = (int)reader["DriverID"];
+                        InternationalLicenseID = (int)reader["InternationalLicenseID"];
+                        IssueDate = (DateTime)reader["IssueDate"];
+                        ExpirationDate = (DateTime)reader["ExpirationDate"];
+                        IsActive = (bool)reader["IsActive"];
+                        CreatedByUserID = (int)reader["CreatedByUserID"];
+
+                        IsFound = true;
+                    }
+                    else
+                    {
+                        IsFound = false;
+                    }
+                }
+                catch (Exception ex)
+                {
+
+                }
+                finally
+                {
+                    Connection.Close();
+                }
+                return IsFound;
+            }
+
             public static bool FindInternationalLicenseByApplicationID(int ApplicationID, ref int InternationalLicenseID,
                     ref int DriverID, ref int IssuedUsingLocalLicenseID, ref DateTime IssueDate,
                     ref DateTime ExpirationDate, ref bool IsActive, ref int CreatedByUserID)

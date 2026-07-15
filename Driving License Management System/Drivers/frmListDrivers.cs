@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BusinessLayer;
+using Driving_License_Management_System.License;
+using Driving_License_Management_System.Users;
 
 namespace Driving_License_Management_System.Drivers
 {
@@ -26,10 +28,11 @@ namespace Driving_License_Management_System.Drivers
 
         private void frmListDrivers_Load(object sender, EventArgs e)
         {
+            cbFilterBy.SelectedIndex = 0;
             _dtAllDrivers = clsDriver.GetAllDrivers();
 
             _dtAllDrivers = _dtAllDrivers.DefaultView.ToTable(false, "DriverID", "PersonID", "NationalNo", "FullName",
-                "CreatedDate", "ActiveLicenses");
+                "CreatedDate", "NumberOfActiveLicenses");
             DriversDataGridView.DataSource = _dtAllDrivers;
             lblTotalRecords.Text = DriversDataGridView.Rows.Count.ToString();
             if (_dtAllDrivers.Rows.Count > 0)
@@ -120,6 +123,20 @@ namespace Driving_License_Management_System.Drivers
                 e.Handled = true;
             }
 
+        }
+
+        private void showPersonInfoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmPersonDetails personDetails = new frmPersonDetails((string)DriversDataGridView.CurrentRow.Cells[2].Value);
+            personDetails.ShowDialog();
+            frmListDrivers_Load(null, null);
+        }
+
+        private void showPersonLicenseHistoryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmShowLicensesHistory personLicensesHistory = new frmShowLicensesHistory((string)DriversDataGridView.CurrentRow.Cells[2].Value);
+            personLicensesHistory.ShowDialog();
+            frmListDrivers_Load(null, null);
         }
     }
 }

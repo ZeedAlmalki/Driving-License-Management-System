@@ -59,9 +59,11 @@
             this.btnClose = new Guna.UI2.WinForms.Guna2Button();
             this.btnAdd = new Guna.UI2.WinForms.Guna2Button();
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.LocalDrivingLicenseApplicationsGridView)).BeginInit();
             this.cmsLocalDrivingLicenseApplications.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // cbStatus
@@ -235,8 +237,7 @@
             this.cmsLocalDrivingLicenseApplications.RenderStyle.SelectionForeColor = System.Drawing.Color.White;
             this.cmsLocalDrivingLicenseApplications.RenderStyle.SeparatorColor = System.Drawing.Color.Gainsboro;
             this.cmsLocalDrivingLicenseApplications.RenderStyle.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            this.cmsLocalDrivingLicenseApplications.Size = new System.Drawing.Size(247, 232);
-            this.cmsLocalDrivingLicenseApplications.Opening += new System.ComponentModel.CancelEventHandler(this.cmsLocalDrivingLicenseApplications_Opening);
+            this.cmsLocalDrivingLicenseApplications.Size = new System.Drawing.Size(247, 210);
             // 
             // showDetailsToolStripMenuItem
             // 
@@ -453,12 +454,23 @@
             this.guna2PictureBox1.TabIndex = 63;
             this.guna2PictureBox1.TabStop = false;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Driving_License_Management_System.Properties.Resources.Local_32;
+            this.pictureBox1.Location = new System.Drawing.Point(923, 109);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(32, 32);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox1.TabIndex = 92;
+            this.pictureBox1.TabStop = false;
+            // 
             // frmManageLocalDrivingLicenseApplications
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(246)))), ((int)(((byte)(250)))));
             this.ClientSize = new System.Drawing.Size(1675, 762);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.cbStatus);
             this.Controls.Add(this.txtFilterValue);
             this.Controls.Add(this.label1);
@@ -476,6 +488,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.LocalDrivingLicenseApplicationsGridView)).EndInit();
             this.cmsLocalDrivingLicenseApplications.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -511,5 +524,6 @@
         private System.Windows.Forms.ToolStripMenuItem scheduleVisionTestToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem scheduleWrittenTestToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem scheduleStreetTestToolStripMenuItem;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

@@ -13,10 +13,21 @@ namespace Driving_License_Management_System.Applications.LocalDrivingLicenseAppl
 {
     public partial class frmShowLocalDrivingLicenseApplicationInfo : Form
     {
+        int _LocalDrivingLicenseApplicationID = -1;
         public frmShowLocalDrivingLicenseApplicationInfo(int LocalDrivingLicenseApplicationID)
         {
             InitializeComponent();
-            ctrlDrivingLicenseApplicationInfo1.LoadLocalDrivingLicenseApplicationInfo(LocalDrivingLicenseApplicationID);
+            _LocalDrivingLicenseApplicationID = LocalDrivingLicenseApplicationID;
+        }
+
+        private void ctrlDrivingLicenseApplicationInfo1_Load(object sender, EventArgs e)
+        {
+            ctrlDrivingLicenseApplicationInfo1.LoadLocalDrivingLicenseApplicationInfo(_LocalDrivingLicenseApplicationID);
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

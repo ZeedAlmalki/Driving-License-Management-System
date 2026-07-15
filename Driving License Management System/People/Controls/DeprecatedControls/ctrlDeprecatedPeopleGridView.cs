@@ -68,7 +68,7 @@ namespace Driving_License_Management_System
 
             {
                 //Perform Delele and refresh
-                string ImagePath = (clsPerson.Find((int)PeopleDataGridView.CurrentRow.Cells[0].Value).ImagePath);
+                string ImagePath = (clsPerson.FindByPersonID((int)PeopleDataGridView.CurrentRow.Cells[0].Value).ImagePath);
                 if (clsPerson.DeletePerson((int)PeopleDataGridView.CurrentRow.Cells[0].Value))
                 {
                     MessageBox.Show("Person Deleted Successfully.");

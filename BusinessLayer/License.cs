@@ -29,6 +29,7 @@ namespace BusinessLayer
         public string Notes { get; set; }
         public decimal PaidFees { get; set; }
         public bool IsActive { get; set; }
+        public int PersonID { get; set; }
         public int CreatedByUserID { get; set; }
 
         public clsLicense()
@@ -48,7 +49,7 @@ namespace BusinessLayer
         }
 
         private clsLicense(int LicenseID, int ApplicationID, int DriverID, int LicenseClass, DateTime IssueDate, DateTime ExpirationDate, string Notes,
-                decimal PaidFees, bool IsActive, byte IssueReason, int CreatedByUserID)
+                decimal PaidFees, bool IsActive, byte IssueReason, int CreatedByUserID, int PersonID = -1)
         {
             this.LicenseID = LicenseID;
             this.LicenseClass = LicenseClass;
@@ -62,6 +63,7 @@ namespace BusinessLayer
             this.IsActive = IsActive;
             this.IssueReason = (enIssueReason)IssueReason;
             this.CreatedByUserID = CreatedByUserID;
+            this.PersonID = PersonID;
             _Mode = enMode.Update;
         }
 
@@ -91,7 +93,8 @@ namespace BusinessLayer
             if (clsLicensesData.FindLicenseByID(LicenseID, ref ApplicationID, ref DriverID, ref LicenseClass, ref IssueDate, ref ExpirationDate, ref Notes,
                 ref PaidFees, ref IsActive, ref IssueReason, ref CreatedByUserID))
             {
-                return new clsLicense(LicenseID, ApplicationID, DriverID, LicenseClass, IssueDate, ExpirationDate, Notes, PaidFees, IsActive, IssueReason, CreatedByUserID);
+                int PersonID = clsApplication.FindApplicationByID(ApplicationID).ApplicantPersonID;
+                return new clsLicense(LicenseID, ApplicationID, DriverID, LicenseClass, IssueDate, ExpirationDate, Notes, PaidFees, IsActive, IssueReason, CreatedByUserID, PersonID);
             }
             else
             {
@@ -116,7 +119,8 @@ namespace BusinessLayer
             if (clsLicensesData.FindLicenseByApplicationID(ApplicationID, ref LicenseID, ref DriverID, ref LicenseClass, ref IssueDate, ref ExpirationDate, ref Notes,
                 ref PaidFees, ref IsActive, ref IssueReason, ref CreatedByUserID))
             {
-                return new clsLicense(LicenseID, ApplicationID, DriverID, LicenseClass, IssueDate, ExpirationDate, Notes, PaidFees, IsActive, IssueReason, CreatedByUserID);
+                int PersonID = clsApplication.FindApplicationByID(ApplicationID).ApplicantPersonID;
+                return new clsLicense(LicenseID, ApplicationID, DriverID, LicenseClass, IssueDate, ExpirationDate, Notes, PaidFees, IsActive, IssueReason, CreatedByUserID, PersonID);
             }
             else
             {

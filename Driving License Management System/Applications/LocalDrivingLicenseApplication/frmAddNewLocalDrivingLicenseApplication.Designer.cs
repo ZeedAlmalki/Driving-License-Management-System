@@ -35,6 +35,7 @@
             this.tcLocalDrivingLicense = new System.Windows.Forms.TabControl();
             this.tpPersonInfo = new System.Windows.Forms.TabPage();
             this.btnNext = new Guna.UI2.WinForms.Guna2Button();
+            this.ctrlPersonCardWithFilter1 = new Driving_License_Management_System.People.ctrlPersonCardWithFilter();
             this.tpApplicationInfo = new System.Windows.Forms.TabPage();
             this.cbLicenseClass = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -47,7 +48,6 @@
             this.lblDLApplicationID = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.ctrlPersonCardWithFilter1 = new Driving_License_Management_System.People.ctrlPersonCardWithFilter();
             this.tcLocalDrivingLicense.SuspendLayout();
             this.tpPersonInfo.SuspendLayout();
             this.tpApplicationInfo.SuspendLayout();
@@ -138,6 +138,7 @@
             this.tcLocalDrivingLicense.SelectedIndex = 0;
             this.tcLocalDrivingLicense.Size = new System.Drawing.Size(1032, 491);
             this.tcLocalDrivingLicense.TabIndex = 61;
+            this.tcLocalDrivingLicense.SelectedIndexChanged += new System.EventHandler(this.tcLocalDrivingLicense_SelectedIndexChanged);
             // 
             // tpPersonInfo
             // 
@@ -182,6 +183,18 @@
             this.btnNext.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.btnNext.UseTransparentBackground = true;
             this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
+            // 
+            // ctrlPersonCardWithFilter1
+            // 
+            this.ctrlPersonCardWithFilter1.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
+            this.ctrlPersonCardWithFilter1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(246)))), ((int)(((byte)(250)))));
+            this.ctrlPersonCardWithFilter1.FilterEnabled = true;
+            this.ctrlPersonCardWithFilter1.Location = new System.Drawing.Point(-3, -3);
+            this.ctrlPersonCardWithFilter1.Name = "ctrlPersonCardWithFilter1";
+            this.ctrlPersonCardWithFilter1.ShowAddPerson = true;
+            this.ctrlPersonCardWithFilter1.Size = new System.Drawing.Size(1021, 406);
+            this.ctrlPersonCardWithFilter1.TabIndex = 0;
+            this.ctrlPersonCardWithFilter1.OnPersonSelected += new System.Action<int>(this.ctrlPersonCardWithFilter1_OnPersonSelected);
             // 
             // tpApplicationInfo
             // 
@@ -321,17 +334,6 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // ctrlPersonCardWithFilter1
-            // 
-            this.ctrlPersonCardWithFilter1.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
-            this.ctrlPersonCardWithFilter1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(246)))), ((int)(((byte)(250)))));
-            this.ctrlPersonCardWithFilter1.FilterEnabled = true;
-            this.ctrlPersonCardWithFilter1.Location = new System.Drawing.Point(-3, -3);
-            this.ctrlPersonCardWithFilter1.Name = "ctrlPersonCardWithFilter1";
-            this.ctrlPersonCardWithFilter1.ShowAddPerson = true;
-            this.ctrlPersonCardWithFilter1.Size = new System.Drawing.Size(1021, 406);
-            this.ctrlPersonCardWithFilter1.TabIndex = 0;
-            // 
             // frmAddNewLocalDrivingLicenseApplication
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -344,6 +346,7 @@
             this.Controls.Add(this.tcLocalDrivingLicense);
             this.Name = "frmAddNewLocalDrivingLicenseApplication";
             this.Text = "Add New Local Driving License Application";
+            this.Activated += new System.EventHandler(this.frmAddNewLocalDrivingLicenseApplication_Activated);
             this.Load += new System.EventHandler(this.frmAddNewLocalDrivingLicenseApplication_Load);
             this.tcLocalDrivingLicense.ResumeLayout(false);
             this.tpPersonInfo.ResumeLayout(false);

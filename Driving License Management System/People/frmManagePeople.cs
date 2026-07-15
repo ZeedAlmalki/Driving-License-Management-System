@@ -114,7 +114,7 @@ namespace Driving_License_Management_System
             if (MessageBox.Show("Are you sure you want to delete Person [" + PeopleDataGridView.CurrentRow.Cells[0].Value + "]", "Confirm Delete", MessageBoxButtons.OKCancel) == DialogResult.OK)
 
             {
-                string ImagePath = (clsPerson.Find((int)PeopleDataGridView.CurrentRow.Cells[0].Value).ImagePath);
+                string ImagePath = (clsPerson.FindByPersonID((int)PeopleDataGridView.CurrentRow.Cells[0].Value).ImagePath);
 
                 //Perform Delele and refresh
                 if (clsPerson.DeletePerson((int)PeopleDataGridView.CurrentRow.Cells[0].Value))

@@ -63,7 +63,12 @@ namespace Driving_License_Management_System.Applications.LocalDrivingLicenseAppl
                 ApplicationRetakeTest.LastStatusDate = DateTime.Now;
                 ApplicationRetakeTest.PaidFees = clsManageApplicationTypes.FindApplicationType((int)clsManageApplicationTypes.enManageApplicationTypes.RetakeTest).ApplicationFees;
                 ApplicationRetakeTest.CreatedByUserID = GlobalSettings.User.UserID;
-                ApplicationRetakeTest.Save();
+                if (!ApplicationRetakeTest.Save())
+                {
+                    MessageBox.Show("Failed to Create Application", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    this.Close();
+                    return;
+                }
                 _Appointment.RetakeTestApplicationID = ApplicationRetakeTest.ApplicationID;
                 ctrlTestsCard1.ReTakeTestApplicationID = _Appointment.RetakeTestApplicationID.ToString();
             }
@@ -77,6 +82,7 @@ namespace Driving_License_Management_System.Applications.LocalDrivingLicenseAppl
             else
             {
                 MessageBox.Show("Something went error while adding the appointment", "Appointment Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
                 return;
             }
         }

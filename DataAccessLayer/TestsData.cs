@@ -51,5 +51,45 @@ namespace DataAccessLayer
             }
             return TestID;
         }
+
+
+        public static bool GetTestInfoByID(int TestID, ref int TestAppointmentID, ref bool TestResult,
+            ref string Notes, ref int CreatedByUserID)
+        {
+            bool IsFound = false;
+
+            SqlConnection Connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string query = "SELECT * FROM Tests WHERE TestID = @TestID";
+
+            SqlCommand Command = new SqlCommand(query, Connection);
+
+            Command.Parameters.AddWithValue("@TestID", TestID);
+
+            try
+            {
+                Connection.Open();
+                SqlDataReader reader = Command.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    TestAppointmentID = (int)reader["TestAppointmentID"];
+                    TestResult = (bool)reader["TestResult"];
+                    Notes = (string)reader["Notes"];
+                    CreatedByUserID = (int)reader["CreatedByUserID"];
+                    IsFound = true;
+                }
+
+            }
+            catch (SqlException ex)
+            {
+
+            }
+            finally
+            {
+                Connection.Close();
+            }
+            return IsFound;
+        }
     }
 }

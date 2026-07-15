@@ -13,7 +13,7 @@ namespace Driving_License_Management_System.License
     public partial class frmLicenseInfo : Form
     {
         private int _LocalDrivingLicenseApplicationID = -1;
-        public frmLicenseInfo(int LocalDrivingLicenseApplcationID)
+        public frmLicenseInfo(int LocalDrivingLicenseApplcationID) // if you want your system more flexible you must to parmatrazer the licenses id and person id
         {
             InitializeComponent();
             _LocalDrivingLicenseApplicationID = LocalDrivingLicenseApplcationID;
@@ -26,6 +26,11 @@ namespace Driving_License_Management_System.License
                 MessageBox.Show("Something Went error", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.Close();
             }
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

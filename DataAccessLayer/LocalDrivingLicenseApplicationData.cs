@@ -194,47 +194,47 @@ namespace DataAccessLayer
             return IsFound;
         }
 
-        //public static bool FindLocalDrivingLicenseApplicationByLicenseClassID(int LicenseClassID, ref int ApplicationID, ref int LocalDrivingLicenseApplicationID)
-        //{
-        //    bool IsFound = false;
+        public static bool FindLocalDrivingLicenseByApplicationID(int ApplicationID, ref int LocalDrivingLicenseApplicationID, ref int LicenseClassID)
+        {
+            bool IsFound = false;
 
-        //    SqlConnection Connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+            SqlConnection Connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
-        //    string query = @"SELECT ApplicationID, LocalDrivingLicenseApplicationID
-        //                            FROM LocalDrivingLicenseApplications 
-        //                            WHERE LicenseClassID = @LicenseClassID";
-        //    SqlCommand Command = new SqlCommand(query, Connection);
+            string query = @"SELECT *
+                                    FROM LocalDrivingLicenseApplications 
+                                    WHERE ApplicationID = @ApplicationID";
+            SqlCommand Command = new SqlCommand(query, Connection);
 
-        //    Command.Parameters.AddWithValue("@LicenseClassID", LicenseClassID);
+            Command.Parameters.AddWithValue("@ApplicationID", ApplicationID);
 
-        //    try
-        //    {
-        //        Connection.Open();
+            try
+            {
+                Connection.Open();
 
-        //        SqlDataReader reader = Command.ExecuteReader();
+                SqlDataReader reader = Command.ExecuteReader();
 
-        //        if (reader.Read())
-        //        {
-        //            ApplicationID = (int)reader["ApplicationID"];
-        //            LocalDrivingLicenseApplicationID = (int)reader["LocalDrivingLicenseApplicationID"];
-        //            IsFound = true;
-        //        }
-        //        else
-        //        {
-        //            IsFound = false;
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
+                if (reader.Read())
+                {
+                    LocalDrivingLicenseApplicationID = (int)reader["LocalDrivingLicenseApplicationID"];
+                    LicenseClassID = (int)reader["LicenseClassID"];
+                    IsFound = true;
+                }
+                else
+                {
+                    IsFound = false;
+                }
+            }
+            catch (Exception ex)
+            {
 
-        //    }
-        //    finally
-        //    {
-        //        Connection.Close();
-        //    }
+            }
+            finally
+            {
+                Connection.Close();
+            }
 
-        //    return IsFound;
-        //}
+            return IsFound;
+        }
 
         public static int AddNewdLocalDrivingLicenseApplication(int ApplicationID, int LicenseClassID)
         {
@@ -477,12 +477,13 @@ namespace DataAccessLayer
             return TotalTrials;
         }
 
-        public static bool ItHasLocalDrivingLicenseClassBefore(int LicenseClassID, int PersonID)
+        public static bool ItHasLocalDrivingLicenseClassBefore(int LicenseClassID, int PersonID, ref int outLicenseID)
         {
             SqlConnection Connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
             bool ItHas = false;
+            outLicenseID = -1;
 
-            string query = @"SELECT COUNT(*) FROM Licenses
+            string query = @"SELECT LicenseID FROM Licenses
                             INNER JOIN Drivers ON Drivers.DriverID = Licenses.DriverID
                             WHERE LicenseClass = @LicenseClassID AND Drivers.PersonID = @PersonID AND IsActive = 1";
 
@@ -497,8 +498,7 @@ namespace DataAccessLayer
                 object result = Command.ExecuteScalar();
                 if (result != null && int.TryParse(result.ToString(), out int LicenseID))
                 {
-                    if (LicenseID == 1)
-                        ItHas = true;
+                    outLicenseID = LicenseID;
                 }
             }
             catch (SqlException ex)
@@ -509,7 +509,7 @@ namespace DataAccessLayer
             {
                 Connection.Close();
             }
-            return ItHas;
+            return (outLicenseID != -1);
         }
     }
 }

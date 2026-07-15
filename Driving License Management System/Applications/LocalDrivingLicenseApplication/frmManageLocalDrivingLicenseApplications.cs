@@ -86,8 +86,6 @@ namespace Driving_License_Management_System
                 _dtLocalDrivingLicenseApplicationsView.DefaultView.RowFilter = string.Format("[{0}] LIKE '{1}%'", FilterColumn, txtFilterValue.Text);
 
             lblTotalRecords.Text = LocalDrivingLicenseApplicationsGridView.Rows.Count.ToString();
-
-
         }
         
         private void cbStatus_SelectedIndexChanged(object sender, EventArgs e)
@@ -153,22 +151,19 @@ namespace Driving_License_Management_System
 
         private void canceloolStripMenuItem_Click(object sender, EventArgs e)
         {
-            clsApplication application = clsApplication.FindApplicationByID(clsLocalDrivingLicenseApplication.FindLocalDrivingLicenseApplicationByID((int)LocalDrivingLicenseApplicationsGridView.CurrentRow.Cells[0].Value).ApplicationID);
-            if (application != null && application.ApplicationStatus == clsApplication.enApplicationSatus.Cancelled)
-            {
-                MessageBox.Show("Application Is Already Cancelled, you can not Cancel a Cancalled Application");
+            if (MessageBox.Show("Are you sure do you want to cancel this Application", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.No)
                 return;
-            }
-            application.ApplicationStatus = clsApplication.enApplicationSatus.Cancelled;
-            application.LastStatusDate = DateTime.Now;
-            if (application.Save())
+
+            clsLocalDrivingLicenseApplication LocalDrivingLicenseApplication = clsLocalDrivingLicenseApplication.FindLocalDrivingLicenseApplicationByID((int)LocalDrivingLicenseApplicationsGridView.CurrentRow.Cells[0].Value);
+
+            if (LocalDrivingLicenseApplication.Cancel())
             {
                 MessageBox.Show("Cancalled Has Been Successuflly");
                 frmManageLocalDrivingLicenseApplications_Load(null, null);
             }
             else
             {
-                MessageBox.Show("Something went error");
+                MessageBox.Show("Something went error", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -188,14 +183,17 @@ namespace Driving_License_Management_System
 
         private void deleteApplicationToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (MessageBox.Show("Are you sure do you want to delete this Application", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.No)
+                return;
+
             if (clsLocalDrivingLicenseApplication.DeleteLocalDrivingLicenseApplicationByID((int)LocalDrivingLicenseApplicationsGridView.CurrentRow.Cells[0].Value))
             {
-                MessageBox.Show("Deleted Has Been Successuflly");
+                MessageBox.Show("Deleted Has Been Successuflly", "Sucess", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 frmManageLocalDrivingLicenseApplications_Load(null, null);
             }
             else
             {
-                MessageBox.Show("Something Went Error");
+                MessageBox.Show("Something Went Error", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -203,6 +201,7 @@ namespace Driving_License_Management_System
         {
             frmShowLocalDrivingLicenseApplicationInfo frmShowLocalDriving = new frmShowLocalDrivingLicenseApplicationInfo((int)LocalDrivingLicenseApplicationsGridView.CurrentRow.Cells[0].Value);
             frmShowLocalDriving.ShowDialog();
+            frmManageLocalDrivingLicenseApplications_Load(null, null);
         }
 
         private void cmsLocalDrivingLicenseApplications_Opening(object sender, CancelEventArgs e)
@@ -257,7 +256,6 @@ namespace Driving_License_Management_System
                         ApplyColorsToAllItems(menuItem.DropDownItems);
                     }
                 }
-
             }
         }
 
@@ -314,7 +312,11 @@ namespace Driving_License_Management_System
             if (PassedTestCount == 3 || (drv.ApplicationStatus == clsApplication.enApplicationSatus.Cancelled))
             {
                 if (drv.ApplicationStatus != clsApplication.enApplicationSatus.Cancelled)
-                    issueDrivingLicenseFirstTimeToolStripMenuItem.Enabled = true;
+                {
+                    issueDrivingLicenseFirstTimeToolStripMenuItem.Enabled = (!drv.ItHasLocalDrivingLicenseClassBefore());
+                    showLicenseToolStripMenuItem.Enabled = (drv.ItHasLocalDrivingLicenseClassBefore()); // if we paramataraze the license id and person id to frmLDLAPInfo we can use it up,
+                    // and that will be more fleixble because if license has issued for the reason who failed we can know.
+                }
 
 
                 scheduleTestsToolStripMenuItem.Enabled = false;
@@ -322,7 +324,6 @@ namespace Driving_License_Management_System
                 deleteApplicationToolStripMenuItem.Enabled = false;
                 canceloolStripMenuItem.Enabled = false;
                 scheduleStreetTestToolStripMenuItem.Enabled = false;
-                showLicenseToolStripMenuItem.Enabled = !(drv.ApplicationStatus == clsApplication.enApplicationSatus.Cancelled);
             }
 
             ApplyColorsToAllItems(cmsLocalDrivingLicenseApplications.Items);

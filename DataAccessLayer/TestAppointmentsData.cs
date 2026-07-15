@@ -44,9 +44,6 @@ namespace DataAccessLayer
             return dt;
         }
 
-     
-
-
         public static bool LockTestAppointment(int TestAppointmentID)
         {
             int RowsAffected = 0;

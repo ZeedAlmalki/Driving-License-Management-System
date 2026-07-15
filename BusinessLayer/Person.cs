@@ -132,7 +132,7 @@ namespace BusinessLayer
             return clsPersonData.GetTotalPeople();
         }
 
-        public static clsPerson Find(int PersonID)
+        public static clsPerson FindByPersonID(int PersonID)
         {
             string NationalNo = "", FirstName = "", SecondName = "", ThirdName = "", LastName = "", Address = "", Phone = "", Email = "", ImagePath = "";
             DateTime DateOfBirth = DateTime.Now;
@@ -140,6 +140,25 @@ namespace BusinessLayer
             int NationalCountryID = -1;
 
             if (clsPersonData.GetPersonInfoByID(PersonID, ref NationalNo, ref FirstName, ref SecondName, ref ThirdName, ref LastName,
+                 ref DateOfBirth, ref Gendor, ref Address, ref Phone, ref Email, ref NationalCountryID, ref ImagePath))
+            {
+                return new clsPerson(PersonID, NationalNo, FirstName, SecondName, ThirdName, LastName,
+                 DateOfBirth, Gendor, Address, Phone, Email, NationalCountryID, ImagePath);
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        public static clsPerson FindByApplicationID(int ApplicationID)
+        {
+            string NationalNo = "", FirstName = "", SecondName = "", ThirdName = "", LastName = "", Address = "", Phone = "", Email = "", ImagePath = "";
+            DateTime DateOfBirth = DateTime.Now;
+            short Gendor = 0;
+            int NationalCountryID = -1, PersonID = -1;
+
+            if (clsPersonData.GetPersonInfoByApplicationID(ApplicationID, ref PersonID, ref NationalNo, ref FirstName, ref SecondName, ref ThirdName, ref LastName,
                  ref DateOfBirth, ref Gendor, ref Address, ref Phone, ref Email, ref NationalCountryID, ref ImagePath))
             {
                 return new clsPerson(PersonID, NationalNo, FirstName, SecondName, ThirdName, LastName,

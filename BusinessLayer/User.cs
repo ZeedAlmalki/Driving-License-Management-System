@@ -36,7 +36,7 @@ namespace BusinessLayer
             this.Password = Password;
             this.IsActive = IsActive;
             this.PersonID = PersonID;
-            this.Person = clsPerson.Find(PersonID);
+            this.Person = clsPerson.FindByPersonID(PersonID);
             Mode = enMode.Update;
         }
 

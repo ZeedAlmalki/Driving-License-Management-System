@@ -21,6 +21,9 @@ namespace BusinessLayer
         public byte DefaultValidityLength { get; set; }
         public decimal ClassFees { get; set; }
 
+        public enum LicenseClass { SmallMotorcycle = 1, HeavyMotorcycle = 2, OrdinaryDrivingLicense = 3,
+        Commercial = 4, Agirclural = 5, SmallAndMediumBus = 6, TruckAndHeavyVehcile = 7};
+
         public clsLicenseClass()
         {
             LicenseClassID = -1;

@@ -73,7 +73,11 @@ namespace Driving_License_Management_System.Tests.Tests
 
                 if (Test.Save())
                 {
-                    _TestAppointment.LockTestAppointment();
+                    _TestAppointment.LockTestAppointment(); 
+                    // ^ we can use query to lock test appointment, in the Save expression the clsTestData.
+                    // that will be better.
+
+                    
                     lblTestID.Text = Test.TestID.ToString();
                     btnSave.Enabled = false;
                 }

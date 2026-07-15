@@ -84,7 +84,7 @@ namespace Driving_License_Management_System
 
         public void LoadPersonInfo(int PerosnID)
         {
-            _Person = clsPerson.Find(PerosnID);
+            _Person = clsPerson.FindByPersonID(PerosnID);
 
             if (_Person == null)
             {
@@ -94,6 +94,7 @@ namespace Driving_License_Management_System
             }
 
             _FillPersonInfo();
+            
         }
 
         public void LoadPersonInfo(string NatinoalNo)

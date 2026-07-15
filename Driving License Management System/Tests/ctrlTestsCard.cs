@@ -202,7 +202,7 @@ namespace Driving_License_Management_System.Applications.LocalDrivingLicenseAppl
 
             lblDLAppID.Text = _LocalDrivingLicenseApplication.LocalDrivingLicenseApplicationsID.ToString();
             lblDriverLicenseClass.Text = clsLicenseClass.FindLicenseClassByID(_LocalDrivingLicenseApplication.LicenseClassID).ClassName;
-            lblName.Text = clsPerson.Find(_LocalDrivingLicenseApplication.ApplicantPersonID).FullName();
+            lblName.Text = clsPerson.FindByPersonID(_LocalDrivingLicenseApplication.ApplicantPersonID).FullName();
             int Trail = _LocalDrivingLicenseApplication.GetTotalSameExamTrialsForLicense((int)_TestType.TestTypeID);
             lblTrial.Text = Trail.ToString();
 

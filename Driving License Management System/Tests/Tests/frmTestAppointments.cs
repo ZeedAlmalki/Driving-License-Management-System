@@ -21,6 +21,20 @@ namespace Driving_License_Management_System.Applications.LocalDrivingLicenseAppl
         private int _TestTypeID = -1;
         private DataTable _dtAllTestAppointments;
 
+        public frmTestAppointments(int LocalDrivingLicenseApplicationID)
+        {
+            InitializeComponent();
+            _clsLocalDrivingLicenseApplication = clsLocalDrivingLicenseApplication.FindLocalDrivingLicenseApplicationByID(LocalDrivingLicenseApplicationID);
+            if (_clsLocalDrivingLicenseApplication == null)
+            {
+                MessageBox.Show("Something went error");
+                this.Close();
+                return;
+            }
+
+            _TestTypeID = (int)_clsLocalDrivingLicenseApplication.PassedTestLevel;
+        }
+
         void SetFormSettings()
         {
             ctrlTestsCard.SetTestTypeSettings(TotalPassedTests, lblTestTitle, pbTestPicture);
@@ -31,6 +45,13 @@ namespace Driving_License_Management_System.Applications.LocalDrivingLicenseAppl
 
         private void frmTestAppointments_Load(object sender, EventArgs e)
         {
+            if (_clsLocalDrivingLicenseApplication.ApplicationStatus == clsApplication.enApplicationSatus.Cancelled)
+            {
+                MessageBox.Show("This Application Is Cancalled", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Close();
+                return;
+            }
+
             TotalPassedTests = _clsLocalDrivingLicenseApplication.GetPassedTestCount();
             if (TotalPassedTests < 3)
             {
@@ -89,19 +110,7 @@ namespace Driving_License_Management_System.Applications.LocalDrivingLicenseAppl
 
 
         }
-        public frmTestAppointments(int LocalDrivingLicenseApplicationID)
-        {
-            InitializeComponent();
-            _clsLocalDrivingLicenseApplication = clsLocalDrivingLicenseApplication.FindLocalDrivingLicenseApplicationByID(LocalDrivingLicenseApplicationID);
-            if (_clsLocalDrivingLicenseApplication == null)
-            {
-                MessageBox.Show("Something went error");
-                this.Close();
-                return;
-            }
 
-            _TestTypeID = (int)_clsLocalDrivingLicenseApplication.PassedTestLevel;
-        }
 
 
         private void btnAdd_Click(object sender, EventArgs e)

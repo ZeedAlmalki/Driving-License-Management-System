@@ -101,7 +101,7 @@ namespace Driving_License_Management_System
         private void _LoadData()
         {
 
-            _Person = clsPerson.Find(_PersonID);
+            _Person = clsPerson.FindByPersonID(_PersonID);
 
             if (_Person == null)
             {

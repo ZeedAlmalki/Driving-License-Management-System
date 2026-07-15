@@ -163,6 +163,7 @@ namespace Driving_License_Management_System.People
                 _Mode = enMode.Update;
                 lblMode.Text = "Update User";
                 this.Text = "Update User";
+                ctrlPersonCardWithFilter1.FilterEnabled = false;
                 MessageBox.Show("Data Saved Successfully.", "Saved", MessageBoxButtons.OK);
                 if (clsUtil.IsFileExistAndHasData(clsUtil.FilePath) && _User.UserID == GlobalSettings.User.UserID)
                 {

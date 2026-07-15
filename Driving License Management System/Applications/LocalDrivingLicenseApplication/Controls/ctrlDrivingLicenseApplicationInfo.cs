@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BusinessLayer;
+using Driving_License_Management_System.License;
 using Driving_License_Management_System.Users;
 
 namespace Driving_License_Management_System.Applications.Applications_Types.Controls
@@ -38,19 +39,16 @@ namespace Driving_License_Management_System.Applications.Applications_Types.Cont
 
         private void _FillLocalDrivingLicenseApplicationInfo()
         {
+            int PassedTestCount = _LocalDrivingLicenseApplication.GetPassedTestCount();
+
             lblDLappID.Text = _LocalDrivingLicenseApplication.LocalDrivingLicenseApplicationsID.ToString();
             lblAppliedForLicense.Text = clsLicenseClass.FindLicenseClassByID(_LocalDrivingLicenseApplication.LicenseClassID).ClassName.ToString();
-            lblPassedTests.Text = _LocalDrivingLicenseApplication.GetPassedTestCount() + "/3";
-            // ^ Driving License Application Info.
+            lblPassedTests.Text = PassedTestCount + "/3";
 
-            lblApplicationID.Text = _LocalDrivingLicenseApplication.ApplicationID.ToString();
-            lblStatus.Text = ((clsApplication.enApplicationSatus)_LocalDrivingLicenseApplication.ApplicationStatus).ToString();
-            lblFees.Text = _LocalDrivingLicenseApplication.PaidFees.ToString();
-            lblApplicationType.Text = _LocalDrivingLicenseApplication.ApplicationType.ApplicationTypeTitle;
-            lblApplicant.Text = clsPerson.Find(_LocalDrivingLicenseApplication.ApplicantPersonID).FullName();
-            lblDate.Text = _LocalDrivingLicenseApplication.ApplicationDate.ToString();
-            lblStatusDate.Text = _LocalDrivingLicenseApplication.LastStatusDate.ToString();
-            lblCreatedBy.Text = clsUser.Find(_LocalDrivingLicenseApplication.CreatedByUserID).UserName;
+
+            // ^ Driving License Application Info.
+            lblShowLicenseInfo.Enabled = (PassedTestCount == 3 && _LocalDrivingLicenseApplication.ApplicationStatus == clsApplication.enApplicationSatus.Completed);
+            ctrlApplicationInfo1.LoadApplicationInfo(_LocalDrivingLicenseApplication.ApplicationID);
         }
 
         private void _ResetLocalDrivingLicenseApplicationInfo()
@@ -58,37 +56,30 @@ namespace Driving_License_Management_System.Applications.Applications_Types.Cont
             lblDLappID.Text = "???";
             lblAppliedForLicense.Text = "???";
             lblPassedTests.Text = "???";
+            ctrlApplicationInfo1.ResetpplicationInfo();
             // ^ Driving License Application Info.
-            lblApplicationID.Text = "???";
-            lblStatus.Text = "???";
-            lblFees.Text = "???";
-            lblApplicationType.Text = "???";
-            lblApplicant.Text = "???";
-            lblDate.Text = "???";
-            lblStatusDate.Text = "???";
-            lblCreatedBy.Text = "???";
+
         }
 
         public void LoadLocalDrivingLicenseApplicationInfo(int LocalDrivingLicenseApplicationID)
         {
             _LocalDrivingLicenseApplication = clsLocalDrivingLicenseApplication.FindLocalDrivingLicenseApplicationByID(LocalDrivingLicenseApplicationID);
-
             if (_LocalDrivingLicenseApplication == null)
             {
                 _ResetLocalDrivingLicenseApplicationInfo();
                 //MessageBox.Show("No Local Driving License With ID Number = " + LocalDrivingLicenseApplicationID, "ERROR", MessageBoxButtons.OK);
                 return;
             }
+            _LocalDrivingLicenseApplicationID = _LocalDrivingLicenseApplication.LocalDrivingLicenseApplicationsID;
             _FillLocalDrivingLicenseApplicationInfo();
         }
 
 
 
-        private void lblEditPersonInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void lblShowLicenseInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            frmPersonDetails frmPersonDetails = new frmPersonDetails(_LocalDrivingLicenseApplication.ApplicantPersonID);
-            frmPersonDetails.ShowDialog();
-            LoadLocalDrivingLicenseApplicationInfo(_LocalDrivingLicenseApplication.LocalDrivingLicenseApplicationsID);
+            frmLicenseInfo LicenseInfo = new frmLicenseInfo(LocalDrivingLicenseApplicationID);
+            LicenseInfo.ShowDialog();
         }
     }
 }

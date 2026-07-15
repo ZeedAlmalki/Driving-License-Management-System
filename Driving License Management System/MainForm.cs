@@ -12,6 +12,8 @@ using BusinessLayer;
 using Driving_License_Management_System.Users;
 using Driving_License_Management_System.TestTypes;
 using Driving_License_Management_System.Drivers;
+using Driving_License_Management_System.License;
+using Driving_License_Management_System.License.International_Driving_License;
 
 namespace Driving_License_Management_System
 {
@@ -76,6 +78,30 @@ namespace Driving_License_Management_System
         {
             frmListDrivers listDrivers = new frmListDrivers();
             listDrivers.ShowDialog();
+        }
+
+        private void detianLicenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAddNewInternationalDrivingLicense addNewInternationalDrivingLicenseApplication = new frmAddNewInternationalDrivingLicense();
+            addNewInternationalDrivingLicenseApplication.ShowDialog();
+        }
+
+        private void internationalDrivingLicenseApplicationsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmListInternationalLicense frmListInternationalLicense = new frmListInternationalLicense();
+            frmListInternationalLicense.ShowDialog();
+        }
+
+        private void localLicenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAddNewLocalDrivingLicenseApplication frmAddNewLocalDrivingLicenseApplication = new frmAddNewLocalDrivingLicenseApplication();
+            frmAddNewLocalDrivingLicenseApplication.ShowDialog();
+        }
+
+        private void internationalDrivingLicenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAddNewInternationalDrivingLicense frmAddNewInternationalDrivingLicense = new frmAddNewInternationalDrivingLicense();
+            frmAddNewInternationalDrivingLicense.ShowDialog();
         }
     }
 }

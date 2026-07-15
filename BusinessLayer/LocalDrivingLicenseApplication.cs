@@ -6,6 +6,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using DataAccessLayer;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace BusinessLayer
 {
@@ -129,6 +130,21 @@ namespace BusinessLayer
 
         }
 
+        public static clsLocalDrivingLicenseApplication FindLocalDrivingLicenseByApplicationID(int ApplicationID)
+        {
+            int _LocalDrivingLicenseApplicationID = -1;
+            int _LicenseClassID = -1;
+
+            if (clsLocalDrivingLicenseApplicationData.FindLocalDrivingLicenseByApplicationID(ApplicationID, ref _LocalDrivingLicenseApplicationID, ref _LicenseClassID))
+            {
+                return new clsLocalDrivingLicenseApplication(_LocalDrivingLicenseApplicationID, ApplicationID, _LicenseClassID);
+            }
+            else
+            {
+                return null;
+            }
+        }
+
         public bool IsAnActiveAppointmentExist(int TestTypeID)
         {
             return clsLocalDrivingLicenseApplicationData.IsAnActiveAppointmentExist(this.LocalDrivingLicenseApplicationsID, TestTypeID);
@@ -151,9 +167,27 @@ namespace BusinessLayer
             return clsLocalDrivingLicenseApplicationData.IsPassedAppointmentTestBefore(this.LocalDrivingLicenseApplicationsID, TestTypeID);
         }
 
+        public static bool ItHasLocalDrivingLicenseClassBefore(int LicenseClassID, int PersonID, ref int outLicenseID)
+        {
+            return clsLocalDrivingLicenseApplicationData.ItHasLocalDrivingLicenseClassBefore(LicenseClassID, PersonID, ref outLicenseID);
+        }
+
         public bool ItHasLocalDrivingLicenseClassBefore()
         {
-            return clsLocalDrivingLicenseApplicationData.ItHasLocalDrivingLicenseClassBefore(this.LicenseClassID, this.ApplicantPersonID);
+            int LicenseID = -1;
+            return clsLocalDrivingLicenseApplicationData.ItHasLocalDrivingLicenseClassBefore(this.LicenseClassID, this.ApplicantPersonID, ref LicenseID);
+        }
+
+        public bool Cancel()
+        {
+            if (this.ApplicationStatus == clsApplication.enApplicationSatus.Cancelled)
+            {
+                return false;
+            }
+            this.ApplicationStatus = clsApplication.enApplicationSatus.Cancelled;
+            this.LastStatusDate = DateTime.Now;
+
+            return this.Save();
         }
 
         public bool Save()
@@ -177,6 +211,5 @@ namespace BusinessLayer
             }
             return false;
         }
-
     }
 }

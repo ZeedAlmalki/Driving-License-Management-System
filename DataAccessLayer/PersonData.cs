@@ -352,6 +352,93 @@ namespace DataAccessLayer
         }
 
 
+        public static bool GetPersonInfoByApplicationID(int ApplicationID, ref int PersonID, ref string NationalNo, ref string FirstName, ref string SecondName, ref string ThirdName, ref string LastName, ref DateTime DateOfBirth, ref short Gendor, ref string Address, ref string Phone, ref string Email, ref int NationalCountryID, ref string ImagePath)
+        {
+            bool IsFound = false;
+
+            SqlConnection Connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string query = @"SELECT People.* From People  
+                            INNER JOIN Applications ON Applications.ApplicantPersonID = People.PersonID
+                            WHERE Applications.ApplicationID = @ApplicationID";
+
+            SqlCommand Command = new SqlCommand(query, Connection);
+
+            Command.Parameters.AddWithValue("@ApplicationID", ApplicationID);
+
+            try
+            {
+                Connection.Open();
+                SqlDataReader reader = Command.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    IsFound = true;
+
+                    NationalNo = (string)reader["NationalNo"];
+                    FirstName = (string)reader["FirstName"];
+
+
+
+                    if (reader["SecondName"] != DBNull.Value)
+                    {
+                        SecondName = (string)reader["SecondName"];
+                    }
+                    else
+                    {
+                        SecondName = string.Empty;
+                    }
+
+                    if (reader["ThirdName"] != DBNull.Value)
+                    {
+                        ThirdName = (string)reader["ThirdName"];
+                    }
+                    else
+                    {
+                        ThirdName = string.Empty;
+                    }
+
+                    LastName = (string)reader["LastName"];
+                    DateOfBirth = (DateTime)reader["DateOfBirth"];
+                    Gendor = Convert.ToInt16(reader["Gendor"]);
+                    Address = (string)reader["Address"];
+                    Phone = (string)reader["Phone"];
+                    if (reader["Email"] != DBNull.Value)
+                    {
+                        Email = (string)reader["Email"];
+                    }
+                    else
+                    {
+                        Email = "";
+                    }
+                    NationalCountryID = (int)reader["NationalityCountryID"];
+                    if (reader["ImagePath"] != DBNull.Value)
+                    {
+                        ImagePath = (string)reader["ImagePath"];
+                    }
+                    else
+                    {
+                        ImagePath = "";
+                    }
+                }
+                else
+                {
+                    IsFound = false;
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                Connection.Close();
+            }
+
+            return IsFound;
+        }
+
+
         public static bool IsPersonExist(string PersonNationalID)
         {
             bool IsFound = false;

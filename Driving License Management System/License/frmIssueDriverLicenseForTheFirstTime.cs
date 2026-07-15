@@ -23,20 +23,28 @@ namespace Driving_License_Management_System.License
 
         private void frmIssueDriverLicenseForTheFirstTime_Load(object sender, EventArgs e)
         {
-
-            if (_LDLApplication != null && _LDLApplication.GetPassedTestCount() == 3)
+            if (_LDLApplication == null)
             {
-                if (_LDLApplication.ItHasLocalDrivingLicenseClassBefore())
-                {
-                    MessageBox.Show("The Person Already Has This Driving License ", "Already Taken it", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    this.Close();
-                    return;
-                }
+                MessageBox.Show("Person was not found", "Not Found", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Close();
+                return;
+            }
+            if (_LDLApplication.ItHasLocalDrivingLicenseClassBefore() && _LDLApplication.ApplicationStatus != clsApplication.enApplicationSatus.Cancelled)
+            {
+                MessageBox.Show("The Person Already Has This Driving License ", "Already Taken it", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Close();
+                return;
+            }
+
+            if (_LDLApplication.GetPassedTestCount() == 3 && _LDLApplication.ApplicationStatus == clsApplication.enApplicationSatus.New)
+            {
                 ctrlDrivingLicenseApplicationInfo1.LoadLocalDrivingLicenseApplicationInfo(_LDLApplication.LocalDrivingLicenseApplicationsID);
             }
             else
             {
-                MessageBox.Show("Something went wrong", "Wrong", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Person Is Cancalled or is not passed all of his tests", "Wrong", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Close();
+                return;
             }
         }
 

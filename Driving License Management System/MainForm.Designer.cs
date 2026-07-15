@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.PanelProject = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.btnAccountSettings = new Guna.UI2.WinForms.Guna2Button();
             this.cmsAccountSettings = new Guna.UI2.WinForms.Guna2ContextMenuStrip();
             this.currentUserInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -58,7 +59,6 @@
             this.manageTestTypesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.detianLicenseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnClose = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.PanelProject.SuspendLayout();
             this.cmsAccountSettings.SuspendLayout();
             this.cmsApplications.SuspendLayout();
@@ -78,6 +78,38 @@
             this.PanelProject.Name = "PanelProject";
             this.PanelProject.Size = new System.Drawing.Size(212, 677);
             this.PanelProject.TabIndex = 0;
+            // 
+            // guna2Button1
+            // 
+            this.guna2Button1.Animated = true;
+            this.guna2Button1.AnimatedGIF = true;
+            this.guna2Button1.AutoRoundedCorners = true;
+            this.guna2Button1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2Button1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(50)))), ((int)(((byte)(65)))));
+            this.guna2Button1.BorderThickness = 1;
+            this.guna2Button1.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(215)))));
+            this.guna2Button1.CheckedState.ForeColor = System.Drawing.Color.White;
+            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button1.FillColor = System.Drawing.Color.Transparent;
+            this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.guna2Button1.ForeColor = System.Drawing.Color.White;
+            this.guna2Button1.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(56)))), ((int)(((byte)(76)))));
+            this.guna2Button1.HoverState.ForeColor = System.Drawing.Color.White;
+            this.guna2Button1.Image = global::Driving_License_Management_System.Properties.Resources.Drivers_64;
+            this.guna2Button1.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.guna2Button1.ImageOffset = new System.Drawing.Point(1, 0);
+            this.guna2Button1.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2Button1.Location = new System.Drawing.Point(6, 174);
+            this.guna2Button1.Name = "guna2Button1";
+            this.guna2Button1.Size = new System.Drawing.Size(209, 55);
+            this.guna2Button1.TabIndex = 4;
+            this.guna2Button1.Text = "Drivers";
+            this.guna2Button1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.guna2Button1.UseTransparentBackground = true;
+            this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
             // 
             // btnAccountSettings
             // 
@@ -292,7 +324,7 @@
             this.cmsApplications.RenderStyle.SelectionForeColor = System.Drawing.Color.White;
             this.cmsApplications.RenderStyle.SeparatorColor = System.Drawing.Color.Gainsboro;
             this.cmsApplications.RenderStyle.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            this.cmsApplications.Size = new System.Drawing.Size(385, 214);
+            this.cmsApplications.Size = new System.Drawing.Size(385, 236);
             // 
             // drToolStripMenuItem
             // 
@@ -327,8 +359,9 @@
             this.localLicenseToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.localLicenseToolStripMenuItem.Image = global::Driving_License_Management_System.Properties.Resources.Local_32;
             this.localLicenseToolStripMenuItem.Name = "localLicenseToolStripMenuItem";
-            this.localLicenseToolStripMenuItem.Size = new System.Drawing.Size(237, 26);
+            this.localLicenseToolStripMenuItem.Size = new System.Drawing.Size(253, 38);
             this.localLicenseToolStripMenuItem.Text = "   Local License";
+            this.localLicenseToolStripMenuItem.Click += new System.EventHandler(this.localLicenseToolStripMenuItem_Click);
             // 
             // internationalDrivingLicenseToolStripMenuItem
             // 
@@ -336,8 +369,9 @@
             this.internationalDrivingLicenseToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.internationalDrivingLicenseToolStripMenuItem.Image = global::Driving_License_Management_System.Properties.Resources.International_32;
             this.internationalDrivingLicenseToolStripMenuItem.Name = "internationalDrivingLicenseToolStripMenuItem";
-            this.internationalDrivingLicenseToolStripMenuItem.Size = new System.Drawing.Size(237, 26);
+            this.internationalDrivingLicenseToolStripMenuItem.Size = new System.Drawing.Size(253, 38);
             this.internationalDrivingLicenseToolStripMenuItem.Text = "   International License";
+            this.internationalDrivingLicenseToolStripMenuItem.Click += new System.EventHandler(this.internationalDrivingLicenseToolStripMenuItem_Click);
             // 
             // renewDrivingLicenseToolStripMenuItem
             // 
@@ -420,6 +454,7 @@
             this.internationalDrivingLicenseApplicationsToolStripMenuItem.Name = "internationalDrivingLicenseApplicationsToolStripMenuItem";
             this.internationalDrivingLicenseApplicationsToolStripMenuItem.Size = new System.Drawing.Size(466, 38);
             this.internationalDrivingLicenseApplicationsToolStripMenuItem.Text = "   International Driving License Applications";
+            this.internationalDrivingLicenseApplicationsToolStripMenuItem.Click += new System.EventHandler(this.internationalDrivingLicenseApplicationsToolStripMenuItem_Click);
             // 
             // toolStripSeparator3
             // 
@@ -452,6 +487,7 @@
             this.detianLicenseToolStripMenuItem.Name = "detianLicenseToolStripMenuItem";
             this.detianLicenseToolStripMenuItem.Size = new System.Drawing.Size(384, 38);
             this.detianLicenseToolStripMenuItem.Text = "   Detian License";
+            this.detianLicenseToolStripMenuItem.Click += new System.EventHandler(this.detianLicenseToolStripMenuItem_Click);
             // 
             // btnClose
             // 
@@ -485,38 +521,6 @@
             this.btnClose.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.btnClose.UseTransparentBackground = true;
             this.btnClose.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
-            // 
-            // guna2Button1
-            // 
-            this.guna2Button1.Animated = true;
-            this.guna2Button1.AnimatedGIF = true;
-            this.guna2Button1.AutoRoundedCorners = true;
-            this.guna2Button1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Button1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(50)))), ((int)(((byte)(65)))));
-            this.guna2Button1.BorderThickness = 1;
-            this.guna2Button1.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(215)))));
-            this.guna2Button1.CheckedState.ForeColor = System.Drawing.Color.White;
-            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button1.FillColor = System.Drawing.Color.Transparent;
-            this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.guna2Button1.ForeColor = System.Drawing.Color.White;
-            this.guna2Button1.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(56)))), ((int)(((byte)(76)))));
-            this.guna2Button1.HoverState.ForeColor = System.Drawing.Color.White;
-            this.guna2Button1.Image = global::Driving_License_Management_System.Properties.Resources.Drivers_64;
-            this.guna2Button1.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.guna2Button1.ImageOffset = new System.Drawing.Point(1, 0);
-            this.guna2Button1.ImageSize = new System.Drawing.Size(64, 64);
-            this.guna2Button1.Location = new System.Drawing.Point(6, 174);
-            this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.Size = new System.Drawing.Size(209, 55);
-            this.guna2Button1.TabIndex = 4;
-            this.guna2Button1.Text = "Drivers";
-            this.guna2Button1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.guna2Button1.UseTransparentBackground = true;
-            this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
             // 
             // MainForm
             // 

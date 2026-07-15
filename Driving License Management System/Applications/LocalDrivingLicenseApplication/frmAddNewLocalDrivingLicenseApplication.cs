@@ -17,9 +17,11 @@ namespace Driving_License_Management_System
     {
 
         private int _LocalDrivingLicenseApplicationID = -1;
+        private int _SelectedPerson = -1;
         private clsLocalDrivingLicenseApplication LocalDrivingLicenseApplication;
 
-        private const int ApplicationTypeID = 1;
+        private const int ApplicationTypeID = (int)clsManageApplicationTypes.enManageApplicationTypes.NewLocalDrivingLicenseService;
+
         private readonly decimal ApplicationFees = clsManageApplicationTypes.FindApplicationType(ApplicationTypeID).ApplicationFees;
 
         public enum enMode { Add = 0, Update = 1 };
@@ -60,6 +62,7 @@ namespace Driving_License_Management_System
             lblApplicatoinDate.Text = LocalDrivingLicenseApplication.ApplicationDate.ToString();
             lblApplicationFees.Text = LocalDrivingLicenseApplication.PaidFees.ToString();
             lblCreatedBy.Text = GlobalSettings.User.UserName;
+
 
 
             // the code before i explore to use find with the base class.
@@ -129,6 +132,8 @@ namespace Driving_License_Management_System
                 if (_Mode == enMode.Add)
                 {
                     lblApplicatoinDate.Text = DateTime.Now.ToString();
+                    ctrlPersonCardWithFilter1.FilterFocus();
+                    cbLicenseClass.SelectedIndex = 2;
                 }
                 tcLocalDrivingLicense.SelectedTab = tcLocalDrivingLicense.TabPages["tpApplicationInfo"];
                 return;
@@ -157,11 +162,14 @@ namespace Driving_License_Management_System
             }
             int ApplicationID = 0;
 
-            if (clsLocalDrivingLicenseApplication.IsPersonHasActiveLicenseClass(ctrlPersonCardWithFilter1.PersonID, LicenseClassID, ref ApplicationID))
+            if (clsLocalDrivingLicenseApplication.IsPersonHasActiveLicenseClass(_SelectedPerson, LicenseClassID, ref ApplicationID))
             {
                 MessageBox.Show("Choose Another License Class, the selected Person Already Has an active application for the selected class with id = " + ApplicationID, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                cbLicenseClass.Focus();
                 return;
             }
+
+
             if (_Mode == enMode.Add)
             {
                 LocalDrivingLicenseApplication.ApplicationDate = Convert.ToDateTime(lblApplicatoinDate.Text);
@@ -173,6 +181,7 @@ namespace Driving_License_Management_System
             if (LocalDrivingLicenseApplication.ItHasLocalDrivingLicenseClassBefore())
             {
                 MessageBox.Show("The Person Already Has This Driving License ", "Already Taken it", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                cbLicenseClass.Focus();
                 return;
             }
 
@@ -185,11 +194,12 @@ namespace Driving_License_Management_System
 
             if (LocalDrivingLicenseApplication.Save())
             {
-                MessageBox.Show("Data Saved Successfully", "Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                _Mode = enMode.Update;
+                ctrlPersonCardWithFilter1.FilterEnabled = false;
+                lblDLApplicationID.Text = LocalDrivingLicenseApplication.LocalDrivingLicenseApplicationsID.ToString();
                 lblMode.Text = "Update Local Driver License Application";
                 this.Text = "Update Local Driver License Application";
-                lblDLApplicationID.Text = LocalDrivingLicenseApplication.LocalDrivingLicenseApplicationsID.ToString();
+                _Mode = enMode.Update;
+                MessageBox.Show("Data Saved Successfully", "Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
@@ -215,6 +225,25 @@ namespace Driving_License_Management_System
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void ctrlPersonCardWithFilter1_OnPersonSelected(int obj)
+        {
+            _SelectedPerson = obj;
+        }
+
+        private void frmAddNewLocalDrivingLicenseApplication_Activated(object sender, EventArgs e)
+        {
+            ctrlPersonCardWithFilter1.FilterFocus();
+        }
+
+
+        private void tcLocalDrivingLicense_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (tcLocalDrivingLicense.SelectedTab == tpApplicationInfo && (_SelectedPerson != -1 && tpApplicationInfo.Enabled))
+            {
+                cbLicenseClass.Focus();
+            }
         }
     }
 }

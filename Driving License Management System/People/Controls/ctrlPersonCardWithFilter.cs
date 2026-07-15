@@ -96,7 +96,8 @@ namespace Driving_License_Management_System.People
             }
             if (OnPersonSelected != null && FilterEnabled)
                 OnPersonSelected(ctrlPersonCard1.PersonID);
-            // PersonSelected(ctrlPersonCard1.PersonID); it should be here.
+
+            PersonSelected(ctrlPersonCard1.PersonID);
         }
 
         private void cbFilterBy_SelectedIndexChanged(object sender, EventArgs e)

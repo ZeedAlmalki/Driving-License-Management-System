@@ -16,11 +16,7 @@ namespace DataAccessLayer
             DataTable dt = new DataTable();
             SqlConnection Connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
-            string query = @"SELECT  Drivers.DriverID, Drivers.PersonID, People.NationalNo, 
-                            CONCAT_WS(' ', NULLIF(People.FirstName, ''), NULLIF(People.SecondName, ''), NULLIF(People.ThirdName, ''), NULLIF(People.LastName, '')) AS FullName,
-                            Drivers.CreatedDate, (SELECT COUNT(*) FROM Licenses WHERE Drivers.DriverID = Licenses.DriverID AND Licenses.IsActive = 1) AS ActiveLicenses
-                            FROM Drivers
-                            INNER JOIN People ON Drivers.PersonID = People.PersonID";
+            string query = @"SELECT * FROM Drivers_View";
 
             SqlCommand Command = new SqlCommand(query, Connection);
 
