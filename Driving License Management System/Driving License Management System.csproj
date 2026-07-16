@@ -91,6 +91,12 @@
     <Compile Include="Drivers\frmListDrivers.Designer.cs">
       <DependentUpon>frmListDrivers.cs</DependentUpon>
     </Compile>
+    <Compile Include="License\Controls\ctrlApplicationNewLicenseInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="License\Controls\ctrlApplicationNewLicenseInfo.Designer.cs">
+      <DependentUpon>ctrlApplicationNewLicenseInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="License\Controls\ctrlDriverLicenses.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -120,6 +126,12 @@
     </Compile>
     <Compile Include="License\frmLicenseInfo.Designer.cs">
       <DependentUpon>frmLicenseInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="License\frmRenewLicenseApplication.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="License\frmRenewLicenseApplication.Designer.cs">
+      <DependentUpon>frmRenewLicenseApplication.cs</DependentUpon>
     </Compile>
     <Compile Include="License\frmShowLicensesHistory.cs">
       <SubType>Form</SubType>
@@ -321,6 +333,9 @@
     <EmbeddedResource Include="Drivers\frmListDrivers.resx">
       <DependentUpon>frmListDrivers.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="License\Controls\ctrlApplicationNewLicenseInfo.resx">
+      <DependentUpon>ctrlApplicationNewLicenseInfo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="License\Controls\ctrlDriverLicenses.resx">
       <DependentUpon>ctrlDriverLicenses.cs</DependentUpon>
     </EmbeddedResource>
@@ -335,6 +350,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="License\frmLicenseInfo.resx">
       <DependentUpon>frmLicenseInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="License\frmRenewLicenseApplication.resx">
+      <DependentUpon>frmRenewLicenseApplication.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="License\frmShowLicensesHistory.resx">
       <DependentUpon>frmShowLicensesHistory.cs</DependentUpon>

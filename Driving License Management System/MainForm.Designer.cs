@@ -359,7 +359,7 @@
             this.localLicenseToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.localLicenseToolStripMenuItem.Image = global::Driving_License_Management_System.Properties.Resources.Local_32;
             this.localLicenseToolStripMenuItem.Name = "localLicenseToolStripMenuItem";
-            this.localLicenseToolStripMenuItem.Size = new System.Drawing.Size(253, 38);
+            this.localLicenseToolStripMenuItem.Size = new System.Drawing.Size(237, 26);
             this.localLicenseToolStripMenuItem.Text = "   Local License";
             this.localLicenseToolStripMenuItem.Click += new System.EventHandler(this.localLicenseToolStripMenuItem_Click);
             // 
@@ -369,7 +369,7 @@
             this.internationalDrivingLicenseToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.internationalDrivingLicenseToolStripMenuItem.Image = global::Driving_License_Management_System.Properties.Resources.International_32;
             this.internationalDrivingLicenseToolStripMenuItem.Name = "internationalDrivingLicenseToolStripMenuItem";
-            this.internationalDrivingLicenseToolStripMenuItem.Size = new System.Drawing.Size(253, 38);
+            this.internationalDrivingLicenseToolStripMenuItem.Size = new System.Drawing.Size(237, 26);
             this.internationalDrivingLicenseToolStripMenuItem.Text = "   International License";
             this.internationalDrivingLicenseToolStripMenuItem.Click += new System.EventHandler(this.internationalDrivingLicenseToolStripMenuItem_Click);
             // 
@@ -381,6 +381,7 @@
             this.renewDrivingLicenseToolStripMenuItem.Name = "renewDrivingLicenseToolStripMenuItem";
             this.renewDrivingLicenseToolStripMenuItem.Size = new System.Drawing.Size(474, 38);
             this.renewDrivingLicenseToolStripMenuItem.Text = "   Renew Driving License";
+            this.renewDrivingLicenseToolStripMenuItem.Click += new System.EventHandler(this.renewDrivingLicenseToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 

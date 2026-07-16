@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using BusinessLayer;
 using Driving_License_Management_System.License.International_Driving_License.Controls;
+using static System.ComponentModel.Design.ObjectSelectorEditor;
 
 namespace Driving_License_Management_System.License.Controls
 {
@@ -19,14 +20,14 @@ namespace Driving_License_Management_System.License.Controls
             InitializeComponent();
         }
         private clsLicense _License;
-        public event Action<int> OnLicensenSelected;
+        public event Action<int, bool> OnLicensenSelected;
 
-        protected virtual void LicenseSelected(int LicenseID)
+        protected virtual void LicenseSelected(int LicenseID, bool AllowEdit = false)
         {
-            Action<int> handler = OnLicensenSelected;
+            Action<int, bool> handler = OnLicensenSelected;
             if (handler != null)
             {
-                handler(LicenseID);
+                handler(LicenseID, AllowEdit);
             }
         }
 
@@ -43,30 +44,20 @@ namespace Driving_License_Management_System.License.Controls
                 gbFilter.Enabled = _FilterEnabled;
             }
         }
+        private bool RenewMode = false;
 
-        public int InternationalLicenseApplicationID
+        public bool IsRenewMode
         {
             get
             {
-                return ctrlInternationalDrivingLicenseApplicationInfo1.ILApplicationID;
+                return RenewMode;
             }
             set
             {
-                ctrlInternationalDrivingLicenseApplicationInfo1.ILApplicationID = value;
+                RenewMode = value;
             }
         }
 
-        public int InternationalLicenseID
-        {
-            get
-            {
-                return ctrlInternationalDrivingLicenseApplicationInfo1.ILLicenseID;
-            }
-            set
-            {
-                ctrlInternationalDrivingLicenseApplicationInfo1.ILLicenseID = value;
-            }
-        }
 
         private int _LicenseID;
         public int LicenseID
@@ -74,11 +65,36 @@ namespace Driving_License_Management_System.License.Controls
             get { return ctrlLicenseInfo1.LicenseID; }
         }
 
+        public bool LoadDataByApplicationID(int ApplicationID)
+        {
+            return ctrlLicenseInfo1.LoadLicenseInfoByApplicatoinID(ApplicationID);
+        }
+
+        public bool LoadDataByLicenseID(int LicenseID)
+        {
+            return ctrlLicenseInfo1.LoadLicenseInfoByLicenseID(LicenseID);
+        }
+        public bool LoadLicenseInfoByLocalDrivingLicenseApplication(int LocalDrivingLicenseApplication)
+        {
+            return ctrlLicenseInfo1.LoadLicenseInfoByLocalDrivingLicenseApplication(LocalDrivingLicenseApplication);
+        }
+
+        public string AsignLicenseID
+        {
+            set
+            {
+                txtLicenseID.Text = value;
+            }
+            get
+            {
+                return txtLicenseID.Text;
+            }
+        }
 
         private void btnFindPerson_Click(object sender, EventArgs e)
         {
 
-            if (!int.TryParse(txtLicenseID.Text, out int LicenseID)) // we re check and continue all the things to orindary driving licenese for the same person.
+            if (!int.TryParse(txtLicenseID.Text, out int LicenseID)) 
             {
                 MessageBox.Show("Please Enter a Correct License ID In Numbers", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -93,47 +109,8 @@ namespace Driving_License_Management_System.License.Controls
                 return;
             }
 
-            int outLicenseID = -1;
-            if (!clsLocalDrivingLicenseApplication.ItHasLocalDrivingLicenseClassBefore((int)clsLicenseClass.LicenseClass.OrdinaryDrivingLicense, _License.PersonID, ref outLicenseID))
-            {
-                MessageBox.Show("You Must have an Ordiranry License class before you apply in International license..", "Must be Have correct license", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
-            }
+            LicenseSelected(_LicenseID, true);
 
-            if (_License.LicenseClass != 3 && outLicenseID != -1)
-            {
-                txtLicenseID.Text = outLicenseID.ToString(); // we asign the txtLicenseID before we back in the function
-                btnFindPerson.PerformClick();
-                return;
-            }
-
-            if (!_License.IsActive)
-            {
-                MessageBox.Show("The License You use is not active, please active it", "Must be active", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
-            }
-
-            if (DateTime.Now > _License.ExpirationDate)
-            {
-                MessageBox.Show("The License You use is Expired", "Expired", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
-            }
-
-            if (clsInternationalLicense.ItHasInternationalDrivingLicense(_LicenseID))
-            {
-                MessageBox.Show("You already have an active internatinoal license.", "You already have an internatnioal license.", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
-            }
-
-            ctrlInternationalDrivingLicenseApplicationInfo1.LoadData(_LicenseID);
-
-            if (!ctrlLicenseInfo1.LoadLicenseInfoByApplicatoinID(_License.ApplicationID))
-            {
-                MessageBox.Show("Something went error", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                ctrlInternationalDrivingLicenseApplicationInfo1.LoadData(-1);
-                return;
-            }
-            LicenseSelected(_LicenseID);
         }
 
         private void txtLicenseID_KeyPress(object sender, KeyPressEventArgs e)

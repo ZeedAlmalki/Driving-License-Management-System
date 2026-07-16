@@ -33,7 +33,6 @@
             this.txtLicenseID = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.ctrlLicenseInfo1 = new Driving_License_Management_System.License.ctrlLicenseInfo();
-            this.ctrlInternationalDrivingLicenseApplicationInfo1 = new Driving_License_Management_System.License.International_Driving_License.Controls.ctrlInternationalDrivingLicenseApplicationInfo();
             this.gbFilter.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -42,7 +41,7 @@
             this.gbFilter.Controls.Add(this.btnFindPerson);
             this.gbFilter.Controls.Add(this.txtLicenseID);
             this.gbFilter.Controls.Add(this.label1);
-            this.gbFilter.Location = new System.Drawing.Point(371, 43);
+            this.gbFilter.Location = new System.Drawing.Point(285, 43);
             this.gbFilter.Name = "gbFilter";
             this.gbFilter.Size = new System.Drawing.Size(497, 56);
             this.gbFilter.TabIndex = 8;
@@ -81,29 +80,20 @@
             // ctrlLicenseInfo1
             // 
             this.ctrlLicenseInfo1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(246)))), ((int)(((byte)(250)))));
-            this.ctrlLicenseInfo1.Location = new System.Drawing.Point(79, 105);
+            this.ctrlLicenseInfo1.Location = new System.Drawing.Point(29, 105);
             this.ctrlLicenseInfo1.Name = "ctrlLicenseInfo1";
             this.ctrlLicenseInfo1.Size = new System.Drawing.Size(1109, 412);
             this.ctrlLicenseInfo1.TabIndex = 9;
-            // 
-            // ctrlInternationalDrivingLicenseApplicationInfo1
-            // 
-            this.ctrlInternationalDrivingLicenseApplicationInfo1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(246)))), ((int)(((byte)(250)))));
-            this.ctrlInternationalDrivingLicenseApplicationInfo1.Location = new System.Drawing.Point(95, 523);
-            this.ctrlInternationalDrivingLicenseApplicationInfo1.Name = "ctrlInternationalDrivingLicenseApplicationInfo1";
-            this.ctrlInternationalDrivingLicenseApplicationInfo1.Size = new System.Drawing.Size(1065, 265);
-            this.ctrlInternationalDrivingLicenseApplicationInfo1.TabIndex = 10;
             // 
             // ctrllFindLocalDrivingLicense
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(246)))), ((int)(((byte)(250)))));
-            this.Controls.Add(this.ctrlInternationalDrivingLicenseApplicationInfo1);
             this.Controls.Add(this.ctrlLicenseInfo1);
             this.Controls.Add(this.gbFilter);
             this.Name = "ctrllFindLocalDrivingLicense";
-            this.Size = new System.Drawing.Size(1343, 861);
+            this.Size = new System.Drawing.Size(1136, 536);
             this.gbFilter.ResumeLayout(false);
             this.gbFilter.PerformLayout();
             this.ResumeLayout(false);
@@ -117,6 +107,5 @@
         private System.Windows.Forms.TextBox txtLicenseID;
         private System.Windows.Forms.Label label1;
         private ctrlLicenseInfo ctrlLicenseInfo1;
-        private International_Driving_License.Controls.ctrlInternationalDrivingLicenseApplicationInfo ctrlInternationalDrivingLicenseApplicationInfo1;
     }
 }

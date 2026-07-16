@@ -33,17 +33,17 @@ namespace Driving_License_Management_System.License.International_Driving_Licens
 
             _License = clsLicense.FindLicenseByID(_LicenseID);
 
-           clsInternationalLicense InternationalLicense = new clsInternationalLicense(_LicenseID, GlobalSettings.User.UserID);
+            clsInternationalLicense InternationalLicense = new clsInternationalLicense(_LicenseID, GlobalSettings.User.UserID);
 
             if (InternationalLicense.Save())
             {
-                ctrllFindLocalDrivingLicense1.FilterEnabled = false;
-                ctrllFindLocalDrivingLicense1.InternationalLicenseApplicationID = InternationalLicense.ApplicationID;
-                ctrllFindLocalDrivingLicense1.InternationalLicenseID = InternationalLicense.InternationalLicenseID;
+                ctrlInternationalDrivingLicenseApplicationInfo1.ILApplicationID = InternationalLicense.ApplicationID;
+                ctrlInternationalDrivingLicenseApplicationInfo1.ILLicenseID = InternationalLicense.InternationalLicenseID;
 
                 btnIssue.Enabled = false;
                 lblShowLicenseInfo.Enabled = true;
                 lblShowLicenseHistory.Enabled = true;
+                ctrllFindLocalDrivingLicense1.FilterEnabled = false;
                 MessageBox.Show("International Saved Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
@@ -54,18 +54,10 @@ namespace Driving_License_Management_System.License.International_Driving_Licens
 
         }
 
-        private void ctrllFindLocalDrivingLicense1_OnLicensenSelected(int obj)
-        {
-            _LicenseID = obj;
-            if (_LicenseID != -1)
-            {
-                btnIssue.Enabled = true;
-            }
-
-        }
 
         private void frmAddNewInternationalDrivingLicense_Load(object sender, EventArgs e)
         {
+            ctrlInternationalDrivingLicenseApplicationInfo1.ResetDefaultValue();
             btnIssue.Enabled = false;
             lblShowLicenseHistory.Enabled = false;
             lblShowLicenseInfo.Enabled = false;
@@ -79,8 +71,68 @@ namespace Driving_License_Management_System.License.International_Driving_Licens
 
         private void lblShowLicenseInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            frmInternationalLicenseDriverInfo frmInternationalLicenseDriverInfo = new frmInternationalLicenseDriverInfo(ctrllFindLocalDrivingLicense1.InternationalLicenseID);
+            frmInternationalLicenseDriverInfo frmInternationalLicenseDriverInfo = new frmInternationalLicenseDriverInfo(ctrlInternationalDrivingLicenseApplicationInfo1.ILLicenseID);
             frmInternationalLicenseDriverInfo.ShowDialog();
+        }
+
+
+        private void HandleLicenseSelected(int obj, bool AllowUpdate)
+        {
+            _LicenseID = obj;
+            if (_LicenseID == -1)
+            {
+                return;
+            }
+
+
+            _License = clsLicense.FindLicenseByID(_LicenseID);
+
+            int outLicenseID = -1;
+            if (!clsLocalDrivingLicenseApplication.ItHasLocalDrivingLicenseClassBefore((int)clsLicenseClass.LicenseClass.OrdinaryDrivingLicense, _License.PersonID, ref outLicenseID))
+            {
+                MessageBox.Show("You Must have an Ordiranry License class before you apply in International license..", "Must be Have correct license", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            if (outLicenseID != -1)
+            {
+                _LicenseID = outLicenseID;
+                _License = clsLicense.FindLicenseByID(_LicenseID);
+                ctrllFindLocalDrivingLicense1.AsignLicenseID = outLicenseID.ToString();
+            }
+
+            if (!ctrllFindLocalDrivingLicense1.LoadDataByApplicationID(_License.ApplicationID))
+            {
+                MessageBox.Show("Something went error", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            ctrlInternationalDrivingLicenseApplicationInfo1.LoadData(_LicenseID);
+
+            if (!_License.IsActive)
+            {
+                MessageBox.Show("The License You use is not active, please active it", "Must be active", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            if (DateTime.Now > _License.ExpirationDate)
+            {
+                MessageBox.Show("The License You use is Expired", "Expired", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            if (clsInternationalLicense.ItHasInternationalDrivingLicense(_LicenseID))
+            {
+                MessageBox.Show("You already have an active internatinoal license.", "You already have an internatnioal license.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            btnIssue.Enabled = true;
+
+
+        }
+
+        private void ctrllFindLocalDrivingLicense1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

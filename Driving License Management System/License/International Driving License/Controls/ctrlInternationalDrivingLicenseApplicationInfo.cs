@@ -57,8 +57,9 @@ namespace Driving_License_Management_System.License.International_Driving_Licens
             lblCreatedBy.Text = "???";
         }
 
-        private void _ResetDefaultValue()
+        public void ResetDefaultValue()
         {
+            _ResetApplicationInfo();
             lblApplicationDate.Text = DateTime.Now.ToString();
             lblIssueDate.Text = DateTime.Now.ToString();
             lblFees.Text = clsManageApplicationTypes.FindApplicationType((int)clsManageApplicationTypes.enManageApplicationTypes.NewInternationalLicense).ApplicationFees.ToString();
@@ -68,8 +69,13 @@ namespace Driving_License_Management_System.License.International_Driving_Licens
 
         private void _FillApplicationInfo()
         {
-            // lblInternationalLicenseApplicationID.Text = _License.ApplicationID.ToString();
-            // lblInternationalLicenseID.Text = _InternationalLicense.InternationalLicenseID.ToString();
+            lblInternationalLicenseApplicationID.Text = _License.ApplicationID.ToString();
+
+            clsInternationalLicense InternationalLicense = clsInternationalLicense.FindInternationalLicenseByLocalLicenseID(_License.LicenseID);
+            if (InternationalLicense != null)
+            {
+                lblInternationalLicenseID.Text = InternationalLicense.InternationalLicenseID.ToString();
+            }
 
 
             lblApplicationDate.Text = DateTime.Now.ToString();
@@ -82,7 +88,7 @@ namespace Driving_License_Management_System.License.International_Driving_Licens
 
         public bool LoadData(int LicenseID)
         {
-            _ResetDefaultValue();
+            ResetDefaultValue();
             _License = clsLicense.FindLicenseByID(LicenseID);
             if (_License != null)
             {

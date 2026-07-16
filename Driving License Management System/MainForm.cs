@@ -103,5 +103,11 @@ namespace Driving_License_Management_System
             frmAddNewInternationalDrivingLicense frmAddNewInternationalDrivingLicense = new frmAddNewInternationalDrivingLicense();
             frmAddNewInternationalDrivingLicense.ShowDialog();
         }
+
+        private void renewDrivingLicenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmRenewLicenseApplication frmRenewLicenseApplication = new frmRenewLicenseApplication();
+            frmRenewLicenseApplication.ShowDialog();
+        }
     }
 }

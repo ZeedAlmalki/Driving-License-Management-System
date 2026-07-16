@@ -65,6 +65,42 @@ namespace Driving_License_Management_System.License
 
         }
 
+        private void _FillLicenseInformationByLicenseIDOnly()
+        {
+
+            clsPerson Person = clsPerson.FindByPersonID(_License.PersonID);
+            lblClass.Text = clsLicenseClass.FindLicenseClassByID(_License.LicenseClass).ClassName;
+            lblName.Text = Person.FullName();
+            lblLicenseID.Text = _License.LicenseID.ToString();
+            lblNationalNo.Text = Person.NationalNo;
+
+            lblIssueDate.Text = _License.IssueDate.ToString();
+            lblIssueReason.Text = _License.IssueReason.ToString();
+            lblDateOfBirth.Text = Person.DateOfBirth.ToString();
+
+
+            lblDriverID.Text = _License.DriverID.ToString();
+            lblExpirationDate.Text = _License.ExpirationDate.ToString();
+            lblIsDetained.Text = "Edit it later";
+            pbPersonPicture.ImageLocation = Person.ImagePath;
+
+            if (Person.Gendor == 1)
+                lblGendor.Text = "Female";
+            else
+                lblGendor.Text = "Male";
+
+            if (_License.IsActive)
+                lblIsActive.Text = "Yes";
+            else
+                lblIsActive.Text = "No";
+
+            if (string.IsNullOrWhiteSpace(_License.Notes))
+                lblNotes.Text = "No Notes";
+            else
+                lblNotes.Text = _License.Notes;
+
+        }
+
         private void _ResetLicenseInfo()
         {
             _LocalDrivingLicenseApplication = null;
@@ -89,7 +125,7 @@ namespace Driving_License_Management_System.License
         }
 
 
-        public bool LoadLicenseInfo(int LocalDrivingLicenseApplication)
+        public bool LoadLicenseInfoByLocalDrivingLicenseApplication(int LocalDrivingLicenseApplication)
         {
             _LocalDrivingLicenseApplication = clsLocalDrivingLicenseApplication.FindLocalDrivingLicenseApplicationByID(LocalDrivingLicenseApplication);
             if (_LocalDrivingLicenseApplication == null || _LocalDrivingLicenseApplication.ApplicationStatus != clsApplication.enApplicationSatus.Completed)
@@ -136,5 +172,24 @@ namespace Driving_License_Management_System.License
                 return true;
             }
         }
+
+        public bool LoadLicenseInfoByLicenseID(int LicenseID)
+        {
+
+            _License = clsLicense.FindLicenseByID(LicenseID);
+
+            if (_License == null)
+            {
+                _ResetLicenseInfo();
+                return false;
+            }
+            else
+            {
+                _FillLicenseInformationByLicenseIDOnly();
+                return true;
+            }
+        }
+
+
     }
 }

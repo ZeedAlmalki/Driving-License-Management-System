@@ -17,11 +17,24 @@ namespace Driving_License_Management_System.License
         {
             InitializeComponent();
             _LocalDrivingLicenseApplicationID = LocalDrivingLicenseApplcationID;
+
         }
 
         private void frmLicenseInfo_Load(object sender, EventArgs e)
         {
-            if (!ctrlLicenseInfo1.LoadLicenseInfo(_LocalDrivingLicenseApplicationID))
+            if (_LocalDrivingLicenseApplicationID != -1)
+            {
+                if (!ctrlLicenseInfo1.LoadLicenseInfoByLocalDrivingLicenseApplication(_LocalDrivingLicenseApplicationID))
+                {
+                    MessageBox.Show("Something Went error", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    this.Close();
+                }
+            }
+        }
+
+        public void LoadLicenseInfoByApplicationID(int ApplicationID)
+        {
+            if (!ctrlLicenseInfo1.LoadLicenseInfoByApplicatoinID(ApplicationID))
             {
                 MessageBox.Show("Something Went error", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.Close();

@@ -169,7 +169,7 @@ namespace DataAccessLayer
                 SqlConnection Connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
                 string query = @"SELECT * FROM InternationalLicenses 
-                             WHERE IssuedUsingLocalLicenseID = @IssuedUsingLocalLicenseID AND IsAcitve = 1";
+                             WHERE IssuedUsingLocalLicenseID = @IssuedUsingLocalLicenseID AND IsActive = 1";
 
                 SqlCommand Command = new SqlCommand(query, Connection);
                 Command.Parameters.AddWithValue("@IssuedUsingLocalLicenseID", IssuedUsingLocalLicenseID);
@@ -261,7 +261,12 @@ namespace DataAccessLayer
 
                 SqlConnection Connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
-                string query = @"INSERT INTO InternationalLicenses 
+                string query = @"
+                                UPDATE InternationalLicenses
+                                SET IsActive = 0
+                                WHERE DriverID = @DriverID;
+
+                            INSERT INTO InternationalLicenses 
                             (ApplicationID, DriverID, IssuedUsingLocalLicenseID, IssueDate, 
                              ExpirationDate, IsActive, CreatedByUserID)
                              VALUES 

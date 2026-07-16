@@ -30,9 +30,10 @@
         {
             this.btnClose = new Guna.UI2.WinForms.Guna2Button();
             this.btnIssue = new Guna.UI2.WinForms.Guna2Button();
-            this.ctrllFindLocalDrivingLicense1 = new Driving_License_Management_System.License.Controls.ctrllFindLocalDrivingLicense();
             this.lblShowLicenseInfo = new System.Windows.Forms.LinkLabel();
             this.lblShowLicenseHistory = new System.Windows.Forms.LinkLabel();
+            this.ctrllFindLocalDrivingLicense1 = new Driving_License_Management_System.License.Controls.ctrllFindLocalDrivingLicense();
+            this.ctrlInternationalDrivingLicenseApplicationInfo1 = new Driving_License_Management_System.License.International_Driving_License.Controls.ctrlInternationalDrivingLicenseApplicationInfo();
             this.SuspendLayout();
             // 
             // btnClose
@@ -99,16 +100,6 @@
             this.btnIssue.UseTransparentBackground = true;
             this.btnIssue.Click += new System.EventHandler(this.btnIssue_Click);
             // 
-            // ctrllFindLocalDrivingLicense1
-            // 
-            this.ctrllFindLocalDrivingLicense1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(246)))), ((int)(((byte)(250)))));
-            this.ctrllFindLocalDrivingLicense1.FilterEnabled = true;
-            this.ctrllFindLocalDrivingLicense1.Location = new System.Drawing.Point(26, 12);
-            this.ctrllFindLocalDrivingLicense1.Name = "ctrllFindLocalDrivingLicense1";
-            this.ctrllFindLocalDrivingLicense1.Size = new System.Drawing.Size(1185, 838);
-            this.ctrllFindLocalDrivingLicense1.TabIndex = 147;
-            this.ctrllFindLocalDrivingLicense1.OnLicensenSelected += new System.Action<int>(this.ctrllFindLocalDrivingLicense1_OnLicensenSelected);
-            // 
             // lblShowLicenseInfo
             // 
             this.lblShowLicenseInfo.AutoSize = true;
@@ -135,15 +126,37 @@
             this.lblShowLicenseHistory.Text = "Show License History";
             this.lblShowLicenseHistory.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblShowLicenseHistory_LinkClicked);
             // 
+            // ctrllFindLocalDrivingLicense1
+            // 
+            this.ctrllFindLocalDrivingLicense1.AsignLicenseID = "";
+            this.ctrllFindLocalDrivingLicense1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(246)))), ((int)(((byte)(250)))));
+            this.ctrllFindLocalDrivingLicense1.FilterEnabled = true;
+            this.ctrllFindLocalDrivingLicense1.IsRenewMode = false;
+            this.ctrllFindLocalDrivingLicense1.Location = new System.Drawing.Point(53, 12);
+            this.ctrllFindLocalDrivingLicense1.Name = "ctrllFindLocalDrivingLicense1";
+            this.ctrllFindLocalDrivingLicense1.Size = new System.Drawing.Size(1201, 525);
+            this.ctrllFindLocalDrivingLicense1.TabIndex = 150;
+            this.ctrllFindLocalDrivingLicense1.OnLicensenSelected += new System.Action<int, bool>(this.HandleLicenseSelected);
+            this.ctrllFindLocalDrivingLicense1.Load += new System.EventHandler(this.ctrllFindLocalDrivingLicense1_Load);
+            // 
+            // ctrlInternationalDrivingLicenseApplicationInfo1
+            // 
+            this.ctrlInternationalDrivingLicenseApplicationInfo1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(246)))), ((int)(((byte)(250)))));
+            this.ctrlInternationalDrivingLicenseApplicationInfo1.Location = new System.Drawing.Point(101, 530);
+            this.ctrlInternationalDrivingLicenseApplicationInfo1.Name = "ctrlInternationalDrivingLicenseApplicationInfo1";
+            this.ctrlInternationalDrivingLicenseApplicationInfo1.Size = new System.Drawing.Size(1057, 260);
+            this.ctrlInternationalDrivingLicenseApplicationInfo1.TabIndex = 151;
+            // 
             // frmAddNewInternationalDrivingLicense
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(246)))), ((int)(((byte)(250)))));
             this.ClientSize = new System.Drawing.Size(1266, 903);
+            this.Controls.Add(this.ctrlInternationalDrivingLicenseApplicationInfo1);
+            this.Controls.Add(this.ctrllFindLocalDrivingLicense1);
             this.Controls.Add(this.lblShowLicenseInfo);
             this.Controls.Add(this.lblShowLicenseHistory);
-            this.Controls.Add(this.ctrllFindLocalDrivingLicense1);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnIssue);
             this.Name = "frmAddNewInternationalDrivingLicense";
@@ -158,8 +171,9 @@
 
         private Guna.UI2.WinForms.Guna2Button btnClose;
         private Guna.UI2.WinForms.Guna2Button btnIssue;
-        private License.Controls.ctrllFindLocalDrivingLicense ctrllFindLocalDrivingLicense1;
         private System.Windows.Forms.LinkLabel lblShowLicenseInfo;
         private System.Windows.Forms.LinkLabel lblShowLicenseHistory;
+        private License.Controls.ctrllFindLocalDrivingLicense ctrllFindLocalDrivingLicense1;
+        private Controls.ctrlInternationalDrivingLicenseApplicationInfo ctrlInternationalDrivingLicenseApplicationInfo1;
     }
 }
