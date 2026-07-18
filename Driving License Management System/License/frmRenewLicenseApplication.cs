@@ -21,6 +21,8 @@ namespace Driving_License_Management_System.License
         }
         private int _LicenseID;
         private clsLicense _License;
+        private int NewLicenseID = -1;
+
 
         private void DefaultSetteigns()
         {
@@ -42,6 +44,8 @@ namespace Driving_License_Management_System.License
 
             if (_License == null)
                 return;
+
+            lblShowLicenseHistory.Enabled = true;
             ctrlApplicationNewLicenseInfo1.LoadControlData(_LicenseID);
             ctrllFindLocalDrivingLicense1.LoadDataByLicenseID(_License.LicenseID);
 
@@ -86,7 +90,7 @@ namespace Driving_License_Management_System.License
             License.IssueDate = DateTime.Now;
             License.ExpirationDate = (DateTime.Now.AddYears(LicenseClass.DefaultValidityLength));
             License.Notes = ctrlApplicationNewLicenseInfo1.Notes;
-            License.PaidFees = LicenseClass.ClassFees;
+            License.PaidFees = 0; // We don't pay for a new license, we just pay for the application.
             License.IsActive = true;
             License.IssueReason = clsLicense.enIssueReason.Renew;
             License.CreatedByUserID = GlobalSettings.User.UserID;
@@ -100,15 +104,16 @@ namespace Driving_License_Management_System.License
                 btnRenew.Enabled = false;
                 lblShowLicenseInfo.Enabled = true;
                 ctrlApplicationNewLicenseInfo1.RenewApplicationID = License.ApplicationID.ToString();
-                ctrlApplicationNewLicenseInfo1.NewLicenseID = License.LicenseID.ToString();
+                NewLicenseID = License.LicenseID;
+                ctrlApplicationNewLicenseInfo1.NewLicenseID = NewLicenseID.ToString();
                 MessageBox.Show("License Renewed Successfully", "License Issued", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
         private void lblShowLicenseInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            frmLicenseInfo frmLicenseInfo = new frmLicenseInfo(-1);
-            frmLicenseInfo.LoadLicenseInfoByApplicationID(_License.ApplicationID);
+            frmLicenseInfo frmLicenseInfo = new frmLicenseInfo(NewLicenseID);
+            frmLicenseInfo.ShowDialog();
         }
 
         private void lblShowLicenseHistory_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

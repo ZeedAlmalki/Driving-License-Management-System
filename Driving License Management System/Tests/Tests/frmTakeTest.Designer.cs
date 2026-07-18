@@ -213,7 +213,7 @@
             this.Controls.Add(this.label109);
             this.Controls.Add(this.ctrlTestsCard1);
             this.Name = "frmTakeTest";
-            this.Text = "frmTakeTest";
+            this.Text = "Take Test";
             this.Load += new System.EventHandler(this.frmTakeTest_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

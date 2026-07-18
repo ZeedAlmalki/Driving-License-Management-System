@@ -137,7 +137,6 @@
             this.ctrllFindLocalDrivingLicense1.Size = new System.Drawing.Size(1201, 525);
             this.ctrllFindLocalDrivingLicense1.TabIndex = 150;
             this.ctrllFindLocalDrivingLicense1.OnLicensenSelected += new System.Action<int, bool>(this.HandleLicenseSelected);
-            this.ctrllFindLocalDrivingLicense1.Load += new System.EventHandler(this.ctrllFindLocalDrivingLicense1_Load);
             // 
             // ctrlInternationalDrivingLicenseApplicationInfo1
             // 
@@ -160,7 +159,7 @@
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnIssue);
             this.Name = "frmAddNewInternationalDrivingLicense";
-            this.Text = "frmAddNewInternationalDrivingLicense";
+            this.Text = "Add New International Driving License";
             this.Load += new System.EventHandler(this.frmAddNewInternationalDrivingLicense_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

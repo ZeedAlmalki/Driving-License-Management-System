@@ -197,7 +197,71 @@ namespace DataAccessLayer
             return IsFound;
         }
 
-      
+        public static bool FindActiveLicenseByLicenseClassIDAndPersonID(int PersonID, int LicenseClass, ref int ApplicationID, ref int LicenseID, ref int DriverID,
+        ref DateTime IssueDate, ref DateTime ExpirationDate, ref string Notes,
+       ref decimal PaidFees, ref bool IsActive, ref byte IssueReason, ref int CreatedByUserID)
+        {
+            bool IsFound = false;
+
+            SqlConnection Connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string query = @"
+                                SELECT * FROM Licenses
+                                INNER JOIN Applications ON Applications.ApplicationID = Licenses.ApplicationID
+                                WHERE ApplicantPersonID = @PersonID AND LicenseClass = @LicenseClass AND IsActive = 1";
+            SqlCommand Command = new SqlCommand(query, Connection);
+
+            Command.Parameters.AddWithValue("@PersonID", PersonID);
+            Command.Parameters.AddWithValue("@LicenseClass", LicenseClass);
+
+
+            try
+            {
+                Connection.Open();
+
+                SqlDataReader reader = Command.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    ApplicationID = (int)reader["ApplicationID"];
+                    LicenseID = (int)reader["LicenseID"];
+                    DriverID = (int)reader["DriverID"];
+                    IssueDate = (DateTime)reader["IssueDate"];
+                    ExpirationDate = (DateTime)reader["ExpirationDate"];
+
+
+                    if (reader["Notes"] != DBNull.Value)
+                    {
+                        Notes = (string)reader["Notes"];
+                    }
+                    else
+                    {
+                        Notes = null;
+                    }
+
+                    PaidFees = (decimal)reader["PaidFees"];
+                    IsActive = (bool)reader["IsActive"];
+                    IssueReason = (byte)reader["IssueReason"];
+                    CreatedByUserID = (int)reader["CreatedByUserID"];
+                    IsFound = true;
+                }
+                else
+                {
+                    IsFound = false;
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                Connection.Close();
+            }
+            return IsFound;
+        }
+
+
 
         public static int AddNewLicense(int ApplicationID, int DriverID,
                 int LicenseClass, DateTime IssueDate, DateTime ExpirationDate, string Notes,

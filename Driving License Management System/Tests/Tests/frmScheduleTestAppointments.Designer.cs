@@ -116,12 +116,15 @@
             this.ctrlTestsCard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(246)))), ((int)(((byte)(250)))));
             this.ctrlTestsCard1.Location = new System.Drawing.Point(-4, 2);
             this.ctrlTestsCard1.Name = "ctrlTestsCard1";
+            this.ctrlTestsCard1.PaidFees = "0";
             this.ctrlTestsCard1.ReTakeTestApplicationID = "N/A";
             this.ctrlTestsCard1.ReTakeTestEnabled = false;
+            this.ctrlTestsCard1.RetakeTestFees = "0";
             this.ctrlTestsCard1.ReTakeTestInvisible = false;
             this.ctrlTestsCard1.Size = new System.Drawing.Size(544, 706);
             this.ctrlTestsCard1.TabIndex = 144;
             this.ctrlTestsCard1.TestDate = new System.DateTime(2026, 7, 3, 23, 34, 46, 397);
+            this.ctrlTestsCard1.TotalFees = "0";
             // 
             // frmScheduleTestAppointments
             // 
@@ -134,7 +137,7 @@
             this.Controls.Add(this.ctrlTestsCard1);
             this.Controls.Add(this.btnClose);
             this.Name = "frmScheduleTestAppointments";
-            this.Text = "frmScheduleTestAppointments";
+            this.Text = "Schedule Test Appointments";
             this.Load += new System.EventHandler(this.frmScheduleTestAppointments_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

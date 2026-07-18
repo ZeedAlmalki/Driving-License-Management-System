@@ -161,7 +161,7 @@
             this.Controls.Add(this.ctrllFindLocalDrivingLicense1);
             this.Controls.Add(this.ctrlApplicationNewLicenseInfo1);
             this.Name = "frmRenewLicenseApplication";
-            this.Text = "frmRenewLicenseApplication";
+            this.Text = "Renew License Application";
             this.Load += new System.EventHandler(this.frmRenewLicenseApplication_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

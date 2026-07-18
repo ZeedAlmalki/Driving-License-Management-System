@@ -324,7 +324,7 @@
             this.cmsApplications.RenderStyle.SelectionForeColor = System.Drawing.Color.White;
             this.cmsApplications.RenderStyle.SeparatorColor = System.Drawing.Color.Gainsboro;
             this.cmsApplications.RenderStyle.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            this.cmsApplications.Size = new System.Drawing.Size(385, 236);
+            this.cmsApplications.Size = new System.Drawing.Size(385, 214);
             // 
             // drToolStripMenuItem
             // 
@@ -397,6 +397,7 @@
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
             this.toolStripMenuItem3.Size = new System.Drawing.Size(474, 38);
             this.toolStripMenuItem3.Text = "   Replacement For Lost Or Damaged License";
+            this.toolStripMenuItem3.Click += new System.EventHandler(this.toolStripMenuItem3_Click);
             // 
             // toolStripMenuItem2
             // 
@@ -535,7 +536,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "Home";
             this.PanelProject.ResumeLayout(false);
             this.cmsAccountSettings.ResumeLayout(false);
             this.cmsApplications.ResumeLayout(false);

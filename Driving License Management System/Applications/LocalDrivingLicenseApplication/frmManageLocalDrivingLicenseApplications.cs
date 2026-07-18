@@ -345,7 +345,11 @@ namespace Driving_License_Management_System
 
         private void showLicenseToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmLicenseInfo LicenseInfo = new frmLicenseInfo((int)LocalDrivingLicenseApplicationsGridView.CurrentRow.Cells[0].Value);
+            clsLocalDrivingLicenseApplication clsLocalDrivingLicenseApplication = clsLocalDrivingLicenseApplication.FindLocalDrivingLicenseApplicationByID((int)LocalDrivingLicenseApplicationsGridView.CurrentRow.Cells[0].Value);
+            clsLicense License = clsLicense.FindActiveLicenseByLicenseClassIDAndPersonID(clsLocalDrivingLicenseApplication.ApplicantPersonID, clsLocalDrivingLicenseApplication.LicenseClassID);
+
+
+            frmLicenseInfo LicenseInfo = new frmLicenseInfo(License.LicenseID);
             LicenseInfo.ShowDialog();
         }
 

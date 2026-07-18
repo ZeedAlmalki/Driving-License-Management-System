@@ -65,19 +65,13 @@ namespace Driving_License_Management_System.License.Controls
             get { return ctrlLicenseInfo1.LicenseID; }
         }
 
-        public bool LoadDataByApplicationID(int ApplicationID)
-        {
-            return ctrlLicenseInfo1.LoadLicenseInfoByApplicatoinID(ApplicationID);
-        }
+
 
         public bool LoadDataByLicenseID(int LicenseID)
         {
             return ctrlLicenseInfo1.LoadLicenseInfoByLicenseID(LicenseID);
         }
-        public bool LoadLicenseInfoByLocalDrivingLicenseApplication(int LocalDrivingLicenseApplication)
-        {
-            return ctrlLicenseInfo1.LoadLicenseInfoByLocalDrivingLicenseApplication(LocalDrivingLicenseApplication);
-        }
+
 
         public string AsignLicenseID
         {

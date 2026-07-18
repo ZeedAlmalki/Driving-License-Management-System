@@ -232,7 +232,7 @@
             this.Controls.Add(this.label14);
             this.Controls.Add(this.guna2HtmlLabel1);
             this.Name = "frmUpdateApplicationType";
-            this.Text = "UpdateApplicationType";
+            this.Text = "Update Application Type";
             this.Load += new System.EventHandler(this.frmUpdateApplicationType_Load);
             this.Shown += new System.EventHandler(this.frmUpdateApplicationType_Shown);
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.frmUpdateApplicationType_KeyPress);

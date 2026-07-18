@@ -78,6 +78,9 @@ namespace Driving_License_Management_System.Applications.Applications_Types.Cont
 
         private void lblShowLicenseInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            clsLocalDrivingLicenseApplication clsLocalDrivingLicenseApplication = clsLocalDrivingLicenseApplication.FindLocalDrivingLicenseApplicationByID(LocalDrivingLicenseApplicationID);
+            clsLicense License = clsLicense.FindActiveLicenseByLicenseClassIDAndPersonID(clsLocalDrivingLicenseApplication.ApplicantPersonID, clsLocalDrivingLicenseApplication.LicenseClassID);
+
             frmLicenseInfo LicenseInfo = new frmLicenseInfo(LocalDrivingLicenseApplicationID);
             LicenseInfo.ShowDialog();
         }

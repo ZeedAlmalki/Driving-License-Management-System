@@ -100,7 +100,7 @@ namespace Driving_License_Management_System.License.International_Driving_Licens
                 ctrllFindLocalDrivingLicense1.AsignLicenseID = outLicenseID.ToString();
             }
 
-            if (!ctrllFindLocalDrivingLicense1.LoadDataByApplicationID(_License.ApplicationID))
+            if (!ctrllFindLocalDrivingLicense1.LoadDataByLicenseID(_License.LicenseID))
             {
                 MessageBox.Show("Something went error", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -127,11 +127,6 @@ namespace Driving_License_Management_System.License.International_Driving_Licens
 
             btnIssue.Enabled = true;
 
-
-        }
-
-        private void ctrllFindLocalDrivingLicense1_Load(object sender, EventArgs e)
-        {
 
         }
     }

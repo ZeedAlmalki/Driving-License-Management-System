@@ -169,7 +169,7 @@ namespace DataAccessLayer
                 SqlConnection Connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
                 string query = @"SELECT * FROM InternationalLicenses 
-                             WHERE IssuedUsingLocalLicenseID = @IssuedUsingLocalLicenseID AND IsActive = 1";
+                             WHERE IssuedUsingLocalLicenseID = @IssuedUsingLocalLicenseID";
 
                 SqlCommand Command = new SqlCommand(query, Connection);
                 Command.Parameters.AddWithValue("@IssuedUsingLocalLicenseID", IssuedUsingLocalLicenseID);

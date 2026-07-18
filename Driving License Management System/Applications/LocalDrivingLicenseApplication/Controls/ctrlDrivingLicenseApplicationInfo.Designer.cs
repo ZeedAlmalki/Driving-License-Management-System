@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.gbDrivingLicenseApplicationInfo = new System.Windows.Forms.GroupBox();
-            this.lblPassedTests = new System.Windows.Forms.Label();
-            this.lblAppliedForLicense = new System.Windows.Forms.Label();
-            this.lblDLappID = new System.Windows.Forms.Label();
             this.lblShowLicenseInfo = new System.Windows.Forms.LinkLabel();
             this.label3 = new System.Windows.Forms.Label();
+            this.lblPassedTests = new System.Windows.Forms.Label();
+            this.lblAppliedForLicense = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
+            this.lblDLappID = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.ctrlApplicationInfo1 = new Driving_License_Management_System.Applications.LocalDrivingLicenseApplication.Controls.ctrlApplicationInfo();
             this.gbDrivingLicenseApplicationInfo.SuspendLayout();
@@ -55,36 +55,6 @@
             this.gbDrivingLicenseApplicationInfo.TabIndex = 90;
             this.gbDrivingLicenseApplicationInfo.TabStop = false;
             this.gbDrivingLicenseApplicationInfo.Text = "Driving License Application Information";
-            // 
-            // lblPassedTests
-            // 
-            this.lblPassedTests.AutoSize = true;
-            this.lblPassedTests.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPassedTests.Location = new System.Drawing.Point(205, 95);
-            this.lblPassedTests.Name = "lblPassedTests";
-            this.lblPassedTests.Size = new System.Drawing.Size(33, 19);
-            this.lblPassedTests.TabIndex = 68;
-            this.lblPassedTests.Text = "???";
-            // 
-            // lblAppliedForLicense
-            // 
-            this.lblAppliedForLicense.AutoSize = true;
-            this.lblAppliedForLicense.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAppliedForLicense.Location = new System.Drawing.Point(558, 41);
-            this.lblAppliedForLicense.Name = "lblAppliedForLicense";
-            this.lblAppliedForLicense.Size = new System.Drawing.Size(33, 19);
-            this.lblAppliedForLicense.TabIndex = 67;
-            this.lblAppliedForLicense.Text = "???";
-            // 
-            // lblDLappID
-            // 
-            this.lblDLappID.AutoSize = true;
-            this.lblDLappID.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDLappID.Location = new System.Drawing.Point(205, 41);
-            this.lblDLappID.Name = "lblDLappID";
-            this.lblDLappID.Size = new System.Drawing.Size(33, 19);
-            this.lblDLappID.TabIndex = 56;
-            this.lblDLappID.Text = "???";
             // 
             // lblShowLicenseInfo
             // 
@@ -112,17 +82,47 @@
             this.label3.Text = "Passed Tests:";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // lblPassedTests
+            // 
+            this.lblPassedTests.AutoSize = true;
+            this.lblPassedTests.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPassedTests.Location = new System.Drawing.Point(205, 95);
+            this.lblPassedTests.Name = "lblPassedTests";
+            this.lblPassedTests.Size = new System.Drawing.Size(33, 19);
+            this.lblPassedTests.TabIndex = 68;
+            this.lblPassedTests.Text = "???";
+            // 
+            // lblAppliedForLicense
+            // 
+            this.lblAppliedForLicense.AutoSize = true;
+            this.lblAppliedForLicense.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAppliedForLicense.Location = new System.Drawing.Point(584, 41);
+            this.lblAppliedForLicense.Name = "lblAppliedForLicense";
+            this.lblAppliedForLicense.Size = new System.Drawing.Size(33, 19);
+            this.lblAppliedForLicense.TabIndex = 67;
+            this.lblAppliedForLicense.Text = "???";
+            // 
             // label10
             // 
             this.label10.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.Image = global::Driving_License_Management_System.Properties.Resources.License_Type_32;
             this.label10.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label10.Location = new System.Drawing.Point(360, 34);
+            this.label10.Location = new System.Drawing.Point(317, 23);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(159, 26);
+            this.label10.Size = new System.Drawing.Size(249, 55);
             this.label10.TabIndex = 62;
             this.label10.Text = "Applied For License:";
-            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblDLappID
+            // 
+            this.lblDLappID.AutoSize = true;
+            this.lblDLappID.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDLappID.Location = new System.Drawing.Point(205, 41);
+            this.lblDLappID.Name = "lblDLappID";
+            this.lblDLappID.Size = new System.Drawing.Size(33, 19);
+            this.lblDLappID.TabIndex = 56;
+            this.lblDLappID.Text = "???";
             // 
             // label21
             // 

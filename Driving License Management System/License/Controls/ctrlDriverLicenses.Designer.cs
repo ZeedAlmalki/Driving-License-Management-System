@@ -44,12 +44,18 @@
             this.InternationalDriverLicenseDataGridView = new Guna.UI2.WinForms.Guna2DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
+            this.cmsLicenseInfo = new Guna.UI2.WinForms.Guna2ContextMenuStrip();
+            this.showLicenseInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmsInternationalLicenseInfo = new Guna.UI2.WinForms.Guna2ContextMenuStrip();
+            this.showInternationalLicenseInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gbDriverLicenses.SuspendLayout();
             this.tcDriverLicenses.SuspendLayout();
             this.tpLocal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LocalDriverLicenseDataGridView)).BeginInit();
             this.tpInternational.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.InternationalDriverLicenseDataGridView)).BeginInit();
+            this.cmsLicenseInfo.SuspendLayout();
+            this.cmsInternationalLicenseInfo.SuspendLayout();
             this.SuspendLayout();
             // 
             // gbDriverLicenses
@@ -115,6 +121,7 @@
             this.LocalDriverLicenseDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.LocalDriverLicenseDataGridView.ColumnHeadersHeight = 40;
             this.LocalDriverLicenseDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            this.LocalDriverLicenseDataGridView.ContextMenuStrip = this.cmsLicenseInfo;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(54)))), ((int)(((byte)(75)))));
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Tahoma", 10F);
@@ -194,6 +201,7 @@
             this.InternationalDriverLicenseDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.InternationalDriverLicenseDataGridView.ColumnHeadersHeight = 40;
             this.InternationalDriverLicenseDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            this.InternationalDriverLicenseDataGridView.ContextMenuStrip = this.cmsInternationalLicenseInfo;
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(54)))), ((int)(((byte)(75)))));
             dataGridViewCellStyle6.Font = new System.Drawing.Font("Tahoma", 10F);
@@ -255,6 +263,70 @@
             this.label13.TabIndex = 76;
             this.label13.Text = "Total Records: ";
             // 
+            // cmsLicenseInfo
+            // 
+            this.cmsLicenseInfo.AutoSize = false;
+            this.cmsLicenseInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(246)))), ((int)(((byte)(250)))));
+            this.cmsLicenseInfo.Font = new System.Drawing.Font("Segoe UI", 16F);
+            this.cmsLicenseInfo.ImageScalingSize = new System.Drawing.Size(32, 32);
+            this.cmsLicenseInfo.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.showLicenseInfoToolStripMenuItem});
+            this.cmsLicenseInfo.Name = "cmsAccountSettings";
+            this.cmsLicenseInfo.RenderStyle.ArrowColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
+            this.cmsLicenseInfo.RenderStyle.BorderColor = System.Drawing.Color.Gainsboro;
+            this.cmsLicenseInfo.RenderStyle.ColorTable = null;
+            this.cmsLicenseInfo.RenderStyle.RoundedEdges = true;
+            this.cmsLicenseInfo.RenderStyle.SelectionArrowColor = System.Drawing.Color.White;
+            this.cmsLicenseInfo.RenderStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.cmsLicenseInfo.RenderStyle.SelectionForeColor = System.Drawing.Color.White;
+            this.cmsLicenseInfo.RenderStyle.SeparatorColor = System.Drawing.Color.Gainsboro;
+            this.cmsLicenseInfo.RenderStyle.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.cmsLicenseInfo.Size = new System.Drawing.Size(218, 50);
+            // 
+            // showLicenseInfoToolStripMenuItem
+            // 
+            this.showLicenseInfoToolStripMenuItem.AutoSize = false;
+            this.showLicenseInfoToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 16F);
+            this.showLicenseInfoToolStripMenuItem.Image = global::Driving_License_Management_System.Properties.Resources.License_View_32;
+            this.showLicenseInfoToolStripMenuItem.Margin = new System.Windows.Forms.Padding(1);
+            this.showLicenseInfoToolStripMenuItem.Name = "showLicenseInfoToolStripMenuItem";
+            this.showLicenseInfoToolStripMenuItem.Padding = new System.Windows.Forms.Padding(4);
+            this.showLicenseInfoToolStripMenuItem.Size = new System.Drawing.Size(500, 44);
+            this.showLicenseInfoToolStripMenuItem.Text = "  Show License Info";
+            this.showLicenseInfoToolStripMenuItem.Click += new System.EventHandler(this.showLicenseInfoToolStripMenuItem_Click);
+            // 
+            // cmsInternationalLicenseInfo
+            // 
+            this.cmsInternationalLicenseInfo.AutoSize = false;
+            this.cmsInternationalLicenseInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(246)))), ((int)(((byte)(250)))));
+            this.cmsInternationalLicenseInfo.Font = new System.Drawing.Font("Segoe UI", 16F);
+            this.cmsInternationalLicenseInfo.ImageScalingSize = new System.Drawing.Size(32, 32);
+            this.cmsInternationalLicenseInfo.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.showInternationalLicenseInfoToolStripMenuItem});
+            this.cmsInternationalLicenseInfo.Name = "cmsAccountSettings";
+            this.cmsInternationalLicenseInfo.RenderStyle.ArrowColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
+            this.cmsInternationalLicenseInfo.RenderStyle.BorderColor = System.Drawing.Color.Gainsboro;
+            this.cmsInternationalLicenseInfo.RenderStyle.ColorTable = null;
+            this.cmsInternationalLicenseInfo.RenderStyle.RoundedEdges = true;
+            this.cmsInternationalLicenseInfo.RenderStyle.SelectionArrowColor = System.Drawing.Color.White;
+            this.cmsInternationalLicenseInfo.RenderStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.cmsInternationalLicenseInfo.RenderStyle.SelectionForeColor = System.Drawing.Color.White;
+            this.cmsInternationalLicenseInfo.RenderStyle.SeparatorColor = System.Drawing.Color.Gainsboro;
+            this.cmsInternationalLicenseInfo.RenderStyle.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.cmsInternationalLicenseInfo.Size = new System.Drawing.Size(350, 50);
+            // 
+            // showInternationalLicenseInfoToolStripMenuItem
+            // 
+            this.showInternationalLicenseInfoToolStripMenuItem.AutoSize = false;
+            this.showInternationalLicenseInfoToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 16F);
+            this.showInternationalLicenseInfoToolStripMenuItem.Image = global::Driving_License_Management_System.Properties.Resources.License_View_32;
+            this.showInternationalLicenseInfoToolStripMenuItem.Margin = new System.Windows.Forms.Padding(1);
+            this.showInternationalLicenseInfoToolStripMenuItem.Name = "showInternationalLicenseInfoToolStripMenuItem";
+            this.showInternationalLicenseInfoToolStripMenuItem.Padding = new System.Windows.Forms.Padding(4);
+            this.showInternationalLicenseInfoToolStripMenuItem.Size = new System.Drawing.Size(500, 44);
+            this.showInternationalLicenseInfoToolStripMenuItem.Text = "  Show International License Info";
+            this.showInternationalLicenseInfoToolStripMenuItem.Click += new System.EventHandler(this.showInternationalLicenseInfoToolStripMenuItem_Click);
+            // 
             // ctrlDriverLicenses
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -270,6 +342,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.LocalDriverLicenseDataGridView)).EndInit();
             this.tpInternational.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.InternationalDriverLicenseDataGridView)).EndInit();
+            this.cmsLicenseInfo.ResumeLayout(false);
+            this.cmsInternationalLicenseInfo.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -286,5 +360,9 @@
         private Guna.UI2.WinForms.Guna2DataGridView InternationalDriverLicenseDataGridView;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label13;
+        private Guna.UI2.WinForms.Guna2ContextMenuStrip cmsLicenseInfo;
+        private System.Windows.Forms.ToolStripMenuItem showLicenseInfoToolStripMenuItem;
+        private Guna.UI2.WinForms.Guna2ContextMenuStrip cmsInternationalLicenseInfo;
+        private System.Windows.Forms.ToolStripMenuItem showInternationalLicenseInfoToolStripMenuItem;
     }
 }

@@ -270,7 +270,7 @@
             this.Controls.Add(this.label109);
             this.Controls.Add(this.ctrlDrivingLicenseApplicationInfo1);
             this.Name = "frmTestAppointments";
-            this.Text = "frmTestAppointments";
+            this.Text = "Test Appointments";
             this.Load += new System.EventHandler(this.frmTestAppointments_Load);
             ((System.ComponentModel.ISupportInitialize)(this.TestAppointmentsDataGridView)).EndInit();
             this.cmsTestAppointments.ResumeLayout(false);

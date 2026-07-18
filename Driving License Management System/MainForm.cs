@@ -109,5 +109,11 @@ namespace Driving_License_Management_System
             frmRenewLicenseApplication frmRenewLicenseApplication = new frmRenewLicenseApplication();
             frmRenewLicenseApplication.ShowDialog();
         }
+
+        private void toolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+            frmReplacementForDamagedLicense frmReplacementForDamagedLicense = new frmReplacementForDamagedLicense();
+            frmReplacementForDamagedLicense.ShowDialog();
+        }
     }
 }

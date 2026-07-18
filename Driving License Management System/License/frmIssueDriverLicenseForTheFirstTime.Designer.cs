@@ -140,7 +140,7 @@
             this.Controls.Add(this.txtNotes);
             this.Controls.Add(this.label1);
             this.Name = "frmIssueDriverLicenseForTheFirstTime";
-            this.Text = "frmIssueDriverLicenseForTheFirstTime";
+            this.Text = "Issue Driver License For The First Time";
             this.Load += new System.EventHandler(this.frmIssueDriverLicenseForTheFirstTime_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

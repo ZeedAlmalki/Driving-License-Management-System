@@ -76,6 +76,26 @@ namespace Driving_License_Management_System.License
 
             lblIssueDate.Text = _License.IssueDate.ToString();
             lblIssueReason.Text = _License.IssueReason.ToString();
+
+            switch (_License.IssueReason)
+            {
+                case clsLicense.enIssueReason.FirstTime:
+                    lblIssueReason.Text = "First Time";
+                    break;
+                case clsLicense.enIssueReason.Renew:
+                    lblIssueReason.Text = "Re New";
+                    break;
+                case clsLicense.enIssueReason.ReplacementForLost:
+                    lblIssueReason.Text = "Replacement For Lost";
+                    break;
+                case clsLicense.enIssueReason.ReplacementForDamaged:
+                    lblIssueReason.Text = "Replacement For Damaged";
+                    break;
+                default:
+                    lblIssueReason.Text = "";
+                    break;
+            }
+
             lblDateOfBirth.Text = Person.DateOfBirth.ToString();
 
 
@@ -124,54 +144,6 @@ namespace Driving_License_Management_System.License
             pbPersonPicture.ImageLocation = null;
         }
 
-
-        public bool LoadLicenseInfoByLocalDrivingLicenseApplication(int LocalDrivingLicenseApplication)
-        {
-            _LocalDrivingLicenseApplication = clsLocalDrivingLicenseApplication.FindLocalDrivingLicenseApplicationByID(LocalDrivingLicenseApplication);
-            if (_LocalDrivingLicenseApplication == null || _LocalDrivingLicenseApplication.ApplicationStatus != clsApplication.enApplicationSatus.Completed)
-            {
-                _ResetLicenseInfo();
-                return false;
-            }
-            _License = clsLicense.FindLicenseByApplicationID(_LocalDrivingLicenseApplication.ApplicationID);
-            _Driver = clsDriver.FindDriversByPersonID(_LocalDrivingLicenseApplication.ApplicantPersonID);
-            _LicenseClass = clsLicenseClass.FindLicenseClassByID(_LocalDrivingLicenseApplication.LicenseClassID);
-            _Person = clsPerson.FindByPersonID(_LocalDrivingLicenseApplication.ApplicantPersonID);
-            if (_License == null && _Driver == null && _LicenseClass == null && _Person == null)
-            {
-                _ResetLicenseInfo();
-                return false;
-            }
-            else
-            {
-                _FillLicenseInformation();
-                return true;
-            }
-        }
-
-        public bool LoadLicenseInfoByApplicatoinID(int ApplicationID)
-        {
-            _LocalDrivingLicenseApplication = clsLocalDrivingLicenseApplication.FindLocalDrivingLicenseByApplicationID(ApplicationID);
-            if (_LocalDrivingLicenseApplication == null || _LocalDrivingLicenseApplication.ApplicationStatus != clsApplication.enApplicationSatus.Completed)
-            {
-                _ResetLicenseInfo();
-                return false;
-            }
-            _License = clsLicense.FindLicenseByApplicationID(_LocalDrivingLicenseApplication.ApplicationID);
-            _Driver = clsDriver.FindDriversByPersonID(_LocalDrivingLicenseApplication.ApplicantPersonID);
-            _LicenseClass = clsLicenseClass.FindLicenseClassByID(_LocalDrivingLicenseApplication.LicenseClassID);
-            _Person = clsPerson.FindByPersonID(_LocalDrivingLicenseApplication.ApplicantPersonID);
-            if (_License == null && _Driver == null && _LicenseClass == null && _Person == null)
-            {
-                _ResetLicenseInfo();
-                return false;
-            }
-            else
-            {
-                _FillLicenseInformation();
-                return true;
-            }
-        }
 
         public bool LoadLicenseInfoByLicenseID(int LicenseID)
         {

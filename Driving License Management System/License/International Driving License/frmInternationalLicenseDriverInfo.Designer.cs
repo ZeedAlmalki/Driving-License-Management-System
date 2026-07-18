@@ -121,7 +121,7 @@
             this.Controls.Add(this.guna2PictureBox1);
             this.Controls.Add(this.ctrlInternationalLicenseDriverInfo1);
             this.Name = "frmInternationalLicenseDriverInfo";
-            this.Text = "frmInternationalLicenseDriverInfo";
+            this.Text = "International License Driver Info";
             this.Load += new System.EventHandler(this.frmInternationalLicenseDriverInfo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

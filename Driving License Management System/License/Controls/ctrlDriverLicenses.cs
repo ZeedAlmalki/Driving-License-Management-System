@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BusinessLayer;
+using Driving_License_Management_System.License.International_Driving_License;
 
 namespace Driving_License_Management_System.License.Controls
 {
@@ -130,6 +131,20 @@ namespace Driving_License_Management_System.License.Controls
                 lblTotalRecords.Text = _dtAllInternationalLicenses.Rows.Count.ToString();
                 return;
             }
+        }
+
+        private void showLicenseInfoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int LicenseID = (int)LocalDriverLicenseDataGridView.CurrentRow.Cells[0].Value;
+            frmLicenseInfo frmLicenseInfo = new frmLicenseInfo(LicenseID);
+            frmLicenseInfo.ShowDialog();
+        }
+
+        private void showInternationalLicenseInfoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int InternationalLicenseID = (int)InternationalDriverLicenseDataGridView.CurrentRow.Cells[0].Value;
+            frmInternationalLicenseDriverInfo frmLicenseInfo = new frmInternationalLicenseDriverInfo(InternationalLicenseID);
+            frmLicenseInfo.ShowDialog();
         }
     }
 }

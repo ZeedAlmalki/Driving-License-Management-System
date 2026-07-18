@@ -87,7 +87,7 @@
             this.Controls.Add(this.guna2PictureBox1);
             this.Controls.Add(this.ctrlPersonCardWithFilter1);
             this.Name = "frmShowLicensesHistory";
-            this.Text = "frmShowLicensesHistory";
+            this.Text = "Show Licenses History";
             this.Load += new System.EventHandler(this.frmShowLicensesHistory_Load);
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.ResumeLayout(false);

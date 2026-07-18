@@ -128,6 +128,30 @@ namespace BusinessLayer
             }
         }
 
+        public static clsLicense FindActiveLicenseByLicenseClassIDAndPersonID(int PersonID, int LicenseClass)
+        {
+            int LicenseID = -1;
+            int DriverID = -1;
+            int ApplicationID = -1;
+            DateTime IssueDate = DateTime.MinValue;
+            DateTime ExpirationDate = DateTime.MinValue;
+            string Notes = string.Empty;
+            decimal PaidFees = 0;
+            bool IsActive = false;
+            byte IssueReason = 0;
+            int CreatedByUserID = -1;
+
+            if (clsLicensesData.FindActiveLicenseByLicenseClassIDAndPersonID(PersonID, LicenseClass, ref ApplicationID, ref LicenseID, ref DriverID, ref IssueDate, ref ExpirationDate, ref Notes,
+                ref PaidFees, ref IsActive, ref IssueReason, ref CreatedByUserID))
+            {
+                return new clsLicense(LicenseID, ApplicationID, DriverID, LicenseClass, IssueDate, ExpirationDate, Notes, PaidFees, IsActive, IssueReason, CreatedByUserID, PersonID);
+            }
+            else
+            {
+                return null;
+            }
+        }
+
         private bool _AddNewLicense()
         {
             this.LicenseID = clsLicensesData.AddNewLicense(this.ApplicationID, this.DriverID, this.LicenseClass, this.IssueDate, this.ExpirationDate, this.Notes, this.PaidFees, this.IsActive, (byte)this.IssueReason, this.CreatedByUserID);

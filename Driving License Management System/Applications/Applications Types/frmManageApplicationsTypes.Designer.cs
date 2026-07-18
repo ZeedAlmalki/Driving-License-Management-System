@@ -211,7 +211,7 @@
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.ApplicationTypesDataGridView);
             this.Name = "frmManageApplicationsTypes";
-            this.Text = "frmManageApplicationsTypes";
+            this.Text = "Manage Applications Types";
             this.Load += new System.EventHandler(this.frmManageApplicationsTypes_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ApplicationTypesDataGridView)).EndInit();
             this.cmsManageApplicationTypes.ResumeLayout(false);
