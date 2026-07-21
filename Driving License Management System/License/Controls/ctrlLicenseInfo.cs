@@ -101,7 +101,17 @@ namespace Driving_License_Management_System.License
 
             lblDriverID.Text = _License.DriverID.ToString();
             lblExpirationDate.Text = _License.ExpirationDate.ToString();
-            lblIsDetained.Text = "Edit it later";
+
+            if (clsDetainedLicenses.IsLicenseDetained(_License.LicenseID))
+            {
+                lblIsDetained.Text = "Yes";
+            }
+            else
+            {
+                lblIsDetained.Text = "No";
+            }
+
+
             pbPersonPicture.ImageLocation = Person.ImagePath;
 
             if (Person.Gendor == 1)

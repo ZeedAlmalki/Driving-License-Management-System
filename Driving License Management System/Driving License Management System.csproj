@@ -85,6 +85,24 @@
     <Compile Include="Applications\Applications Types\frmManageApplicationsTypes.Designer.cs">
       <DependentUpon>frmManageApplicationsTypes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Detian License\frmDetianLicense.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Detian License\frmDetianLicense.Designer.cs">
+      <DependentUpon>frmDetianLicense.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Detian License\frmManageDetainLicense.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Detian License\frmManageDetainLicense.Designer.cs">
+      <DependentUpon>frmManageDetainLicense.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Detian License\frmReleaseLicense.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Detian License\frmReleaseLicense.Designer.cs">
+      <DependentUpon>frmReleaseLicense.cs</DependentUpon>
+    </Compile>
     <Compile Include="Drivers\frmListDrivers.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -335,6 +353,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Applications\LocalDrivingLicenseApplication\Controls\ctrlDrivingLicenseApplicationInfo.resx">
       <DependentUpon>ctrlDrivingLicenseApplicationInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Detian License\frmDetianLicense.resx">
+      <DependentUpon>frmDetianLicense.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Detian License\frmManageDetainLicense.resx">
+      <DependentUpon>frmManageDetainLicense.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Detian License\frmReleaseLicense.resx">
+      <DependentUpon>frmReleaseLicense.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Drivers\frmListDrivers.resx">
       <DependentUpon>frmListDrivers.cs</DependentUpon>

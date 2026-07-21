@@ -14,6 +14,7 @@ using Driving_License_Management_System.TestTypes;
 using Driving_License_Management_System.Drivers;
 using Driving_License_Management_System.License;
 using Driving_License_Management_System.License.International_Driving_License;
+using Driving_License_Management_System.Detian_License;
 
 namespace Driving_License_Management_System
 {
@@ -114,6 +115,24 @@ namespace Driving_License_Management_System
         {
             frmReplacementForDamagedLicense frmReplacementForDamagedLicense = new frmReplacementForDamagedLicense();
             frmReplacementForDamagedLicense.ShowDialog();
+        }
+
+        private void detianLicenseToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            frmDetianLicense frmDetianLicense = new frmDetianLicense();
+            frmDetianLicense.ShowDialog();
+        }
+
+        private void releaseDetainedLicenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmReleaseLicense frmReleaseLicense = new frmReleaseLicense();
+            frmReleaseLicense.ShowDialog();
+        }
+
+        private void manageDetainedLicensesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmManageDetainLicense frmManageDetain = new frmManageDetainLicense();
+            frmManageDetain.ShowDialog();
         }
     }
 }

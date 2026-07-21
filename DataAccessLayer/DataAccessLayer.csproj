@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="ApplicationsData.cs" />
     <Compile Include="DataAccessSettings.cs" />
+    <Compile Include="DetainedLicensesData.cs" />
     <Compile Include="DriverData.cs" />
     <Compile Include="InternationalLicensesData.cs" />
     <Compile Include="LicenseClassData.cs" />

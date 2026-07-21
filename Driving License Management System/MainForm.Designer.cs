@@ -58,6 +58,9 @@
             this.ManageApplicationstoolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.manageTestTypesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.detianLicenseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.manageDetainedLicensesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.detianLicenseToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.releaseDetainedLicenseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnClose = new Guna.UI2.WinForms.Guna2Button();
             this.PanelProject.SuspendLayout();
             this.cmsAccountSettings.SuspendLayout();
@@ -324,7 +327,7 @@
             this.cmsApplications.RenderStyle.SelectionForeColor = System.Drawing.Color.White;
             this.cmsApplications.RenderStyle.SeparatorColor = System.Drawing.Color.Gainsboro;
             this.cmsApplications.RenderStyle.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            this.cmsApplications.Size = new System.Drawing.Size(385, 214);
+            this.cmsApplications.Size = new System.Drawing.Size(385, 236);
             // 
             // drToolStripMenuItem
             // 
@@ -485,11 +488,38 @@
             // 
             // detianLicenseToolStripMenuItem
             // 
+            this.detianLicenseToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.manageDetainedLicensesToolStripMenuItem,
+            this.detianLicenseToolStripMenuItem1,
+            this.releaseDetainedLicenseToolStripMenuItem});
             this.detianLicenseToolStripMenuItem.Image = global::Driving_License_Management_System.Properties.Resources.Detain_64;
             this.detianLicenseToolStripMenuItem.Name = "detianLicenseToolStripMenuItem";
             this.detianLicenseToolStripMenuItem.Size = new System.Drawing.Size(384, 38);
             this.detianLicenseToolStripMenuItem.Text = "   Detian License";
-            this.detianLicenseToolStripMenuItem.Click += new System.EventHandler(this.detianLicenseToolStripMenuItem_Click);
+            // 
+            // manageDetainedLicensesToolStripMenuItem
+            // 
+            this.manageDetainedLicensesToolStripMenuItem.Image = global::Driving_License_Management_System.Properties.Resources.Detain_64;
+            this.manageDetainedLicensesToolStripMenuItem.Name = "manageDetainedLicensesToolStripMenuItem";
+            this.manageDetainedLicensesToolStripMenuItem.Size = new System.Drawing.Size(377, 38);
+            this.manageDetainedLicensesToolStripMenuItem.Text = "   Manage Detained Licenses";
+            this.manageDetainedLicensesToolStripMenuItem.Click += new System.EventHandler(this.manageDetainedLicensesToolStripMenuItem_Click);
+            // 
+            // detianLicenseToolStripMenuItem1
+            // 
+            this.detianLicenseToolStripMenuItem1.Image = global::Driving_License_Management_System.Properties.Resources.Detain_64;
+            this.detianLicenseToolStripMenuItem1.Name = "detianLicenseToolStripMenuItem1";
+            this.detianLicenseToolStripMenuItem1.Size = new System.Drawing.Size(377, 38);
+            this.detianLicenseToolStripMenuItem1.Text = "   Detian License";
+            this.detianLicenseToolStripMenuItem1.Click += new System.EventHandler(this.detianLicenseToolStripMenuItem1_Click);
+            // 
+            // releaseDetainedLicenseToolStripMenuItem
+            // 
+            this.releaseDetainedLicenseToolStripMenuItem.Image = global::Driving_License_Management_System.Properties.Resources.Release_Detained_License_64;
+            this.releaseDetainedLicenseToolStripMenuItem.Name = "releaseDetainedLicenseToolStripMenuItem";
+            this.releaseDetainedLicenseToolStripMenuItem.Size = new System.Drawing.Size(377, 38);
+            this.releaseDetainedLicenseToolStripMenuItem.Text = "   Release Detained License";
+            this.releaseDetainedLicenseToolStripMenuItem.Click += new System.EventHandler(this.releaseDetainedLicenseToolStripMenuItem_Click);
             // 
             // btnClose
             // 
@@ -577,6 +607,9 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private Guna.UI2.WinForms.Guna2Button btnClose;
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
+        private System.Windows.Forms.ToolStripMenuItem manageDetainedLicensesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem detianLicenseToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem releaseDetainedLicenseToolStripMenuItem;
     }
 }
 
