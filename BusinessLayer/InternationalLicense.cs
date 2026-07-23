@@ -61,7 +61,7 @@ namespace BusinessLayer
             clsManageApplicationTypes testType = clsManageApplicationTypes.FindApplicationType(this.ApplicationTypeID);
             this.PaidFees = (testType != null) ? testType.ApplicationFees : 0;
 
-            _Mode = enMode.Add;
+            _Mode = enMode.Update;
         }
 
         private clsInternationalLicense(int InternationalLicenseID, int ApplicationID, int DriverID,

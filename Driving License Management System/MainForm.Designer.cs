@@ -61,10 +61,12 @@
             this.manageDetainedLicensesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.detianLicenseToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.releaseDetainedLicenseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnClose = new Guna.UI2.WinForms.Guna2Button();
             this.PanelProject.SuspendLayout();
             this.cmsAccountSettings.SuspendLayout();
             this.cmsApplications.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // PanelProject
@@ -79,7 +81,7 @@
             this.PanelProject.Location = new System.Drawing.Point(0, 0);
             this.PanelProject.Margin = new System.Windows.Forms.Padding(5);
             this.PanelProject.Name = "PanelProject";
-            this.PanelProject.Size = new System.Drawing.Size(212, 677);
+            this.PanelProject.Size = new System.Drawing.Size(212, 692);
             this.PanelProject.TabIndex = 0;
             // 
             // guna2Button1
@@ -416,6 +418,7 @@
             this.releaseDetainedDrivingLicenseToolStripMenuItem.Name = "releaseDetainedDrivingLicenseToolStripMenuItem";
             this.releaseDetainedDrivingLicenseToolStripMenuItem.Size = new System.Drawing.Size(474, 38);
             this.releaseDetainedDrivingLicenseToolStripMenuItem.Text = "   Release Detained Driving License";
+            this.releaseDetainedDrivingLicenseToolStripMenuItem.Click += new System.EventHandler(this.releaseDetainedDrivingLicenseToolStripMenuItem_Click);
             // 
             // retakeTestToolStripMenuItem
             // 
@@ -425,6 +428,7 @@
             this.retakeTestToolStripMenuItem.Name = "retakeTestToolStripMenuItem";
             this.retakeTestToolStripMenuItem.Size = new System.Drawing.Size(474, 38);
             this.retakeTestToolStripMenuItem.Text = "   Retake Test";
+            this.retakeTestToolStripMenuItem.Click += new System.EventHandler(this.retakeTestToolStripMenuItem_Click);
             // 
             // toolStripSeparator2
             // 
@@ -521,12 +525,25 @@
             this.releaseDetainedLicenseToolStripMenuItem.Text = "   Release Detained License";
             this.releaseDetainedLicenseToolStripMenuItem.Click += new System.EventHandler(this.releaseDetainedLicenseToolStripMenuItem_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(246)))), ((int)(((byte)(250)))));
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox1.Image = global::Driving_License_Management_System.Properties.Resources.Logo_Final;
+            this.pictureBox1.Location = new System.Drawing.Point(212, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(678, 692);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 67;
+            this.pictureBox1.TabStop = false;
+            // 
             // btnClose
             // 
             this.btnClose.Animated = true;
             this.btnClose.AnimatedGIF = true;
             this.btnClose.AutoRoundedCorners = true;
             this.btnClose.BackColor = System.Drawing.Color.Transparent;
+            this.btnClose.BorderColor = System.Drawing.Color.Transparent;
             this.btnClose.BorderStyle = System.Drawing.Drawing2D.DashStyle.Dash;
             this.btnClose.BorderThickness = 1;
             this.btnClose.CausesValidation = false;
@@ -541,11 +558,11 @@
             this.btnClose.ForeColor = System.Drawing.Color.Transparent;
             this.btnClose.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(56)))), ((int)(((byte)(76)))));
             this.btnClose.HoverState.ForeColor = System.Drawing.Color.White;
-            this.btnClose.Image = global::Driving_License_Management_System.Properties.Resources.CloseBlack;
+            this.btnClose.Image = global::Driving_License_Management_System.Properties.Resources.close;
             this.btnClose.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnClose.ImageOffset = new System.Drawing.Point(1, 0);
             this.btnClose.ImageSize = new System.Drawing.Size(32, 32);
-            this.btnClose.Location = new System.Drawing.Point(975, 12);
+            this.btnClose.Location = new System.Drawing.Point(823, 12);
             this.btnClose.Name = "btnClose";
             this.btnClose.PressedColor = System.Drawing.Color.White;
             this.btnClose.Size = new System.Drawing.Size(55, 42);
@@ -559,17 +576,20 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(246)))), ((int)(((byte)(250)))));
-            this.ClientSize = new System.Drawing.Size(1042, 677);
+            this.ClientSize = new System.Drawing.Size(890, 692);
             this.Controls.Add(this.btnClose);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.PanelProject);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.IsMdiContainer = true;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Home";
             this.PanelProject.ResumeLayout(false);
             this.cmsAccountSettings.ResumeLayout(false);
             this.cmsApplications.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -610,6 +630,7 @@
         private System.Windows.Forms.ToolStripMenuItem manageDetainedLicensesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem detianLicenseToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem releaseDetainedLicenseToolStripMenuItem;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

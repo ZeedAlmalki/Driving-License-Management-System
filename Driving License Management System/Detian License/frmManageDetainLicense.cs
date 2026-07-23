@@ -214,5 +214,11 @@ namespace Driving_License_Management_System.Detian_License
             }
 
         }
+
+        private void txtFilterValue_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (cbFilterBy.Text == "Release Application ID" || cbFilterBy.Text == "Detain ID")
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
     }
 }

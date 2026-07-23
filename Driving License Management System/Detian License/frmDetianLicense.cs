@@ -58,6 +58,7 @@ namespace Driving_License_Management_System.Detian_License
 
 
             btnDetianLicense.Enabled = true;
+            txtFineFees.Focus();
         }
 
         private void frmDetianLicense_Load(object sender, EventArgs e)

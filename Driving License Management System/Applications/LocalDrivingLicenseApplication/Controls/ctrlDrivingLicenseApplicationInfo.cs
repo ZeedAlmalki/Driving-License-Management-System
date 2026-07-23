@@ -81,7 +81,7 @@ namespace Driving_License_Management_System.Applications.Applications_Types.Cont
             clsLocalDrivingLicenseApplication clsLocalDrivingLicenseApplication = clsLocalDrivingLicenseApplication.FindLocalDrivingLicenseApplicationByID(LocalDrivingLicenseApplicationID);
             clsLicense License = clsLicense.FindActiveLicenseByLicenseClassIDAndPersonID(clsLocalDrivingLicenseApplication.ApplicantPersonID, clsLocalDrivingLicenseApplication.LicenseClassID);
 
-            frmLicenseInfo LicenseInfo = new frmLicenseInfo(LocalDrivingLicenseApplicationID);
+            frmLicenseInfo LicenseInfo = new frmLicenseInfo(License.LicenseID);
             LicenseInfo.ShowDialog();
         }
     }

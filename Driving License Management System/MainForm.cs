@@ -15,6 +15,7 @@ using Driving_License_Management_System.Drivers;
 using Driving_License_Management_System.License;
 using Driving_License_Management_System.License.International_Driving_License;
 using Driving_License_Management_System.Detian_License;
+using Driving_License_Management_System.Applications.LocalDrivingLicenseApplication;
 
 namespace Driving_License_Management_System
 {
@@ -133,6 +134,18 @@ namespace Driving_License_Management_System
         {
             frmManageDetainLicense frmManageDetain = new frmManageDetainLicense();
             frmManageDetain.ShowDialog();
+        }
+
+        private void releaseDetainedDrivingLicenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmReleaseLicense frmReleaseLicense = new frmReleaseLicense();
+            frmReleaseLicense.ShowDialog();
+        }
+
+        private void retakeTestToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmManageLocalDrivingLicenseApplications frmManageLocalDrivingLicenseApplications = new frmManageLocalDrivingLicenseApplications();
+            frmManageLocalDrivingLicenseApplications.ShowDialog();
         }
     }
 }

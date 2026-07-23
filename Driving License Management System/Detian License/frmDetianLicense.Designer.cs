@@ -310,7 +310,7 @@
             this.Controls.Add(this.gbDetianLicensenfo);
             this.Controls.Add(this.ctrllFindLocalDrivingLicense1);
             this.Name = "frmDetianLicense";
-            this.Text = "frmDetianLicense";
+            this.Text = "Detian License";
             this.Load += new System.EventHandler(this.frmDetianLicense_Load);
             this.gbDetianLicensenfo.ResumeLayout(false);
             this.gbDetianLicensenfo.PerformLayout();
