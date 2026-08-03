@@ -135,11 +135,7 @@ namespace Driving_License_Management_System.Users
                 MessageBox.Show("Password Can Not Change Successfully", "Can't Save", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-
-            if (clsUtil.IsFileExistAndHasData(clsUtil.FilePath) && _User.UserID == GlobalSettings.User.UserID)
-            {
                 clsUtil.SaveUserLoginInformation(_User.UserName, _User.Password, clsUtil.IsRememberMe);
-            }
         }
 
         private void btnClose_Click(object sender, EventArgs e)

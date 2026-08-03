@@ -151,7 +151,7 @@ namespace Driving_License_Management_System.People
                 MessageBox.Show("Please fill in the requirements as required");
                 return;
             }
-            
+
             _User.UserName = txtUserName.Text.Trim();
             _User.Password = txtPassword.Text.Trim();
             _User.IsActive = cbIsActive.Checked;
@@ -165,17 +165,13 @@ namespace Driving_License_Management_System.People
                 this.Text = "Update User";
                 ctrlPersonCardWithFilter1.FilterEnabled = false;
                 MessageBox.Show("Data Saved Successfully.", "Saved", MessageBoxButtons.OK);
-                if (clsUtil.IsFileExistAndHasData(clsUtil.FilePath) && _User.UserID == GlobalSettings.User.UserID)
-                {
-                    clsUtil.SaveUserLoginInformation(_User.UserName, _User.Password, clsUtil.IsRememberMe);
-                }
+                clsUtil.SaveUserLoginInformation(_User.UserName, _User.Password, clsUtil.IsRememberMe);
                 DataBack?.Invoke(this, _User.UserID);
             }
             else
             {
                 MessageBox.Show("Error: Data Is not Saved Successfully.", "Error", MessageBoxButtons.OK);
             }
-
         }
 
         private void _LoadData()
