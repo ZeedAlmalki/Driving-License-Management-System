@@ -59,6 +59,10 @@
     <Compile Include="User.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\clsGlobalSharedLogging\clsGlobalSharedLogging.csproj">
+      <Project>{11f53145-befa-42ee-93d6-9e13363767c0}</Project>
+      <Name>clsGlobalSharedLogging</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DataAccessLayer\DataAccessLayer.csproj">
       <Project>{b0ef78da-d605-4928-9250-8251ca2bb8be}</Project>
       <Name>DataAccessLayer</Name>

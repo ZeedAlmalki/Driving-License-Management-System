@@ -33,6 +33,7 @@ namespace DataAccessLayer
             }
             catch (Exception ex)
             {
+                SharedDVLD.RegisterLogInEventHandler(ex);
 
             }
             finally
@@ -74,6 +75,7 @@ namespace DataAccessLayer
             }
             catch (Exception ex)
             {
+                SharedDVLD.RegisterLogInEventHandler(ex);
 
             }
             finally
@@ -116,6 +118,7 @@ namespace DataAccessLayer
             }
             catch (Exception ex)
             {
+                SharedDVLD.RegisterLogInEventHandler(ex);
 
             }
             finally
@@ -154,6 +157,7 @@ namespace DataAccessLayer
             }
             catch (Exception ex)
             {
+                SharedDVLD.RegisterLogInEventHandler(ex);
 
             }
             finally
@@ -191,6 +195,7 @@ namespace DataAccessLayer
             }
             catch (Exception ex)
             {
+                SharedDVLD.RegisterLogInEventHandler(ex);
 
             }
             finally

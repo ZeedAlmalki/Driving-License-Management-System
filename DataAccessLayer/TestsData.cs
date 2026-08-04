@@ -43,7 +43,7 @@ namespace DataAccessLayer
             }
             catch (Exception ex)
             {
-
+                SharedDVLD.RegisterLogInEventHandler(ex);
             }
             finally
             {

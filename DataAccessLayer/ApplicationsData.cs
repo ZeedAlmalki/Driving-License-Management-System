@@ -33,6 +33,7 @@ namespace DataAccessLayer
             }
             catch (Exception ex)
             {
+                SharedDVLD.RegisterLogInEventHandler(ex);
 
             }
             finally
@@ -80,6 +81,7 @@ namespace DataAccessLayer
             }
             catch (Exception ex)
             {
+                SharedDVLD.RegisterLogInEventHandler(ex);
 
             }
             finally
@@ -89,55 +91,6 @@ namespace DataAccessLayer
 
             return IsFound;
         }
-
-        //public static bool FindApplicationByPersonID(int ApplicantPersonID, ref int ApplicationID,
-        // ref DateTime ApplicationDate, ref int ApplicationTypeID, ref byte ApplicationStatus,
-        // ref DateTime LastStatusDate, ref decimal PaidFees, ref int CreatedByUserID)
-        //{
-        //    bool IsFound = false;
-
-        //    SqlConnection Connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
-
-        //    string query = @"SELECT * FROM Applications 
-        //                            WHERE ApplicantPersonID = @ApplicantPersonID";
-        //    SqlCommand Command = new SqlCommand(query, Connection);
-
-        //    Command.Parameters.AddWithValue("@ApplicantPersonID", ApplicantPersonID);
-
-        //    try
-        //    {
-        //        Connection.Open();
-
-        //        SqlDataReader reader = Command.ExecuteReader();
-
-        //        if (reader.Read())
-        //        {
-        //            ApplicantPersonID = (int)reader["ApplicationID"];
-        //            ApplicationDate = (DateTime)reader["ApplicationDate"];
-        //            ApplicationTypeID = (int)reader["ApplicationTypeID"];
-        //            ApplicationStatus = (byte)reader["ApplicationStatus"];
-        //            LastStatusDate = (DateTime)reader["LastStatusDate"];
-        //            PaidFees = (decimal)reader["PaidFees"];
-        //            CreatedByUserID = (int)reader["CreatedByUserID"];
-        //            IsFound = true;
-        //        }
-        //        else
-        //        {
-        //            IsFound = false;
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-
-        //    }
-        //    finally
-        //    {
-        //        Connection.Close();
-        //    }
-
-        //    return IsFound;
-        //}
-
 
 
         public static int AddNewApplication(int ApplicantPersonID,
@@ -174,6 +127,7 @@ namespace DataAccessLayer
             }
             catch (Exception ex)
             {
+                SharedDVLD.RegisterLogInEventHandler(ex);
 
             }
             finally
@@ -222,7 +176,7 @@ namespace DataAccessLayer
             }
             catch (Exception ex)
             {
-
+                SharedDVLD.RegisterLogInEventHandler(ex);
             }
             finally
             {
@@ -253,6 +207,7 @@ namespace DataAccessLayer
             }
             catch (Exception ex)
             {
+                SharedDVLD.RegisterLogInEventHandler(ex);
 
             }
             finally

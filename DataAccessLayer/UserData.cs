@@ -42,7 +42,7 @@ namespace DataAccessLayer
             }
             catch (Exception ex)
             {
-
+                SharedDVLD.RegisterLogInEventHandler(ex);
             }
             finally
             {
@@ -80,7 +80,7 @@ namespace DataAccessLayer
             }
             catch (Exception ex)
             {
-
+                SharedDVLD.RegisterLogInEventHandler(ex);
             }
             finally
             {
@@ -111,7 +111,7 @@ namespace DataAccessLayer
             }
             catch (Exception ex)
             {
-
+                SharedDVLD.RegisterLogInEventHandler(ex);
             }
             finally
             {
@@ -155,7 +155,7 @@ namespace DataAccessLayer
             }
             catch (Exception ex)
             {
-
+                SharedDVLD.RegisterLogInEventHandler(ex);
             }
             finally
             {
@@ -199,7 +199,7 @@ namespace DataAccessLayer
             }
             catch (Exception ex)
             {
-
+                SharedDVLD.RegisterLogInEventHandler(ex);
             }
             finally
             {
@@ -243,7 +243,7 @@ namespace DataAccessLayer
             }
             catch (Exception ex)
             {
-
+                SharedDVLD.RegisterLogInEventHandler(ex);
             }
             finally
             {
@@ -287,7 +287,7 @@ namespace DataAccessLayer
             }
             catch (Exception ex)
             {
-
+                SharedDVLD.RegisterLogInEventHandler(ex);
             }
             finally
             {
@@ -320,7 +320,7 @@ namespace DataAccessLayer
             }
             catch (Exception ex)
             {
-
+                SharedDVLD.RegisterLogInEventHandler(ex);
             }
             finally
             {
@@ -351,7 +351,7 @@ namespace DataAccessLayer
             }
             catch (Exception ex)
             {
-
+                SharedDVLD.RegisterLogInEventHandler(ex);
             }
             finally
             {
@@ -383,7 +383,7 @@ namespace DataAccessLayer
             }
             catch (Exception ex)
             {
-
+                SharedDVLD.RegisterLogInEventHandler(ex);
             }
             finally
             {
@@ -413,7 +413,7 @@ namespace DataAccessLayer
             }
             catch (Exception ex)
             {
-
+                SharedDVLD.RegisterLogInEventHandler(ex);
             }
             finally
             {
@@ -445,9 +445,9 @@ namespace DataAccessLayer
                 }
                 reader.Close();
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-
+                SharedDVLD.RegisterLogInEventHandler(ex);
             }
             finally
             {
@@ -471,9 +471,9 @@ namespace DataAccessLayer
                 if (result != null)
                     int.TryParse(result.ToString(), out TotalUsers);
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-
+                SharedDVLD.RegisterLogInEventHandler(ex);
             }
             finally
             {

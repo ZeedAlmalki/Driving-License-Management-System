@@ -40,6 +40,8 @@ namespace DataAccessLayer
             }
             catch (Exception ex)
             {
+                SharedDVLD.RegisterLogInEventHandler(ex);
+
                 isFound = false;
             }
             finally
@@ -81,6 +83,8 @@ namespace DataAccessLayer
             }
             catch (Exception ex)
             {
+                SharedDVLD.RegisterLogInEventHandler(ex);
+
                 isFound = false;
             }
             finally
@@ -120,6 +124,8 @@ namespace DataAccessLayer
 
             catch (Exception ex)
             {
+                SharedDVLD.RegisterLogInEventHandler(ex);
+
                 // Console.WriteLine("Error: " + ex.Message);
             }
             finally
@@ -156,6 +162,8 @@ namespace DataAccessLayer
             catch (Exception ex)
             {
                 //Console.WriteLine("Error: " + ex.Message);
+                SharedDVLD.RegisterLogInEventHandler(ex);
+
                 isFound = false;
             }
             finally
@@ -191,6 +199,8 @@ namespace DataAccessLayer
             catch (Exception ex)
             {
                 //Console.WriteLine("Error: " + ex.Message);
+                SharedDVLD.RegisterLogInEventHandler(ex);
+
                 isFound = false;
             }
             finally

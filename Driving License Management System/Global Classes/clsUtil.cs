@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Drawing.Text;
 using System.IO;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -11,6 +14,7 @@ namespace Driving_License_Management_System
 {
     public class clsUtil
     {
+        private static string LoggingSourceName = "DVLD";
         public static string FilePath = @"C:\Course 19 DVLD\SavedUserInformationByRememberMe.txt";
         public static string RegisteryPath = @"HKEY_CURRENT_USER\SOFTWARE\DVLD";
 
@@ -79,6 +83,7 @@ namespace Driving_License_Management_System
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+                SharedDVLD.RegisterLogInEventHandler(ex);
                 return false;
             }
         }
@@ -94,6 +99,7 @@ namespace Driving_License_Management_System
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+                SharedDVLD.RegisterLogInEventHandler(ex);
                 return false;
             }
         }
@@ -102,6 +108,7 @@ namespace Driving_License_Management_System
         {
             try
             {
+
                 string savedUserName = Registry.GetValue(RegisteryPath, "Username", null) as string;
                 string savedPassword = Registry.GetValue(RegisteryPath, "Password", null) as string;
 
@@ -117,7 +124,7 @@ namespace Driving_License_Management_System
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                SharedDVLD.RegisterLogInEventHandler(ex);
             }
             return false;
         }
