@@ -24,10 +24,8 @@ namespace Driving_License_Management_System.Users
 
         private void _ResetDefaultValues()
         {
-            txtCurrentPassword.Text = "";
             txtNewPassword.Text = "";
             txtConfirmPassword.Text = "";
-            txtCurrentPassword.Focus();
         }
 
         private void frmChangeUserPassword_Load(object sender, EventArgs e)
@@ -44,32 +42,7 @@ namespace Driving_License_Management_System.Users
             ctrlUserCard1.LoadUserInfo(_User.UserID);
         }
 
-        private void txtCurrentPassword_Validating(object sender, CancelEventArgs e)
-        {
 
-            if (string.IsNullOrEmpty(txtCurrentPassword.Text.Trim()))
-            {
-                e.Cancel = true;
-                errorProvider1.SetError(txtCurrentPassword, "Password Cannot Be Blank");
-                return;
-            }
-            else
-            {
-                errorProvider1.SetError(txtCurrentPassword, null);
-            }
-
-            if (_User.Password != txtCurrentPassword.Text.Trim())
-            {
-                e.Cancel = true;
-                errorProvider1.SetError(txtCurrentPassword, "Current Password Is Wrong!");
-                return;
-            }
-            else
-            {
-                e.Cancel = false;
-                errorProvider1.SetError(txtCurrentPassword, null);
-            }
-        }
 
         private void txtNewPassword_Validating(object sender, CancelEventArgs e)
         {
@@ -92,21 +65,6 @@ namespace Driving_License_Management_System.Users
 
 
 
-        //private void txtNewPassword_Validating(object sender, CancelEventArgs e)
-        //{
-        //    clsValidation.txtIsNotNullOrWhiteSpaceValdiateHandling(txtNewPassword, e, errorProvider1);
-
-        //    if (!clsValidation.IsPasswordMatch(txtNewPassword.Text, txtConfirmPassword.Text))
-        //    {
-        //        e.Cancel = true;
-        //        errorProvider1.SetError(txtConfirmPassword, "Password Confirmation Does Not Match New Password");
-        //    }
-        //    else
-        //    {
-        //        e.Cancel = false;
-        //        errorProvider1.SetError(txtConfirmPassword, "");
-        //    }
-        //}
 
         private void btnSave_Click(object sender, EventArgs e)
         {
@@ -123,19 +81,26 @@ namespace Driving_License_Management_System.Users
                 return;
             }
 
-            _User.Password = txtNewPassword.Text;
+            string HashNewPassword = clsUtil.ComputeHash(txtNewPassword.Text);
+            _User.Password = HashNewPassword;
 
             if (_User.Save())
             {
                 MessageBox.Show("Password Changed Successfully", "Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                _ResetDefaultValues();
             }
             else
             {
                 MessageBox.Show("Password Can Not Change Successfully", "Can't Save", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-                clsUtil.SaveUserLoginInformation(_User.UserName, _User.Password, clsUtil.IsRememberMe);
+            string username = "", password = "";
+            clsUtil.GetSavedUserLoginInformation(ref username, ref password);
+
+            if (username == _User.UserName)
+            {
+                clsUtil.SaveUserLoginInformation(_User.UserName, txtNewPassword.Text, clsUtil.IsRememberMe);
+            }
+            _ResetDefaultValues();
         }
 
         private void btnClose_Click(object sender, EventArgs e)

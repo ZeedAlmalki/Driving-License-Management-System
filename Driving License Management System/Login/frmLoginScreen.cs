@@ -44,8 +44,9 @@ namespace Driving_License_Management_System
                 RestartSettings();
                 return;
             }
+            string HashedPassword = clsUtil.ComputeHash(txtPassword.Text);
 
-            if (txtUserName.Text == user.UserName && txtPassword.Text == user.Password)
+            if (txtUserName.Text == user.UserName && HashedPassword == user.Password)
             {
                 if (!user.IsActive)
                 {
@@ -54,7 +55,7 @@ namespace Driving_License_Management_System
                 }
                 if (cbRememberMe.Checked)
                 {
-                    clsUtil.SaveUserLoginInformation(user.UserName, user.Password, cbRememberMe.Checked);
+                    clsUtil.SaveUserLoginInformation(user.UserName, txtPassword.Text, cbRememberMe.Checked);
                 }
                 else
                 {

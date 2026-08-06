@@ -5,6 +5,7 @@ using System.Drawing.Text;
 using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -82,7 +83,6 @@ namespace Driving_License_Management_System
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
                 SharedDVLD.RegisterLogInEventHandler(ex);
                 return false;
             }
@@ -98,7 +98,6 @@ namespace Driving_License_Management_System
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
                 SharedDVLD.RegisterLogInEventHandler(ex);
                 return false;
             }
@@ -127,6 +126,15 @@ namespace Driving_License_Management_System
                 SharedDVLD.RegisterLogInEventHandler(ex);
             }
             return false;
+        }
+        public static string ComputeHash(string input)
+        {
+            using (SHA256 sha256 = SHA256.Create())
+            {
+                byte[] HashBytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(input));
+
+                return BitConverter.ToString(HashBytes).Replace("-", "");
+            }
         }
     }
 }
