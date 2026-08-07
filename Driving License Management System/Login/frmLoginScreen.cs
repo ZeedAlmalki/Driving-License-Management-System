@@ -98,13 +98,14 @@ namespace Driving_License_Management_System
         {
             string UserName = "";
             string Password = "";
-            bool RememberMe = false;
+
             if (clsUtil.GetSavedUserLoginInformation(ref UserName, ref Password))
             {
                 txtUserName.Text = UserName;
                 txtPassword.Text = Password;
                 cbRememberMe.Checked = true;
             }
+
         }
 
         private void frmLoginScreen_Load(object sender, EventArgs e)

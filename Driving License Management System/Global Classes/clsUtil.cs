@@ -16,6 +16,7 @@ namespace Driving_License_Management_System
     public class clsUtil
     {
         private static string LoggingSourceName = "DVLD";
+        private const string SymmetricKey = "Almalki_DVLD_KEY"; // it's not safe to put it here
         public static string FilePath = @"C:\Course 19 DVLD\SavedUserInformationByRememberMe.txt";
         public static string RegisteryPath = @"HKEY_CURRENT_USER\SOFTWARE\DVLD";
 
@@ -78,7 +79,7 @@ namespace Driving_License_Management_System
             try
             {
                 Registry.SetValue(RegisteryPath, "Username", UserName, RegistryValueKind.String);
-                Registry.SetValue(RegisteryPath, "Password", Password, RegistryValueKind.String);
+                Registry.SetValue(RegisteryPath, "Password", Encrypt(Password, SymmetricKey), RegistryValueKind.String);
                 return true;
             }
             catch (Exception ex)
@@ -111,10 +112,10 @@ namespace Driving_License_Management_System
                 string savedUserName = Registry.GetValue(RegisteryPath, "Username", null) as string;
                 string savedPassword = Registry.GetValue(RegisteryPath, "Password", null) as string;
 
-                if (savedUserName != null && savedPassword != null)
+                if (!string.IsNullOrWhiteSpace(savedPassword) || !string.IsNullOrWhiteSpace(savedUserName))
                 {
                     UserName = savedUserName;
-                    Password = savedPassword;
+                    Password = Decrypt(savedPassword, SymmetricKey);
                     return true;
                 }
                 else
@@ -134,6 +135,46 @@ namespace Driving_License_Management_System
                 byte[] HashBytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(input));
 
                 return BitConverter.ToString(HashBytes).Replace("-", "");
+            }
+        }
+
+        static string Encrypt(string plainText, string key)
+        {
+            using (Aes aesAlg = Aes.Create())
+            {
+                aesAlg.Key = Encoding.UTF8.GetBytes(key);
+                aesAlg.IV = new byte[aesAlg.BlockSize / 8]; // -> this is not safey. we have to use GenerateIV(); method.
+
+                ICryptoTransform encrypoter = aesAlg.CreateEncryptor(aesAlg.Key, aesAlg.IV);
+
+
+                using (var msEncrypt = new System.IO.MemoryStream())
+                {
+                    using (var csEncrypt = new CryptoStream(msEncrypt, encrypoter, CryptoStreamMode.Write))
+                    using (var swEncrypt = new System.IO.StreamWriter(csEncrypt))
+                    {
+                        swEncrypt.Write(plainText);
+                    }
+                    return Convert.ToBase64String(msEncrypt.ToArray());
+                }
+            }
+        }
+
+        static string Decrypt(string cipherText, string key)
+        {
+            using (Aes aesAlg = Aes.Create())
+            {
+                aesAlg.Key = Encoding.UTF8.GetBytes(key);
+                aesAlg.IV = new byte[aesAlg.BlockSize / 8];
+
+                ICryptoTransform decryptor = aesAlg.CreateDecryptor(aesAlg.Key, aesAlg.IV);
+
+                using (var msDecrypt = new System.IO.MemoryStream(Convert.FromBase64String(cipherText)))
+                using (var csDecrypt = new CryptoStream(msDecrypt, decryptor, CryptoStreamMode.Read))
+                using (var srDecrypt = new System.IO.StreamReader(csDecrypt))
+                {
+                    return srDecrypt.ReadToEnd();
+                }
             }
         }
     }
